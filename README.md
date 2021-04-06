@@ -1,4 +1,4 @@
-# Edison Giovanni Zuñiga Lopez
+# Mi Experiencia
 • Ingeniero de Sistemas (Universidad Cooperativa de Colombia, Bogotá 2014).
 • Seminario Itil v3, Cobit Iso2000 (Universidad de los Andes, Bogotá 2014).
 
