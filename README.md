@@ -1,6 +1,4 @@
-
-
-![1664252126748](https://file+.vscode-resource.vscode-cdn.net/d%3A/Projects/Repositorios/giovanemere/Edisson-Giovanni-Z-Lopez/image/README/1664252126748.png)
+![1664253272022](image/README/1664253272022.png)
 
 Edisson Giovanni Zuñiga Lopez
 
@@ -14,10 +12,6 @@ en alta Disponibilidad Ompremise, Nube e Hibrida. En los ultimos 7 años enfocad
 de capacidades en DevOps, Docker, Kubernetes, desarrollos de frameworks con la capacidad de implementar pipeline 
 de CI/CD de aplicaciones que se adecuan a la organización y mejorar al equipo de trabajo con entusiasmo, liderazgo
 y acoplarnos a las nuevas metodologias de trabajo en equipo.
-
-
-|  |  |
-| - | - |
 
 | *                                              | Información de Contacto                        |
 | ---------------------------------------------- | ----------------------------------------------- |
