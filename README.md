@@ -25,11 +25,11 @@ y acoplarnos a las nuevas metodologias de trabajo en equipo.
 
 ![1664252550554](image/README/1664252550554.png) Educación
 
-|                                                                                                                                                             |                                                                  |                                                |                                                    |                                                |                                                               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
-| ![1664250958315](image/README/1664250958315.png)                                                                                                              | Tranning Architectura<br />Lambda/Function<br />Cloudformation   | ![1664251026492](image/README/1664251026492.png) | TalleresIntegración Continua<br />Cloud Computing | ![1664251085960](image/README/1664251085960.png) | Univeridad Cooperativa de Colombia<br />Ingeniero de Sietemas |
-| ![1664250998627](image/README/1664250998627.png)                                                                                                              | Tranning Google<br />[https://goo.su/o3uh6R](https://goo.su/o3uh6R) |                                                | Kubernetes<br />Docker<br />Helm                   | ![1664251100477](image/README/1664251100477.png) | Seminario Itil v3, Cobit 5 e ISO 20000:2011                 |
-| ![1664251019061](https://file+.vscode-resource.vscode-cdn.net/d%3A/Projects/Repositorios/giovanemere/Edisson-Giovanni-Z-Lopez/image/README/1664251019061.png) | Certified                                                        | Terraform                                      | [https://goo.su/uRPY](https://goo.su/uRPY)            | ![1664251220565](image/README/1664251220565.png) | Certified                                                     |
+|                                                |                                                                  |                                                |                                                    |                                                |                                                               |
+| ---------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
+| ![1664250958315](image/README/1664250958315.png) | Tranning Architectura<br />Lambda/Function<br />Cloudformation   | ![1664251026492](image/README/1664251026492.png) | TalleresIntegración Continua<br />Cloud Computing | ![1664251085960](image/README/1664251085960.png) | Univeridad Cooperativa de Colombia<br />Ingeniero de Sietemas |
+| ![1664250998627](image/README/1664250998627.png) | Tranning Google<br />[https://goo.su/o3uh6R](https://goo.su/o3uh6R) |                                                | Kubernetes<br />Docker<br />Helm                   | ![1664251100477](image/README/1664251100477.png) | Seminario Itil v3, Cobit 5 e ISO 20000:2011                 |
+| Itil V3                                        | Fundamentals Certified                                           | Terraform                                      | [https://goo.su/uRPY](https://goo.su/uRPY)            | ![1664251220565](image/README/1664251220565.png) | Certified                                                     |
 
 ![1664252534295](image/README/1664252534295.png) Experiencia
 
@@ -44,3 +44,19 @@ y acoplarnos a las nuevas metodologias de trabajo en equipo.
 | 2013 | Analista de Ambientes de Pruebas | Tunning DB Oracle, Administración , Linux/HP-UX, Automatización, Ambientes QA. Proyecto Claro                                                              |
 | 2012 | Microhome Ingeniero  Soporte     | Admin, Windows , Linux, SQL Server, DeveLoper Sistema de Gestión Documental. Solugem y Amezuita Consultores                                                 |
 | 2010 | Soporte Appliance                | Mantenimiento, Appliance HP, DELL, Instalación, y Configuración, Server Microsotf, AD, Print Server, Granjas Servidor                                      |
+
+Nos dapatadmos a las nuevas metodologias de trabajao en equipo
+
+![1664253519353](image/README/1664253519353.png)
+
+Adapatamos Frameworks a las tencnologias soportadas por las compañias
+
+![1664253534812](image/README/1664253534812.png)
+
+Nos especializamos en aseguramos en implementar las mejores practicas de seguridad en el dato, el canal y la red de forma segura
+
+![1664253596971](image/README/1664253596971.png)
+
+Siempre trabajamos con el mejor estilo y creatividad
+
+![1664253636490](image/README/1664253636490.png)
