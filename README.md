@@ -1,10 +1,5 @@
-| ![1664252126748](image/README/1664252126748.png) | Edisson Giovanni Zuñiga Lopez > Ingeniero Implementador DevOOps<br /> |
-| ---------------------------------------------- | ---------------------------------------------------------------------- |
-
-Perfil
-
-Profesional Senior con formación especializada en proyectos con mas de 10 años de experiencia, Participación activa en varios proyectos tecnológicos, sector bancario, que incluyen infraestructura en alta Disponibilidad Onpremise, Nube e Hibrida, En los últimos 7 años enfocado DevOps, Docker, kubernetes, desarrollo de Pipeline en la capacidad en crear framework que se adecuan a cada organización y metodología de trabajo.
-
+| ![1664252126748](image/README/1664252126748.png) | Edisson Giovanni Zuñiga Lopez > Ingeniero Implementador DevOps<br /><br />![1664252568473](image/README/1664252568473.png) Perfil <br /><br />Profesional Senior con formación especializada en proyectos con mas de 10 años de experiencia, <br />participando en varios proyectos Tecnologicos del sector bancario entreo otros, que incluyen infraestructura <br />en alta Disponibilidad Ompremise, Nube e Hibrida. En los ultimos 7 años enfocado en implementación y Desarrollos<br />de capacidades en DevOps, Docker, Kubernetes, desarrollos de frameworks con la capacidad de implementar pipeline <br />de CI/CD de aplicaciones que se adecuan a la organización y mejorar al equipo de trabajo con entusiasmo, liderazgo<br />y acoplarnos a las nuevas metodologias de trabajo en equipo. |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 | *                                              | Información de Contacto                        |
 | ---------------------------------------------- | ----------------------------------------------- |
@@ -16,7 +11,7 @@ Profesional Senior con formación especializada en proyectos con mas de 10 años
 
 ![1664250249412](image/README/1664250249412.png)
 
-![1664250908933](image/README/1664250908933.png)
+![1664252550554](image/README/1664252550554.png) Educación
 
 |                                                                                                                                                             |                                                                  |                                                |                                                    |                                                |                                                               |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
@@ -24,7 +19,7 @@ Profesional Senior con formación especializada en proyectos con mas de 10 años
 | ![1664250998627](image/README/1664250998627.png)                                                                                                              | Tranning Google<br />[https://goo.su/o3uh6R](https://goo.su/o3uh6R) |                                                | Kubernetes<br />Docker<br />Helm                   | ![1664251100477](image/README/1664251100477.png) | Seminario Itil v3, Cobit 5 e ISO 20000:2011                 |
 | ![1664251019061](https://file+.vscode-resource.vscode-cdn.net/d%3A/Projects/Repositorios/giovanemere/Edisson-Giovanni-Z-Lopez/image/README/1664251019061.png) | Certified                                                        | Terraform                                      | [https://goo.su/uRPY](https://goo.su/uRPY)            | ![1664251220565](image/README/1664251220565.png) | Certified                                                     |
 
-![1664251297136](image/README/1664251297136.png)
+![1664252534295](image/README/1664252534295.png) Experiencia
 
 | Año | Empresa                          | Cargo                                                                                                                                                        |
 | ---- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
