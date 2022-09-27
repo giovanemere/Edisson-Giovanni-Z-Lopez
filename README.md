@@ -1,4 +1,12 @@
-# Mi Experiencia
+| ![1664245084944](image/README/1664245084944.png) | col2 |
+| ---------------------------------------------- | ---- |
+
+---
+
+
+
+
+
 • Ingeniero de Sistemas (Universidad Cooperativa de Colombia, Bogotá 2014).
 • Seminario Itil v3, Cobit Iso2000 (Universidad de los Andes, Bogotá 2014).
 
@@ -16,22 +24,22 @@ DevOps
 • Formó parte del equipo de implementación del automatización de despliegues de MFT IBM Sterling con el proyecto Colpatria.
 • Formó parte del equipo de implementación del automatización de portal de MFT IBM Sterling con el proyecto Bancolombia.
 
+---
 
-*************
 Jenkins Setup
-*************
 
-
+---
 
 Installing on Docker
 ====================
+
 * https://github.com/jenkinsci/docker/blob/master/README.md
 
 #. Set-up environment:
 
     .. code-block:: console
 
-        $ mkdir -p /home/jenkins
+    $ mkdir -p /home/jenkins
         $ chmod 777 /home/jenkins
         $ chmod 666 /var/run/docker.sock
         $ ln -s /home/jenkins /var/jenkins_home
@@ -40,36 +48,36 @@ Installing on Docker
 
     .. code-block:: console
 
-        $ docker run \
-            --detach  \
-            --name jenkins \
-            --rm \
-            --publish 8080:8080 \
-            --volume /home/jenkins:/var/jenkins_home \
-            --volume /var/run/docker.sock:/var/run/docker.sock \
-            jenkins/jenkins
+    $ docker run
+    --detach
+    --name jenkins
+    --rm
+    --publish 8080:8080
+    --volume /home/jenkins:/var/jenkins_home
+    --volume /var/run/docker.sock:/var/run/docker.sock
+    jenkins/jenkins
 
 #. Get admin password:
 
     .. code-block:: console
 
-        $ cat /home/jenkins/secrets/initialAdminPassword
-
+    $ cat /home/jenkins/secrets/initialAdminPassword
 
 Installing using Docker Compose
 ===============================
+
 #. Create ``/home/jenkins.yaml``:
 
     .. code-block:: yaml
-        :caption: ``jenkins.yaml``
+        :caption:``jenkins.yaml``
 
-        version: '3'
+    version: '3'
 
-        networks:
+    networks:
             ecosystem:
                 driver: bridge
 
-        services:
+    services:
             jenkins:
                 image: jenkins/jenkins
                 container_name: jenkins
@@ -86,5 +94,5 @@ Installing using Docker Compose
 
     .. code-block:: console
 
-        $ cd /home/
+    $ cd /home/
         $ docker-compose -f jenkins.yaml up -d
