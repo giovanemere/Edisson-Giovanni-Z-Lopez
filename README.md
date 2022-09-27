@@ -1,5 +1,23 @@
-| ![1664252126748](image/README/1664252126748.png) | Edisson Giovanni Zuñiga Lopez > Ingeniero Implementador DevOps<br /><br />![1664252568473](image/README/1664252568473.png) Perfil <br /><br />Profesional Senior con formación especializada en proyectos con mas de 10 años de experiencia, <br />participando en varios proyectos Tecnologicos del sector bancario entreo otros, que incluyen infraestructura <br />en alta Disponibilidad Ompremise, Nube e Hibrida. En los ultimos 7 años enfocado en implementación y Desarrollos<br />de capacidades en DevOps, Docker, Kubernetes, desarrollos de frameworks con la capacidad de implementar pipeline <br />de CI/CD de aplicaciones que se adecuan a la organización y mejorar al equipo de trabajo con entusiasmo, liderazgo<br />y acoplarnos a las nuevas metodologias de trabajo en equipo. |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+
+![1664252126748](https://file+.vscode-resource.vscode-cdn.net/d%3A/Projects/Repositorios/giovanemere/Edisson-Giovanni-Z-Lopez/image/README/1664252126748.png)
+
+Edisson Giovanni Zuñiga Lopez
+
+Ingeniero Implementador DevOp
+
+![1664252568473](image/README/1664252568473.png) Perfil 
+
+Profesional Senior con formación especializada en proyectos con mas de 10 años de experiencia,
+participando en varios proyectos Tecnologicos del sector bancario entreo otros, que incluyen infraestructura 
+en alta Disponibilidad Ompremise, Nube e Hibrida. En los ultimos 7 años enfocado en implementación y Desarrollos
+de capacidades en DevOps, Docker, Kubernetes, desarrollos de frameworks con la capacidad de implementar pipeline 
+de CI/CD de aplicaciones que se adecuan a la organización y mejorar al equipo de trabajo con entusiasmo, liderazgo
+y acoplarnos a las nuevas metodologias de trabajo en equipo.
+
+
+|  |  |
+| - | - |
 
 | *                                              | Información de Contacto                        |
 | ---------------------------------------------- | ----------------------------------------------- |
