@@ -1,98 +1,27 @@
-| ![1664245084944](image/README/1664245084944.png) | col2 |
-| ---------------------------------------------- | ---- |
+| ![1664245139263](image/README/1664245139263.png) | Edisson Giovanni Zuñiga Lopez<br />Ingeniero DevOps |
+| ---------------------------------------------- | ---------------------------------------------------- |
 
----
+Información de Contacto
 
+|                                                |                                                 |
+| ---------------------------------------------- | ----------------------------------------------- |
+| ![1664250164543](image/README/1664250164543.png) | giovanemere@gmail.com                           |
+| ![1664250169838](image/README/1664250169838.png) | Carrera 4 # 8-62 - Zipaquira                    |
+| ![1664250180878](image/README/1664250180878.png) | giovanemere.github.io/Edisson-Giovanni-Z-Lopez/ |
+| ![1664250186800](image/README/1664250186800.png) | edisson-giovanni-zuñiga-lopez                  |
+| ![1664250190937](image/README/1664250190937.png) | +57 316 526 9803                                |
 
+Perfil
 
+Profesional Senior con formación especializada en proyectos con mas de 10 años de
+experiencia, Participación activa en varios proyectos tecnológicos, sector
+bancario, que incluyen infraestructura en alta Disponibilidad Onpremise,
+Nube e Hibrida, En los últimos 7 años enfocado DevOps, Docker, kubernetes,
+desarrollo de Pipeline en la capacidad en crear framework
+que se adecuan a cada organización y metodología de trabajo.
 
+![1664250249412](image/README/1664250249412.png)
 
-• Ingeniero de Sistemas (Universidad Cooperativa de Colombia, Bogotá 2014).
-• Seminario Itil v3, Cobit Iso2000 (Universidad de los Andes, Bogotá 2014).
+![1664250258928](image/README/1664250258928.png)
 
-• Posee 11 años de experiencia en análisis, diseño e implementación de soluciones tecnologicas.
-
-AOS SAS
-Sterling MFT
-• Formó parte del equipo de implementación del proyecto de MFT con Colpatria cumpliendo tareas de Consultor Especialista.
-• Formó parte del equipo de implementación del proyecto de MFT en Bancolombiacumpliendo tareas de desarrollador backend.
-• Formó parte del equipo de definiciones y estimaciones de desarrollos de transmisiones para el proyecto de Colpatria.
-
-• Apoyo a los equipos de monitorización, como soporte del siguiente nivel de fallas en flujos o causas asociadas al modelo MFT en Colpatria.
-
-DevOps
-• Formó parte del equipo de implementación del automatización de despliegues de MFT IBM Sterling con el proyecto Colpatria.
-• Formó parte del equipo de implementación del automatización de portal de MFT IBM Sterling con el proyecto Bancolombia.
-
----
-
-Jenkins Setup
-
----
-
-Installing on Docker
-====================
-
-* https://github.com/jenkinsci/docker/blob/master/README.md
-
-#. Set-up environment:
-
-    .. code-block:: console
-
-    $ mkdir -p /home/jenkins
-        $ chmod 777 /home/jenkins
-        $ chmod 666 /var/run/docker.sock
-        $ ln -s /home/jenkins /var/jenkins_home
-
-#. Run Docker container:
-
-    .. code-block:: console
-
-    $ docker run
-    --detach
-    --name jenkins
-    --rm
-    --publish 8080:8080
-    --volume /home/jenkins:/var/jenkins_home
-    --volume /var/run/docker.sock:/var/run/docker.sock
-    jenkins/jenkins
-
-#. Get admin password:
-
-    .. code-block:: console
-
-    $ cat /home/jenkins/secrets/initialAdminPassword
-
-Installing using Docker Compose
-===============================
-
-#. Create ``/home/jenkins.yaml``:
-
-    .. code-block:: yaml
-        :caption:``jenkins.yaml``
-
-    version: '3'
-
-    networks:
-            ecosystem:
-                driver: bridge
-
-    services:
-            jenkins:
-                image: jenkins/jenkins
-                container_name: jenkins
-                restart: "no"
-                ports:
-                    - "8100:8080"
-                networks:
-                    - ecosystem
-                volumes:
-                    - /home/jenkins:/var/jenkins_home/
-                    - /var/run/docker.sock:/var/run/docker.sock
-
-#. Run Jenkins
-
-    .. code-block:: console
-
-    $ cd /home/
-        $ docker-compose -f jenkins.yaml up -d
+![1664250275709](image/README/1664250275709.png)
