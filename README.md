@@ -2,7 +2,9 @@
 
 Edisson Giovanni Zuñiga Lopez
 
-Ingeniero Implementador DevOp
+Arquitecto DevOps
+Propulson MFT Women en AOS
+Propulsor Semilleros DevOps Club Adsoft | Banco Popular | AOS
 
 ![1664252568473](image/README/1664252568473.png) Perfil 
 
