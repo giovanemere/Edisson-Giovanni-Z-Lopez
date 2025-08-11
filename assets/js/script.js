@@ -819,69 +819,78 @@ window.addEventListener('load', function() {
     }, 500);
   }
 });
-// Shooting Stars Mouse Follower Animation - Simplified Version
-let shootingStarsActive = false;
-let heroSection = null;
-let starsContainer = null;
-let lastStarTime = 0;
+// Mouse Follower Shooting Star for Hero Profile
+let mouseFollowerActive = false;
+let heroProfile = null;
+let mouseTrail = [];
+let animationFrame = null;
 
-function initShootingStars() {
-  console.log('🌟 Initializing shooting stars...');
+function initMouseFollower() {
+  console.log('🌟 Initializing mouse follower...');
   
-  heroSection = document.querySelector('.hero-section');
-  starsContainer = document.querySelector('.shooting-stars-container');
+  heroProfile = document.querySelector('.hero-profile');
   
-  if (!heroSection || !starsContainer) {
-    console.log('❌ Hero section or stars container not found');
+  if (!heroProfile) {
+    console.log('❌ Hero profile not found');
     return;
   }
   
-  console.log('✅ Elements found, setting up events');
+  console.log('✅ Hero profile found, setting up mouse follower');
   
-  // Add mouse move event
-  heroSection.addEventListener('mousemove', function(e) {
-    const currentTime = Date.now();
-    if (currentTime - lastStarTime < 80) return; // Throttle to every 80ms
+  // Add mouse move event to hero-profile specifically
+  heroProfile.addEventListener('mousemove', function(e) {
+    if (!mouseFollowerActive) return;
     
-    createShootingStar(e);
-    lastStarTime = currentTime;
+    // Get position relative to hero-profile
+    const rect = heroProfile.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Add to trail
+    mouseTrail.push({ x, y, time: Date.now() });
+    
+    // Keep only recent positions (last 500ms)
+    const now = Date.now();
+    mouseTrail = mouseTrail.filter(point => now - point.time < 500);
+    
+    // Create shooting star at current position
+    createFollowerStar(x, y);
   });
   
   // Add mouse enter/leave events
-  heroSection.addEventListener('mouseenter', function() {
-    shootingStarsActive = true;
-    console.log('🌟 Mouse entered hero section');
+  heroProfile.addEventListener('mouseenter', function() {
+    mouseFollowerActive = true;
+    heroProfile.style.position = 'relative'; // Ensure relative positioning
+    console.log('🌟 Mouse entered hero profile');
+    startTrailAnimation();
   });
   
-  heroSection.addEventListener('mouseleave', function() {
-    shootingStarsActive = false;
-    console.log('🌟 Mouse left hero section');
+  heroProfile.addEventListener('mouseleave', function() {
+    mouseFollowerActive = false;
+    mouseTrail = [];
+    console.log('🌟 Mouse left hero profile');
+    stopTrailAnimation();
   });
   
-  console.log('🌟 Shooting stars initialized successfully');
+  console.log('🌟 Mouse follower initialized successfully');
 }
 
-function createShootingStar(e) {
-  if (!shootingStarsActive || !starsContainer) return;
-  
-  // Get position relative to hero section
-  const rect = heroSection.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  
-  console.log('⭐ Creating star at:', x, y);
+function createFollowerStar(x, y) {
+  if (!heroProfile) return;
   
   // Create star element
   const star = document.createElement('div');
-  star.className = 'shooting-star';
+  star.className = 'mouse-follower-star';
   star.style.left = x + 'px';
   star.style.top = y + 'px';
   
-  // Add to container
-  starsContainer.appendChild(star);
+  // Add to hero-profile
+  heroProfile.appendChild(star);
   
-  // Trigger animation immediately
-  star.classList.add('animate');
+  // Trigger animation
+  setTimeout(() => {
+    star.classList.add('animate');
+  }, 10);
   
   // Remove after animation
   setTimeout(() => {
@@ -889,31 +898,53 @@ function createShootingStar(e) {
       star.parentNode.removeChild(star);
     }
   }, 1000);
+}
+
+function startTrailAnimation() {
+  function animate() {
+    if (!mouseFollowerActive) return;
+    
+    // Create trail stars from recent mouse positions
+    if (mouseTrail.length > 1) {
+      const recent = mouseTrail.slice(-3); // Last 3 positions
+      recent.forEach((point, index) => {
+        if (index > 0) { // Skip the current position
+          setTimeout(() => {
+            createTrailStar(point.x, point.y, index);
+          }, index * 50);
+        }
+      });
+    }
+    
+    animationFrame = requestAnimationFrame(animate);
+  }
   
-  // Create trail effect
-  for (let i = 1; i <= 2; i++) {
-    setTimeout(() => {
-      createTrailStar(x, y, i);
-    }, i * 60);
+  animate();
+}
+
+function stopTrailAnimation() {
+  if (animationFrame) {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = null;
   }
 }
 
 function createTrailStar(x, y, index) {
-  if (!starsContainer) return;
+  if (!heroProfile || !mouseFollowerActive) return;
   
   const trailStar = document.createElement('div');
-  trailStar.className = 'shooting-star trail-star';
+  trailStar.className = 'mouse-follower-star trail';
   
-  // Add some randomness to position
-  const offsetX = (Math.random() - 0.5) * 30;
-  const offsetY = (Math.random() - 0.5) * 30;
+  // Add some randomness
+  const offsetX = (Math.random() - 0.5) * 20;
+  const offsetY = (Math.random() - 0.5) * 20;
   
   trailStar.style.left = (x + offsetX) + 'px';
   trailStar.style.top = (y + offsetY) + 'px';
-  trailStar.style.opacity = (1 - index * 0.4).toString();
-  trailStar.style.transform = `scale(${1 - index * 0.3})`;
+  trailStar.style.opacity = (1 - index * 0.3).toString();
+  trailStar.style.transform = `scale(${1 - index * 0.2})`;
   
-  starsContainer.appendChild(trailStar);
+  heroProfile.appendChild(trailStar);
   
   setTimeout(() => {
     trailStar.classList.add('animate');
@@ -923,7 +954,7 @@ function createTrailStar(x, y, index) {
     if (trailStar && trailStar.parentNode) {
       trailStar.parentNode.removeChild(trailStar);
     }
-  }, 800);
+  }, 600);
 }
 
 // Initialize when DOM is ready
@@ -931,22 +962,20 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('📄 DOM loaded, checking for desktop...');
   
   if (window.innerWidth > 768) {
-    console.log('💻 Desktop detected, initializing shooting stars');
+    console.log('💻 Desktop detected, initializing mouse follower');
     setTimeout(() => {
-      initShootingStars();
-    }, 1000); // Wait 1 second to ensure everything is loaded
+      initMouseFollower();
+    }, 1000);
   } else {
-    console.log('📱 Mobile detected, skipping shooting stars');
+    console.log('📱 Mobile detected, skipping mouse follower');
   }
 });
 
-// Test function - call this in browser console to test
-window.testShootingStars = function() {
-  console.log('🧪 Testing shooting stars...');
-  if (starsContainer) {
-    createShootingStar({ 
-      clientX: window.innerWidth / 2, 
-      clientY: window.innerHeight / 2 
-    });
+// Test function
+window.testMouseFollower = function() {
+  console.log('🧪 Testing mouse follower...');
+  if (heroProfile) {
+    const rect = heroProfile.getBoundingClientRect();
+    createFollowerStar(rect.width / 2, rect.height / 2);
   }
 };

@@ -2635,114 +2635,149 @@ body {
 .scroll-indicator:hover .scroll-arrow {
   animation-duration: 1s;
 }
-/* ===== SHOOTING STARS ANIMATION ===== */
-.shooting-stars-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 5;
+/* ===== MOUSE FOLLOWER STARS ===== */
+.hero-profile {
+  position: relative;
+  overflow: visible; /* Allow stars to be visible */
 }
 
-.shooting-star {
+.mouse-follower-star {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: radial-gradient(circle, 
     rgba(255, 255, 255, 1) 0%,
-    rgba(0, 212, 255, 0.8) 30%,
-    rgba(102, 126, 234, 0.6) 60%,
+    rgba(0, 212, 255, 0.9) 30%,
+    rgba(102, 126, 234, 0.7) 60%,
     rgba(255, 255, 255, 0) 100%
   );
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
+  z-index: 10;
   box-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 20px rgba(0, 212, 255, 0.6),
-    0 0 30px rgba(102, 126, 234, 0.4);
+    0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(0, 212, 255, 0.6),
+    0 0 35px rgba(102, 126, 234, 0.4);
   transform: scale(0);
 }
 
-.shooting-star::before {
+.mouse-follower-star::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40px;
-  height: 2px;
+  width: 50px;
+  height: 3px;
   background: linear-gradient(90deg, 
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.9) 20%,
-    rgba(0, 212, 255, 0.7) 50%,
-    rgba(102, 126, 234, 0.5) 80%,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(0, 212, 255, 0.8) 50%,
+    rgba(102, 126, 234, 0.6) 80%,
     rgba(255, 255, 255, 0) 100%
   );
   transform: translate(-50%, -50%);
-  border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
 }
 
-.shooting-star.animate {
-  animation: shootingStar 0.8s ease-out forwards;
+.mouse-follower-star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(0, 212, 255, 0.7) 40%,
+    rgba(102, 126, 234, 0.5) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: starGlow 0.8s ease-out;
 }
 
-.shooting-star.trail-star {
-  width: 4px;
-  height: 4px;
+.mouse-follower-star.trail {
+  width: 6px;
+  height: 6px;
 }
 
-.shooting-star.trail-star::before {
-  width: 25px;
-  height: 1px;
+.mouse-follower-star.trail::before {
+  width: 30px;
+  height: 2px;
 }
 
-@keyframes shootingStar {
+.mouse-follower-star.trail::after {
+  width: 8px;
+  height: 8px;
+}
+
+.mouse-follower-star.animate {
+  animation: mouseFollowerStar 0.8s ease-out forwards;
+}
+
+@keyframes mouseFollowerStar {
   0% {
     opacity: 0;
-    transform: scale(0);
+    transform: scale(0) rotate(0deg);
   }
   20% {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.3) rotate(45deg);
   }
   80% {
     opacity: 0.8;
-    transform: scale(1);
+    transform: scale(1) rotate(180deg);
   }
   100% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.3) rotate(360deg);
   }
 }
 
-/* Test styles for debugging */
-.shooting-stars-container::after {
-  content: 'Stars Container Active';
+@keyframes starGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Enhanced hover effect for hero-profile */
+.hero-profile:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+/* Debug indicator */
+.hero-profile::after {
+  content: 'Mouse Follower Active';
   position: absolute;
-  top: 10px;
-  left: 10px;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 10px;
+  top: 5px;
+  right: 5px;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 8px;
   pointer-events: none;
-  z-index: 10;
+  z-index: 5;
 }
-
-/* Remove cursor modifications for now to focus on stars */
-/* .hero-section {
-  cursor: none;
-}
-
-.hero-section * {
-  cursor: none;
-} */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .shooting-stars-container {
+  .mouse-follower-star {
+    display: none;
+  }
+  
+  .hero-profile::after {
     display: none;
   }
 }
