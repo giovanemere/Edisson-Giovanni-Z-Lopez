@@ -583,26 +583,6 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-        }
-    });
-}, observerOptions);
-
-// Observe hero elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const heroElements = document.querySelectorAll('.hero-greeting, .name-part, .hero-description, .badge');
-    heroElements.forEach(el => observer.observe(el));
-});
-
 // Performance optimization: Throttle scroll events
 function throttle(func, wait) {
     let timeout;
