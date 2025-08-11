@@ -3,21 +3,15 @@ source "https://rubygems.org"
 # Jekyll
 gem "jekyll", "~> 4.3.0"
 
-# Theme
-gem "jekyll-theme-architect"
-
 # Plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
-  gem "jekyll-paginate"
-  gem "jekyll-gist"
-  # gem "jekyll-github-metadata"  # Comentado temporalmente por problemas de conectividad
 end
 
-# Faraday retry middleware
-gem "faraday-retry"
+# Webrick for Ruby 3.0+
+gem "webrick", "~> 1.7"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
