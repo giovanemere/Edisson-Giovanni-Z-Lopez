@@ -322,7 +322,128 @@
   }
 }
 
-/* Ajustar el contenido principal para el header fijo */
+/* ========================================
+   FOTO DE PERFIL PROFESIONAL
+======================================== */
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: var(--shadow-xl);
+  transition: var(--transition-all);
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  @media (min-width: 768px) {
+    width: 250px;
+    height: 250px;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    text-align: left;
+    gap: var(--space-8);
+  }
+  
+  .profile-content {
+    flex: 1;
+    text-align: center;
+    
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  
+  .profile-intro {
+    font-size: var(--space-5);
+    font-weight: 300;
+    color: var(--gray-600);
+    margin-bottom: var(--space-4);
+    
+    @media (min-width: 768px) {
+      font-size: var(--space-6);
+    }
+  }
+  
+  .profile-highlight {
+    font-size: var(--space-6);
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-4);
+    
+    @media (min-width: 768px) {
+      font-size: var(--space-8);
+    }
+  }
+}
+
+/* Ajustar hero section para incluir foto */
+.hero-section {
+  .hero-content {
+    .hero-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-8);
+      margin: var(--space-8) 0;
+      
+      @media (min-width: 768px) {
+        flex-direction: row;
+        gap: var(--space-12);
+      }
+      
+      .hero-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid rgba(255, 255, 255, 0.3);
+        box-shadow: var(--shadow-2xl);
+        transition: var(--transition-all);
+        
+        &:hover {
+          transform: scale(1.05) rotate(2deg);
+          border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (min-width: 768px) {
+          width: 220px;
+          height: 220px;
+        }
+      }
+      
+      .hero-text {
+        flex: 1;
+        text-align: center;
+        
+        @media (min-width: 768px) {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
 #content-wrapper {
   margin-top: 80px;
   
