@@ -95,7 +95,7 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
   </div>
 </div>
 
-<div class="section section-alt">
+<div class="section section-alt" id="about">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">👨‍💻 Acerca de Mí</h2>
@@ -116,7 +116,7 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="skills">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">🛠️ Habilidades Técnicas</h2>
@@ -301,7 +301,7 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
   </div>
 </div>
 
-<div class="section section-alt">
+<div class="section section-alt" id="experience">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">💼 Experiencia Profesional</h2>
@@ -403,7 +403,7 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="projects">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">🎯 Proyectos Destacados</h2>
