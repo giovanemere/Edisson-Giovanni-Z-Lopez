@@ -819,109 +819,89 @@ window.addEventListener('load', function() {
     }, 500);
   }
 });
-// Simple Meteorite Animation - Fixed Version
-let meteoriteSystem = {
-  active: false,
-  heroSection: null,
-  container: null,
-  mousePos: { x: 0, y: 0 },
+// Ultra Simple Meteorite Test - Direct Implementation
+console.log('🚀 Loading meteorite script...');
+
+function createTestMeteorite(x, y) {
+  console.log('🌟 Creating test meteorite at:', x, y);
   
-  init: function() {
-    console.log('☄️ Initializing simple meteorite system...');
-    
-    this.heroSection = document.querySelector('.hero-section');
-    this.container = document.querySelector('.shooting-stars-container');
-    
-    if (!this.heroSection || !this.container) {
-      console.log('❌ Required elements not found');
-      console.log('Hero section:', this.heroSection);
-      console.log('Container:', this.container);
-      return false;
-    }
-    
-    console.log('✅ Elements found, setting up events');
-    this.setupEvents();
-    return true;
-  },
-  
-  setupEvents: function() {
-    // Mouse move event
-    this.heroSection.addEventListener('mousemove', (e) => {
-      if (!this.active) return;
-      
-      const rect = this.heroSection.getBoundingClientRect();
-      this.mousePos.x = e.clientX - rect.left;
-      this.mousePos.y = e.clientY - rect.top;
-      
-      this.createMeteorite(this.mousePos.x, this.mousePos.y);
-    });
-    
-    // Mouse enter/leave
-    this.heroSection.addEventListener('mouseenter', () => {
-      this.active = true;
-      console.log('☄️ Meteorites activated');
-    });
-    
-    this.heroSection.addEventListener('mouseleave', () => {
-      this.active = false;
-      console.log('☄️ Meteorites deactivated');
-    });
-  },
-  
-  createMeteorite: function(x, y) {
-    if (!this.container) return;
-    
-    const meteorite = document.createElement('div');
-    meteorite.className = 'simple-meteorite';
-    meteorite.style.left = x + 'px';
-    meteorite.style.top = y + 'px';
-    
-    // Add random offset
-    const offsetX = (Math.random() - 0.5) * 20;
-    const offsetY = (Math.random() - 0.5) * 20;
-    meteorite.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-    
-    this.container.appendChild(meteorite);
-    
-    // Animate
-    setTimeout(() => {
-      meteorite.classList.add('animate');
-    }, 10);
-    
-    // Remove
-    setTimeout(() => {
-      if (meteorite.parentNode) {
-        meteorite.parentNode.removeChild(meteorite);
-      }
-    }, 1000);
-    
-    console.log('⭐ Created meteorite at:', x, y);
+  // Find container
+  const container = document.querySelector('.shooting-stars-container');
+  if (!container) {
+    console.log('❌ Container not found!');
+    return;
   }
-};
+  
+  console.log('✅ Container found:', container);
+  
+  // Create meteorite element
+  const meteorite = document.createElement('div');
+  meteorite.style.position = 'absolute';
+  meteorite.style.left = x + 'px';
+  meteorite.style.top = y + 'px';
+  meteorite.style.width = '20px';
+  meteorite.style.height = '20px';
+  meteorite.style.backgroundColor = 'orange';
+  meteorite.style.borderRadius = '50%';
+  meteorite.style.boxShadow = '0 0 20px orange';
+  meteorite.style.zIndex = '100';
+  meteorite.style.pointerEvents = 'none';
+  
+  // Add to container
+  container.appendChild(meteorite);
+  console.log('✅ Meteorite added to container');
+  
+  // Remove after 2 seconds
+  setTimeout(() => {
+    if (meteorite.parentNode) {
+      meteorite.parentNode.removeChild(meteorite);
+      console.log('🗑️ Meteorite removed');
+    }
+  }, 2000);
+}
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('📄 DOM loaded');
+  console.log('📄 DOM loaded - setting up meteorites');
   
-  if (window.innerWidth > 768) {
-    console.log('💻 Desktop detected');
-    setTimeout(() => {
-      if (meteoriteSystem.init()) {
-        console.log('🚀 Meteorite system ready!');
-      }
-    }, 1000);
-  } else {
-    console.log('📱 Mobile detected, skipping meteorites');
-  }
+  setTimeout(() => {
+    const heroSection = document.querySelector('.hero-section');
+    const container = document.querySelector('.shooting-stars-container');
+    
+    console.log('Hero section found:', !!heroSection);
+    console.log('Container found:', !!container);
+    
+    if (heroSection && container) {
+      console.log('✅ Both elements found - setting up mouse events');
+      
+      heroSection.addEventListener('mousemove', function(e) {
+        const rect = heroSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Throttle to avoid too many meteorites
+        if (Math.random() > 0.8) { // Only 20% chance per mouse move
+          createTestMeteorite(x, y);
+        }
+      });
+      
+      console.log('🎯 Mouse events set up - move mouse over hero section');
+    } else {
+      console.log('❌ Missing elements - cannot set up meteorites');
+    }
+  }, 2000); // Wait 2 seconds for everything to load
 });
 
-// Test function
-window.testMeteoriteSystem = function() {
-  console.log('🧪 Testing meteorite system...');
-  if (meteoriteSystem.container && meteoriteSystem.heroSection) {
-    meteoriteSystem.createMeteorite(100, 100);
-    console.log('✅ Test meteorite created');
-  } else {
-    console.log('❌ System not ready');
-  }
+// Manual test function
+window.testMeteorite = function() {
+  console.log('🧪 Manual test triggered');
+  createTestMeteorite(100, 100);
 };
+
+// Auto test after 3 seconds
+setTimeout(() => {
+  console.log('🔄 Running auto test...');
+  createTestMeteorite(200, 150);
+}, 3000);
+
+console.log('🚀 Meteorite script loaded');
