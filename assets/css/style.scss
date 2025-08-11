@@ -2635,53 +2635,65 @@ body {
 .scroll-indicator:hover .scroll-arrow {
   animation-duration: 1s;
 }
-/* ===== MOUSE FOLLOWER STARS ===== */
-.hero-profile {
-  position: relative;
-  overflow: visible; /* Allow stars to be visible */
+/* ===== METEORITE SHOWER ANIMATION ===== */
+.shooting-stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
 }
 
-.mouse-follower-star {
+.meteorite {
   position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: center;
+}
+
+/* Main meteorite (follows cursor directly) */
+.meteorite-main {
   width: 8px;
   height: 8px;
-  background: radial-gradient(circle, 
+  background: radial-gradient(ellipse 60% 40%, 
     rgba(255, 255, 255, 1) 0%,
-    rgba(0, 212, 255, 0.9) 30%,
-    rgba(102, 126, 234, 0.7) 60%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255, 200, 100, 0.9) 20%,
+    rgba(255, 150, 50, 0.8) 40%,
+    rgba(255, 100, 0, 0.6) 70%,
+    rgba(200, 50, 0, 0.3) 90%,
+    rgba(0, 0, 0, 0) 100%
   );
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 10;
+  border-radius: 60% 40% 60% 40%;
   box-shadow: 
-    0 0 15px rgba(255, 255, 255, 0.8),
-    0 0 25px rgba(0, 212, 255, 0.6),
-    0 0 35px rgba(102, 126, 234, 0.4);
-  transform: scale(0);
+    0 0 10px rgba(255, 200, 100, 0.8),
+    0 0 20px rgba(255, 150, 50, 0.6),
+    0 0 30px rgba(255, 100, 0, 0.4);
 }
 
-.mouse-follower-star::before {
+.meteorite-main::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50px;
+  width: 40px;
   height: 3px;
   background: linear-gradient(90deg, 
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 1) 20%,
-    rgba(0, 212, 255, 0.8) 50%,
-    rgba(102, 126, 234, 0.6) 80%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 200, 100, 0.8) 30%,
+    rgba(255, 150, 50, 0.6) 60%,
+    rgba(255, 100, 0, 0.4) 80%,
+    rgba(200, 50, 0, 0) 100%
   );
   transform: translate(-50%, -50%);
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+  box-shadow: 0 0 15px rgba(255, 150, 50, 0.6);
 }
 
-.mouse-follower-star::after {
+.meteorite-main::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -2689,61 +2701,118 @@ body {
   width: 12px;
   height: 12px;
   background: radial-gradient(circle, 
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(0, 212, 255, 0.7) 40%,
-    rgba(102, 126, 234, 0.5) 70%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 200, 100, 0.6) 30%,
+    rgba(255, 150, 50, 0.4) 60%,
+    rgba(255, 100, 0, 0.2) 80%,
+    rgba(0, 0, 0, 0) 100%
   );
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  animation: starGlow 0.8s ease-out;
+  animation: meteoriteGlow 1.2s ease-out;
 }
 
-.mouse-follower-star.trail {
+/* Trail meteorites (follow mouse path) */
+.meteorite-trail {
   width: 6px;
   height: 6px;
+  background: radial-gradient(ellipse 60% 40%, 
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 200, 100, 0.7) 20%,
+    rgba(255, 150, 50, 0.6) 40%,
+    rgba(255, 100, 0, 0.4) 70%,
+    rgba(200, 50, 0, 0.2) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 60% 40% 60% 40%;
+  box-shadow: 
+    0 0 8px rgba(255, 200, 100, 0.6),
+    0 0 15px rgba(255, 150, 50, 0.4);
 }
 
-.mouse-follower-star.trail::before {
-  width: 30px;
+.meteorite-trail::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
   height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.7) 15%,
+    rgba(255, 200, 100, 0.6) 40%,
+    rgba(255, 150, 50, 0.4) 70%,
+    rgba(255, 100, 0, 0.2) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
 }
 
-.mouse-follower-star.trail::after {
-  width: 8px;
-  height: 8px;
+/* Ambient meteorites (random around mouse) */
+.meteorite-ambient {
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(ellipse 60% 40%, 
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 200, 100, 0.5) 30%,
+    rgba(255, 150, 50, 0.4) 60%,
+    rgba(255, 100, 0, 0.2) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 60% 40% 60% 40%;
+  box-shadow: 0 0 6px rgba(255, 200, 100, 0.4);
 }
 
-.mouse-follower-star.animate {
-  animation: mouseFollowerStar 0.8s ease-out forwards;
+.meteorite-ambient::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 20%,
+    rgba(255, 200, 100, 0.4) 50%,
+    rgba(255, 150, 50, 0.2) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
 }
 
-@keyframes mouseFollowerStar {
+/* Animations */
+.meteorite.animate {
+  animation: meteoriteShower 1s ease-out forwards;
+}
+
+@keyframes meteoriteShower {
   0% {
     opacity: 0;
     transform: scale(0) rotate(0deg);
   }
-  20% {
+  15% {
     opacity: 1;
-    transform: scale(1.3) rotate(45deg);
+    transform: scale(1.2) rotate(45deg);
   }
-  80% {
+  85% {
     opacity: 0.8;
-    transform: scale(1) rotate(180deg);
+    transform: scale(1) rotate(270deg);
   }
   100% {
     opacity: 0;
-    transform: scale(0.3) rotate(360deg);
+    transform: scale(0.2) rotate(360deg);
   }
 }
 
-@keyframes starGlow {
+@keyframes meteoriteGlow {
   0% {
     transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
+    opacity: 0.8;
   }
-  50% {
-    transform: translate(-50%, -50%) scale(2);
+  40% {
+    transform: translate(-50%, -50%) scale(2.5);
     opacity: 0.6;
   }
   100% {
@@ -2752,32 +2821,31 @@ body {
   }
 }
 
-/* Enhanced hover effect for hero-profile */
-.hero-profile:hover {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 20px;
+/* Enhanced hover effect for hero section */
+.hero-section:hover {
+  background: rgba(255, 100, 0, 0.01);
   transition: background 0.3s ease;
 }
 
 /* Debug indicator */
-.hero-profile::after {
-  content: 'Mouse Follower Active';
+.shooting-stars-container::after {
+  content: 'Meteorite Shower Active';
   position: absolute;
   top: 5px;
-  right: 5px;
-  color: rgba(255, 255, 255, 0.2);
+  left: 5px;
+  color: rgba(255, 200, 100, 0.3);
   font-size: 8px;
   pointer-events: none;
-  z-index: 5;
+  z-index: 10;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .mouse-follower-star {
+  .meteorite {
     display: none;
   }
   
-  .hero-profile::after {
+  .shooting-stars-container::after {
     display: none;
   }
 }

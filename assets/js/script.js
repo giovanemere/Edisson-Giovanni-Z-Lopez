@@ -819,142 +819,142 @@ window.addEventListener('load', function() {
     }, 500);
   }
 });
-// Mouse Follower Shooting Star for Hero Profile
-let mouseFollowerActive = false;
-let heroProfile = null;
-let mouseTrail = [];
+// Meteorite Shower Mouse Follower Animation
+let meteoriteActive = false;
+let heroSection = null;
+let starsContainer = null;
+let mousePosition = { x: 0, y: 0 };
+let meteoriteTrail = [];
 let animationFrame = null;
 
-function initMouseFollower() {
-  console.log('🌟 Initializing mouse follower...');
+function initMeteoriteShower() {
+  console.log('☄️ Initializing meteorite shower...');
   
-  heroProfile = document.querySelector('.hero-profile');
+  heroSection = document.querySelector('.hero-section');
+  starsContainer = document.querySelector('.shooting-stars-container');
   
-  if (!heroProfile) {
-    console.log('❌ Hero profile not found');
+  if (!heroSection || !starsContainer) {
+    console.log('❌ Hero section or stars container not found');
     return;
   }
   
-  console.log('✅ Hero profile found, setting up mouse follower');
+  console.log('✅ Elements found, setting up meteorite shower');
   
-  // Add mouse move event to hero-profile specifically
-  heroProfile.addEventListener('mousemove', function(e) {
-    if (!mouseFollowerActive) return;
+  // Add mouse move event to entire hero section
+  heroSection.addEventListener('mousemove', function(e) {
+    if (!meteoriteActive) return;
     
-    // Get position relative to hero-profile
-    const rect = heroProfile.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    // Get position relative to hero section
+    const rect = heroSection.getBoundingClientRect();
+    mousePosition.x = e.clientX - rect.left;
+    mousePosition.y = e.clientY - rect.top;
     
-    // Add to trail
-    mouseTrail.push({ x, y, time: Date.now() });
+    // Add to trail history
+    meteoriteTrail.push({
+      x: mousePosition.x,
+      y: mousePosition.y,
+      time: Date.now()
+    });
     
-    // Keep only recent positions (last 500ms)
+    // Keep only recent positions (last 800ms)
     const now = Date.now();
-    mouseTrail = mouseTrail.filter(point => now - point.time < 500);
+    meteoriteTrail = meteoriteTrail.filter(point => now - point.time < 800);
     
-    // Create shooting star at current position
-    createFollowerStar(x, y);
+    // Create meteorite at current position
+    createMeteorite(mousePosition.x, mousePosition.y, 'main');
   });
   
   // Add mouse enter/leave events
-  heroProfile.addEventListener('mouseenter', function() {
-    mouseFollowerActive = true;
-    heroProfile.style.position = 'relative'; // Ensure relative positioning
-    console.log('🌟 Mouse entered hero profile');
-    startTrailAnimation();
+  heroSection.addEventListener('mouseenter', function() {
+    meteoriteActive = true;
+    console.log('☄️ Mouse entered hero section - meteorites activated');
+    startMeteoriteTrail();
   });
   
-  heroProfile.addEventListener('mouseleave', function() {
-    mouseFollowerActive = false;
-    mouseTrail = [];
-    console.log('🌟 Mouse left hero profile');
-    stopTrailAnimation();
+  heroSection.addEventListener('mouseleave', function() {
+    meteoriteActive = false;
+    meteoriteTrail = [];
+    console.log('☄️ Mouse left hero section - meteorites deactivated');
+    stopMeteoriteTrail();
   });
   
-  console.log('🌟 Mouse follower initialized successfully');
+  console.log('☄️ Meteorite shower initialized successfully');
 }
 
-function createFollowerStar(x, y) {
-  if (!heroProfile) return;
+function createMeteorite(x, y, type = 'trail', delay = 0) {
+  if (!starsContainer) return;
   
-  // Create star element
-  const star = document.createElement('div');
-  star.className = 'mouse-follower-star';
-  star.style.left = x + 'px';
-  star.style.top = y + 'px';
-  
-  // Add to hero-profile
-  heroProfile.appendChild(star);
-  
-  // Trigger animation
   setTimeout(() => {
-    star.classList.add('animate');
-  }, 10);
-  
-  // Remove after animation
-  setTimeout(() => {
-    if (star && star.parentNode) {
-      star.parentNode.removeChild(star);
-    }
-  }, 1000);
-}
-
-function startTrailAnimation() {
-  function animate() {
-    if (!mouseFollowerActive) return;
+    const meteorite = document.createElement('div');
+    meteorite.className = `meteorite meteorite-${type}`;
     
-    // Create trail stars from recent mouse positions
-    if (mouseTrail.length > 1) {
-      const recent = mouseTrail.slice(-3); // Last 3 positions
-      recent.forEach((point, index) => {
-        if (index > 0) { // Skip the current position
-          setTimeout(() => {
-            createTrailStar(point.x, point.y, index);
-          }, index * 50);
+    // Add random offset for more natural effect
+    const offsetX = (Math.random() - 0.5) * (type === 'main' ? 10 : 25);
+    const offsetY = (Math.random() - 0.5) * (type === 'main' ? 10 : 25);
+    
+    meteorite.style.left = (x + offsetX) + 'px';
+    meteorite.style.top = (y + offsetY) + 'px';
+    
+    // Random rotation for variety
+    const rotation = Math.random() * 360;
+    meteorite.style.transform = `rotate(${rotation}deg)`;
+    
+    // Add to container
+    starsContainer.appendChild(meteorite);
+    
+    // Trigger animation
+    setTimeout(() => {
+      meteorite.classList.add('animate');
+    }, 10);
+    
+    // Remove after animation
+    setTimeout(() => {
+      if (meteorite && meteorite.parentNode) {
+        meteorite.parentNode.removeChild(meteorite);
+      }
+    }, type === 'main' ? 1200 : 1000);
+  }, delay);
+}
+
+function startMeteoriteTrail() {
+  let trailIndex = 0;
+  
+  function animateTrail() {
+    if (!meteoriteActive) return;
+    
+    // Create trail meteorites from recent positions
+    if (meteoriteTrail.length > 2) {
+      const recentPositions = meteoriteTrail.slice(-6); // Last 6 positions
+      
+      recentPositions.forEach((position, index) => {
+        if (index > 0 && index < recentPositions.length - 1) { // Skip current and very old
+          const delay = index * 30; // Staggered timing
+          createMeteorite(position.x, position.y, 'trail', delay);
         }
       });
     }
     
-    animationFrame = requestAnimationFrame(animate);
+    // Create random ambient meteorites around mouse
+    if (meteoriteTrail.length > 0) {
+      const lastPos = meteoriteTrail[meteoriteTrail.length - 1];
+      for (let i = 0; i < 2; i++) {
+        const ambientX = lastPos.x + (Math.random() - 0.5) * 100;
+        const ambientY = lastPos.y + (Math.random() - 0.5) * 100;
+        createMeteorite(ambientX, ambientY, 'ambient', i * 100);
+      }
+    }
+    
+    animationFrame = requestAnimationFrame(animateTrail);
   }
   
-  animate();
+  animateTrail();
 }
 
-function stopTrailAnimation() {
+function stopMeteoriteTrail() {
   if (animationFrame) {
     cancelAnimationFrame(animationFrame);
     animationFrame = null;
   }
-}
-
-function createTrailStar(x, y, index) {
-  if (!heroProfile || !mouseFollowerActive) return;
-  
-  const trailStar = document.createElement('div');
-  trailStar.className = 'mouse-follower-star trail';
-  
-  // Add some randomness
-  const offsetX = (Math.random() - 0.5) * 20;
-  const offsetY = (Math.random() - 0.5) * 20;
-  
-  trailStar.style.left = (x + offsetX) + 'px';
-  trailStar.style.top = (y + offsetY) + 'px';
-  trailStar.style.opacity = (1 - index * 0.3).toString();
-  trailStar.style.transform = `scale(${1 - index * 0.2})`;
-  
-  heroProfile.appendChild(trailStar);
-  
-  setTimeout(() => {
-    trailStar.classList.add('animate');
-  }, 10);
-  
-  setTimeout(() => {
-    if (trailStar && trailStar.parentNode) {
-      trailStar.parentNode.removeChild(trailStar);
-    }
-  }, 600);
 }
 
 // Initialize when DOM is ready
@@ -962,20 +962,20 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('📄 DOM loaded, checking for desktop...');
   
   if (window.innerWidth > 768) {
-    console.log('💻 Desktop detected, initializing mouse follower');
+    console.log('💻 Desktop detected, initializing meteorite shower');
     setTimeout(() => {
-      initMouseFollower();
+      initMeteoriteShower();
     }, 1000);
   } else {
-    console.log('📱 Mobile detected, skipping mouse follower');
+    console.log('📱 Mobile detected, skipping meteorite shower');
   }
 });
 
 // Test function
-window.testMouseFollower = function() {
-  console.log('🧪 Testing mouse follower...');
-  if (heroProfile) {
-    const rect = heroProfile.getBoundingClientRect();
-    createFollowerStar(rect.width / 2, rect.height / 2);
+window.testMeteoriteShower = function() {
+  console.log('🧪 Testing meteorite shower...');
+  if (starsContainer && heroSection) {
+    const rect = heroSection.getBoundingClientRect();
+    createMeteorite(rect.width / 2, rect.height / 2, 'main');
   }
 };
