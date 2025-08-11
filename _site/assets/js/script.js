@@ -819,89 +819,87 @@ window.addEventListener('load', function() {
     }, 500);
   }
 });
-// Ultra Simple Meteorite Test - Direct Implementation
-console.log('🚀 Loading meteorite script...');
+// Direct Meteorite Implementation - No delays, no conditions
+console.log('🚀 STARTING DIRECT METEORITE SCRIPT');
 
-function createTestMeteorite(x, y) {
-  console.log('🌟 Creating test meteorite at:', x, y);
+// Function to create meteorite immediately
+function createDirectMeteorite(x, y) {
+  console.log('🌟 CREATING METEORITE AT:', x, y);
   
-  // Find container
   const container = document.querySelector('.shooting-stars-container');
+  console.log('📦 CONTAINER FOUND:', container);
+  
   if (!container) {
-    console.log('❌ Container not found!');
+    console.log('❌ NO CONTAINER - ABORTING');
     return;
   }
   
-  console.log('✅ Container found:', container);
-  
-  // Create meteorite element
+  // Create meteorite with direct styles
   const meteorite = document.createElement('div');
-  meteorite.style.position = 'absolute';
-  meteorite.style.left = x + 'px';
-  meteorite.style.top = y + 'px';
-  meteorite.style.width = '20px';
-  meteorite.style.height = '20px';
-  meteorite.style.backgroundColor = 'orange';
-  meteorite.style.borderRadius = '50%';
-  meteorite.style.boxShadow = '0 0 20px orange';
-  meteorite.style.zIndex = '100';
-  meteorite.style.pointerEvents = 'none';
+  meteorite.innerHTML = '🔥'; // Use emoji for visibility
+  meteorite.style.cssText = `
+    position: absolute;
+    left: ${x}px;
+    top: ${y}px;
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border: 3px solid orange;
+    border-radius: 50%;
+    font-size: 20px;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 0 20px yellow;
+  `;
   
-  // Add to container
   container.appendChild(meteorite);
-  console.log('✅ Meteorite added to container');
+  console.log('✅ METEORITE ADDED TO DOM');
   
-  // Remove after 2 seconds
+  // Remove after 3 seconds
   setTimeout(() => {
     if (meteorite.parentNode) {
       meteorite.parentNode.removeChild(meteorite);
-      console.log('🗑️ Meteorite removed');
+      console.log('🗑️ METEORITE REMOVED');
     }
-  }, 2000);
+  }, 3000);
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('📄 DOM loaded - setting up meteorites');
+// Test immediately when script loads
+console.log('🧪 CREATING TEST METEORITE IMMEDIATELY');
+setTimeout(() => {
+  createDirectMeteorite(150, 100);
+}, 100);
+
+// Set up mouse events immediately
+console.log('🖱️ SETTING UP MOUSE EVENTS');
+document.addEventListener('mousemove', function(e) {
+  const heroSection = document.querySelector('.hero-section');
+  if (!heroSection) return;
   
-  setTimeout(() => {
-    const heroSection = document.querySelector('.hero-section');
-    const container = document.querySelector('.shooting-stars-container');
-    
-    console.log('Hero section found:', !!heroSection);
-    console.log('Container found:', !!container);
-    
-    if (heroSection && container) {
-      console.log('✅ Both elements found - setting up mouse events');
-      
-      heroSection.addEventListener('mousemove', function(e) {
-        const rect = heroSection.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        // Throttle to avoid too many meteorites
-        if (Math.random() > 0.8) { // Only 20% chance per mouse move
-          createTestMeteorite(x, y);
-        }
-      });
-      
-      console.log('🎯 Mouse events set up - move mouse over hero section');
-    } else {
-      console.log('❌ Missing elements - cannot set up meteorites');
+  const rect = heroSection.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+  
+  // Check if mouse is over hero section
+  if (mouseX >= 0 && mouseX <= rect.width && mouseY >= 0 && mouseY <= rect.height) {
+    // Only create meteorite 10% of the time to avoid spam
+    if (Math.random() < 0.1) {
+      console.log('🖱️ MOUSE OVER HERO - CREATING METEORITE');
+      createDirectMeteorite(mouseX, mouseY);
     }
-  }, 2000); // Wait 2 seconds for everything to load
+  }
 });
 
 // Manual test function
-window.testMeteorite = function() {
-  console.log('🧪 Manual test triggered');
-  createTestMeteorite(100, 100);
+window.createTestMeteorite = function() {
+  console.log('🧪 MANUAL TEST TRIGGERED');
+  createDirectMeteorite(200, 150);
 };
 
-// Auto test after 3 seconds
-setTimeout(() => {
-  console.log('🔄 Running auto test...');
-  createTestMeteorite(200, 150);
-}, 3000);
+// Create test meteorites every 2 seconds for testing
+setInterval(() => {
+  console.log('⏰ INTERVAL TEST');
+  createDirectMeteorite(Math.random() * 300, Math.random() * 200);
+}, 2000);
 
-console.log('🚀 Meteorite script loaded');
+console.log('🚀 DIRECT METEORITE SCRIPT LOADED');
