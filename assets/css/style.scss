@@ -2645,8 +2645,8 @@ body {
   pointer-events: none;
   overflow: visible; /* Changed from hidden to visible */
   z-index: 5;
-  background: rgba(255, 0, 0, 0.2); /* More visible debug background */
-  border: 2px solid red; /* Debug border */
+  background: rgba(0, 0, 0, 0.3); /* Changed from red to black */
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Changed from red to black */
 }
 
 /* Debug info - more visible */
@@ -2657,7 +2657,7 @@ body {
   left: 20px;
   color: white;
   font-size: 14px;
-  background: rgba(255, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8); /* Changed from red to black */
   padding: 10px;
   border-radius: 5px;
   pointer-events: none;
