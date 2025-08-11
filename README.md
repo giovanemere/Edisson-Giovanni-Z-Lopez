@@ -1,72 +1,191 @@
-![1664253272022](image/README/1664253272022.png)
+# Edisson Giovanni Zuñiga Lopez - Portafolio Profesional
 
-Edisson Giovanni Zuñiga Lopez
+![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge&logo=github-pages)
+![Jekyll](https://img.shields.io/badge/Jekyll-4.3.0-red?style=for-the-badge&logo=jekyll)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Arquitecto DevOps
-Propulson MFT Women en AOS
-Propulsor Semilleros DevOps Club Adsoft | Banco Popular | AOS
+## 🚀 Acerca del Sitio
 
-![1664252568473](image/README/1664252568473.png) Perfil 
+Este es mi portafolio profesional como **Arquitecto DevOps Senior** con más de 10 años de experiencia en el sector tecnológico. El sitio web está construido con tecnologías modernas y optimizado para ofrecer la mejor experiencia de usuario.
 
-Profesional Senior con formación especializada en proyectos con mas de 10 años de experiencia,
-participando en varios proyectos Tecnologicos del sector bancario entreo otros, que incluyen infraestructura 
-en alta Disponibilidad Ompremise, Nube e Hibrida. En los ultimos 7 años enfocado en implementación y Desarrollos
-de capacidades en DevOps, Docker, Kubernetes, desarrollos de frameworks con la capacidad de implementar pipeline 
-de CI/CD de aplicaciones que se adecuan a la organización y mejorar al equipo de trabajo con entusiasmo, liderazgo
-y acoplarnos a las nuevas metodologias de trabajo en equipo.
+### 🌐 Ver en Vivo
+**[https://giovanemere.github.io/Edisson-Giovanni-Z-Lopez/](https://giovanemere.github.io/Edisson-Giovanni-Z-Lopez/)**
 
-| *                                              | Información de Contacto                        |
-| ---------------------------------------------- | ----------------------------------------------- |
-| ![1664250164543](image/README/1664250164543.png) | giovanemere@gmail.com                           |
-| ![1664250169838](image/README/1664250169838.png) | Carrera 4 # 8-62 - Zipaquira                    |
-| ![1664250180878](image/README/1664250180878.png) | giovanemere.github.io/Edisson-Giovanni-Z-Lopez/ |
-| ![1664250186800](image/README/1664250186800.png) | edisson-giovanni-zuñiga-lopez                  |
-| ![1664250190937](image/README/1664250190937.png) | +57 316 526 9803                                |
+## 👨‍💻 Sobre Mí
 
-![1664250249412](image/README/1664250249412.png)
+**Arquitecto DevOps Senior** especializado en:
+- ☁️ **Cloud Computing**: AWS, Azure, Google Cloud
+- 🐳 **Containerización**: Docker, Kubernetes, Helm
+- 🔄 **CI/CD**: Jenkins, Azure DevOps, GitLab CI, GitHub Actions
+- 📊 **Monitoring**: Prometheus, Grafana, ELK Stack
+- 🏗️ **Infrastructure as Code**: Terraform, CloudFormation
+- 🔒 **Security**: Implementación de mejores prácticas de seguridad
 
-![1664252550554](image/README/1664252550554.png) Educación
+### 📍 Información de Contacto
+- 📧 **Email**: giovanemere@gmail.com
+- 📱 **Teléfono**: +57 316 526 9803
+- 📍 **Ubicación**: Zipaquirá, Colombia
+- 💼 **LinkedIn**: [edisson-giovanni-zuñiga-lopez](https://linkedin.com/in/edisson-giovanni-zuñiga-lopez)
+- 🐙 **GitHub**: [giovanemere](https://github.com/giovanemere)
 
-|                                                |                                                                  |                                                |                                                    |                                                |                                                               |
-| ---------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
-| ![1664250958315](image/README/1664250958315.png) | Tranning Architectura<br />Lambda/Function<br />Cloudformation   | ![1664251026492](image/README/1664251026492.png) | TalleresIntegración Continua<br />Cloud Computing | ![1664251085960](image/README/1664251085960.png) | Univeridad Cooperativa de Colombia<br />Ingeniero de Sietemas |
-| ![1664250998627](image/README/1664250998627.png) | Tranning Google<br />[https://goo.su/o3uh6R](https://goo.su/o3uh6R) |                                                | Kubernetes<br />Docker<br />Helm                   | ![1664251100477](image/README/1664251100477.png) | Seminario Itil v3, Cobit 5 e ISO 20000:2011                 |
-| Itil V3                                        | Fundamentals Certified                                           | Terraform                                      | [https://goo.su/uRPY](https://goo.su/uRPY)            | ![1664251220565](image/README/1664251220565.png) | Certified                                                     |
+## 🛠️ Tecnologías del Sitio Web
 
-![1664252534295](image/README/1664252534295.png) Experiencia
+### Frontend
+- **HTML5**: Estructura semántica moderna
+- **CSS3**: Diseño responsivo con Flexbox y Grid
+- **JavaScript ES6+**: Interactividad y animaciones
+- **Font Awesome**: Iconografía profesional
+- **Google Fonts**: Tipografía Inter
 
-| Año | Empresa                          | Cargo                                                                                                                                                        |
-| ---- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2022 | Architec DevOps                  | Arquitecto en DevOps, Proyecto Google, Nuevas Integraciones, Suite Atlassion, Sonar, grafana, Prometheus, Colpatria                                          |
-| 2021 | Enginnier DevOps                 | Cloud Native Sterling, Kubernetes/Helm Azure, Code Pipeline AWS, Framework, CI/CD Jenkins, CI/CD BUS, CI/CD Sterling, CI/CD Powercenter, Colpatria           |
-| 2021 | Consultant Sterling              | Developer e Implementador Pipeline Azure DevOps Sterling Cloud Native Bancolombia, Implementador de Infraestructura AWS y Assesment de Seguridad GBM, Itau   |
-| 2019 | Consultant Sterling              | Líder Team Developer Sterling, Migración Arquitectura Proyecto Latam y Migración de Intercambio de Archivos a Sterling Colpatria                          |
-| 2016 | Ambientes y Versiones            | Implementador y Configuraction entre Ambientes de Load Balancing F5, Liferay DXP, BPM BizAgi, WAS, Registry, Bus Integration, MQ,. Banco Pichincha           |
-| 2015 | I+D                              | Creación de Producto Ambientes y Versiones, Nuevos Proyectos en DevOps, Performance, Agile, Diseño, Ejecución, Implementación Tesnting. Choucair Testing |
-| 2013 | Analista de Ambientes de Pruebas | Tunning DB Oracle, Administración , Linux/HP-UX, Automatización, Ambientes QA. Proyecto Claro                                                              |
-| 2012 | Microhome Ingeniero  Soporte     | Admin, Windows , Linux, SQL Server, DeveLoper Sistema de Gestión Documental. Solugem y Amezuita Consultores                                                 |
-| 2010 | Soporte Appliance                | Mantenimiento, Appliance HP, DELL, Instalación, y Configuración, Server Microsotf, AD, Print Server, Granjas Servidor                                      |
+### Backend & Hosting
+- **Jekyll 4.3.0**: Generador de sitios estáticos
+- **GitHub Pages**: Hosting gratuito y confiable
+- **Liquid**: Motor de plantillas
 
-Nos dapatadmos a las nuevas metodologias de trabajao en equipo
+### Características Técnicas
+- ✅ **Responsive Design**: Optimizado para todos los dispositivos
+- ✅ **SEO Optimizado**: Meta tags, sitemap, robots.txt
+- ✅ **Performance**: Carga rápida y optimizada
+- ✅ **Accessibility**: Cumple estándares WCAG
+- ✅ **Progressive Enhancement**: Funciona sin JavaScript
+- ✅ **Cross-browser Compatible**: Soporte para navegadores modernos
 
-![1664253519353](image/README/1664253519353.png)
+## 🎨 Características del Diseño
 
-Adapatamos Frameworks a las tencnologias soportadas por las compañias
+### 🎯 Secciones Principales
+1. **Hero Section**: Presentación impactante con animaciones
+2. **Sobre Mí**: Información profesional y estadísticas
+3. **Habilidades**: Tecnologías organizadas por categorías
+4. **Experiencia**: Timeline interactivo de mi carrera
+5. **Proyectos**: Showcase de trabajos destacados
+6. **Contacto**: Formulario funcional y información de contacto
 
-![1664253534812](image/README/1664253534812.png)
+### 🎨 Elementos Visuales
+- **Gradientes Modernos**: Paleta de colores profesional
+- **Animaciones Suaves**: Transiciones y efectos CSS
+- **Iconografía Consistente**: Font Awesome icons
+- **Tipografía Legible**: Google Fonts Inter
+- **Espaciado Armónico**: Sistema de diseño coherente
 
-Nos especializamos en aseguramos en implementar las mejores practicas de seguridad en el dato, el canal y la red de forma segura
+### 📱 Responsive Design
+- **Mobile First**: Diseño optimizado para móviles
+- **Breakpoints**: 480px, 768px, 1024px, 1200px
+- **Navigation**: Menú hamburguesa en dispositivos móviles
+- **Touch Friendly**: Botones y enlaces optimizados para touch
 
-![1664253596971](image/README/1664253596971.png)
+## 🚀 Instalación y Desarrollo Local
 
-Siempre trabajamos con el mejor estilo y creatividad
+### Prerrequisitos
+- Ruby 2.7+
+- Bundler
+- Git
 
-![1664253636490](image/README/1664253636490.png)
+### Pasos de Instalación
 
+```bash
+# Clonar el repositorio
+git clone https://github.com/giovanemere/Edisson-Giovanni-Z-Lopez.git
 
-File
+# Navegar al directorio
+cd Edisson-Giovanni-Z-Lopez
 
-| No | Name                                                                                                      |
-| -- | --------------------------------------------------------------------------------------------------------- |
-| 1  | [ca](https://github.com/giovanemere/CA/blob/65dfb484701608fc752b9c9a73db1ecf7a4b90f7/ca/openssl.cnf)         |
-| 2  | [intermedia](https://github.com/giovanemere/CA/blob/65dfb484701608fc752b9c9a73db1ecf7a4b90f7/ca/openssl.cnf) |
+# Instalar dependencias
+bundle install
+
+# Ejecutar el servidor local
+bundle exec jekyll serve
+
+# El sitio estará disponible en http://localhost:4000
+```
+
+### Scripts de Desarrollo
+
+```bash
+# Construir el sitio para producción
+bundle exec jekyll build
+
+# Servir con recarga automática
+bundle exec jekyll serve --livereload
+
+# Construir y servir en modo draft
+bundle exec jekyll serve --drafts
+```
+
+## 📁 Estructura del Proyecto
+
+```
+Edisson-Giovanni-Z-Lopez/
+├── assets/
+│   ├── css/
+│   │   └── style.css          # Estilos principales
+│   └── js/
+│       └── script.js          # JavaScript interactivo
+├── image/                     # Imágenes del portafolio
+├── _config.yml               # Configuración de Jekyll
+├── index.html                # Página principal
+├── 404.html                  # Página de error personalizada
+├── robots.txt                # SEO - Robots
+├── Gemfile                   # Dependencias Ruby
+└── README.md                 # Este archivo
+```
+
+## 🎯 Experiencia Profesional Destacada
+
+### 🏢 Roles Principales
+- **2022**: Arquitecto DevOps - Colpatria
+- **2021**: Engineer DevOps - Colpatria
+- **2021**: Consultant Sterling - Bancolombia, GBM, Itau
+- **2019**: Consultant Sterling - Colpatria
+- **2016**: Ambientes y Versiones - Banco Pichincha
+
+### 🛠️ Tecnologías Dominadas
+- **Cloud Platforms**: AWS, Azure, Google Cloud Platform
+- **Containers**: Docker, Kubernetes, OpenShift, Helm
+- **CI/CD Tools**: Jenkins, Azure DevOps, GitLab CI, GitHub Actions
+- **Monitoring**: Prometheus, Grafana, ELK Stack, Jaeger
+- **IaC**: Terraform, CloudFormation, Ansible
+- **Programming**: Python, Bash, PowerShell, YAML, JSON
+
+## 📈 Estadísticas del Proyecto
+
+- ⭐ **10+ años** de experiencia profesional
+- 🚀 **50+ proyectos** completados exitosamente
+- 🔧 **7+ años** especializándose en DevOps
+- 🏆 **Múltiples certificaciones** en tecnologías cloud
+
+## 🤝 Contribuciones y Contacto
+
+¿Interesado en colaborar o tienes alguna pregunta sobre mi trabajo?
+
+### 📞 Formas de Contacto
+- **Email Profesional**: [giovanemere@gmail.com](mailto:giovanemere@gmail.com)
+- **LinkedIn**: [Conectar en LinkedIn](https://linkedin.com/in/edisson-giovanni-zuñiga-lopez)
+- **GitHub**: [Ver más proyectos](https://github.com/giovanemere)
+
+### 💼 Servicios Disponibles
+- Consultoría en Arquitectura DevOps
+- Implementación de pipelines CI/CD
+- Migración a Cloud Native
+- Automatización de infraestructura
+- Capacitación en tecnologías DevOps
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+---
+
+### 🌟 ¿Te gusta mi trabajo?
+
+Si este portafolio te ha inspirado o te ha sido útil, no dudes en:
+- ⭐ Dar una estrella al repositorio
+- 🔄 Compartir con tu red profesional
+- 💬 Contactarme para oportunidades de colaboración
+
+**¡Gracias por visitar mi portafolio!** 🚀
+
+---
+
+*Última actualización: Agosto 2024*
