@@ -13,8 +13,11 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-paginate"
   gem "jekyll-gist"
-  gem "jekyll-github-metadata"
+  # gem "jekyll-github-metadata"  # Comentado temporalmente por problemas de conectividad
 end
+
+# Faraday retry middleware
+gem "faraday-retry"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
