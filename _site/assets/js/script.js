@@ -101,12 +101,14 @@ if (hamburger && navMenu) {
 }
 
 // Close mobile menu when clicking on a link (with null check)
-const navLinks = document.querySelectorAll('.nav-link');
-if (navLinks.length > 0 && hamburger && navMenu) {
-  navLinks.forEach(n => n.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-  }));
+if (hamburger && navMenu) {
+  const navLinksForMenu = document.querySelectorAll('.nav-link');
+  if (navLinksForMenu.length > 0) {
+    navLinksForMenu.forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+  }
 } else {
   console.log('⚠️ Nav links or menu elements not found, skipping nav link setup');
 }
