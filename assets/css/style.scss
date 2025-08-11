@@ -791,8 +791,183 @@ body {
 }
 
 /* ========================================
-   UTILIDADES RESPONSIVE
+   FORMULARIO DE CONTACTO
 ======================================== */
+.contact-form {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-8);
+  margin: var(--space-8) 0;
+  border: 1px solid var(--gray-100);
+  
+  .form-group {
+    margin-bottom: var(--space-6);
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: var(--space-2);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--space-2);
+      font-size: var(--space-4);
+      font-family: var(--font-sans);
+      transition: var(--transition-all);
+      background: var(--gray-50);
+      
+      &:focus {
+        outline: none;
+        border-color: var(--primary-500);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+      
+      &::placeholder {
+        color: var(--gray-400);
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .form-error {
+      color: var(--error-color);
+      font-size: 0.75rem;
+      margin-top: var(--space-1);
+      display: none;
+    }
+    
+    &.error {
+      input,
+      textarea,
+      select {
+        border-color: var(--error-color);
+        background: #fef2f2;
+      }
+      
+      .form-error {
+        display: block;
+      }
+    }
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    
+    @media (min-width: 640px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .form-submit {
+    text-align: center;
+    margin-top: var(--space-8);
+    
+    .btn-submit {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--space-2);
+      font-size: var(--space-4);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-all);
+      position: relative;
+      overflow: hidden;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .btn-text {
+        transition: var(--transition-all);
+      }
+      
+      .btn-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: var(--transition-all);
+      }
+      
+      &.loading {
+        .btn-text {
+          opacity: 0;
+        }
+        
+        .btn-loading {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  
+  .form-success,
+  .form-error-message {
+    padding: var(--space-4);
+    border-radius: var(--space-2);
+    margin-top: var(--space-4);
+    text-align: center;
+    font-weight: 500;
+    display: none;
+    
+    &.show {
+      display: block;
+    }
+  }
+  
+  .form-success {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  
+  .form-error-message {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+}
+
+/* Spinner de carga */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 @media (max-width: 640px) {
   .hero-stats {
     grid-template-columns: 1fr;

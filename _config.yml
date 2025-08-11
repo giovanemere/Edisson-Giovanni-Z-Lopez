@@ -10,7 +10,7 @@ author:
   email: "giovanemere@gmail.com"
   bio: "Arquitecto DevOps Senior especializado en infraestructura cloud, CI/CD, Docker, Kubernetes y metodologías ágiles."
   location: "Zipaquirá, Colombia"
-  linkedin: "edisson-giovanni-zuñiga-lopez"
+  linkedin: "edissonzuniga"
   github: "giovanemere"
 
 # Build settings
@@ -36,7 +36,7 @@ social:
   name: Edisson Giovanni Zuñiga Lopez
   links:
     - https://github.com/giovanemere
-    - https://linkedin.com/in/edisson-giovanni-zuñiga-lopez
+    - https://www.linkedin.com/in/edissonzuniga/
 
 # Google Analytics (uncomment and add your tracking ID)
 # google_analytics: UA-XXXXXXXXX-X

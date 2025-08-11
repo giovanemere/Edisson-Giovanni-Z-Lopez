@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Edisson Giovanni Zuñiga Lopez - Arquitecto DevOps" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Edisson Giovanni Zuñiga Lopez"},"description":"Arquitecto DevOps Senior con más de 10 años de experiencia en infraestructura, CI/CD, Docker, Kubernetes y metodologías ágiles.","headline":"Edisson Giovanni Zuñiga Lopez - Arquitecto DevOps","name":"Edisson Giovanni Zuñiga Lopez","sameAs":["https://github.com/giovanemere","https://linkedin.com/in/edisson-giovanni-zuñiga-lopez"],"url":"https://giovanemere.github.io/Edisson-Giovanni-Z-Lopez/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Edisson Giovanni Zuñiga Lopez"},"description":"Arquitecto DevOps Senior con más de 10 años de experiencia en infraestructura, CI/CD, Docker, Kubernetes y metodologías ágiles.","headline":"Edisson Giovanni Zuñiga Lopez - Arquitecto DevOps","name":"Edisson Giovanni Zuñiga Lopez","sameAs":["https://github.com/giovanemere","https://www.linkedin.com/in/edissonzuniga/"],"url":"https://giovanemere.github.io/Edisson-Giovanni-Z-Lopez/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -80,8 +80,8 @@
     </div>
     
     <div class="hero-cta">
-      <a href="mailto:giovanemere@gmail.com" class="btn">📧 Contactar</a>
-      <a href="https://linkedin.com/in/edisson-giovanni-zuñiga-lopez" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
+      <a href="#contact-form" class="btn">📧 Contactar</a>
+      <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
     </div>
   </div>
   
@@ -122,7 +122,7 @@
           <div class="contact-info">
             <div class="contact-label">LinkedIn</div>
             <div class="contact-value">
-              <a href="https://linkedin.com/in/edisson-giovanni-zuñiga-lopez" target="_blank">edisson-giovanni-zuñiga-lopez</a>
+              <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank">edissonzuniga</a>
             </div>
           </div>
         </div>
@@ -596,6 +596,86 @@
   </div>
 </div>
 
+<div class="section" id="contact-form">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">📬 Formulario de Contacto</h2>
+      <p class="section-subtitle">Envíame un mensaje y te responderé lo antes posible</p>
+    </div>
+    
+    <div class="contact-form">
+      <form id="contact-form" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nombre Completo *</label>
+            <input type="text" id="name" name="name" required="" placeholder="Tu nombre completo" />
+            <div class="form-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required="" placeholder="tu@email.com" />
+            <div class="form-error"></div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Empresa/Organización</label>
+            <input type="text" id="company" name="company" placeholder="Nombre de tu empresa (opcional)" />
+            <div class="form-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Asunto *</label>
+            <select id="subject" name="subject" required="">
+              <option value="">Selecciona un asunto</option>
+              <option value="consultoria">Consultoría DevOps</option>
+              <option value="proyecto">Propuesta de Proyecto</option>
+              <option value="mentoria">Mentoría Técnica</option>
+              <option value="colaboracion">Oportunidad de Colaboración</option>
+              <option value="empleo">Oportunidad Laboral</option>
+              <option value="otro">Otro</option>
+            </select>
+            <div class="form-error"></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Mensaje *</label>
+          <textarea id="message" name="message" required="" placeholder="Cuéntame sobre tu proyecto, necesidades o cómo puedo ayudarte..."></textarea>
+          <div class="form-error"></div>
+        </div>
+        
+        <div class="form-submit">
+          <button type="submit" id="submit-btn" class="btn-submit">
+            <span class="btn-text">🚀 Enviar Mensaje</span>
+            <span class="btn-loading">
+              <div class="spinner"></div>
+            </span>
+          </button>
+        </div>
+        
+        <div id="form-success" class="form-success">
+          ¡Mensaje enviado exitosamente! Te contactaré pronto.
+        </div>
+        
+        <div id="form-error" class="form-error-message">
+          Hubo un error al enviar el mensaje. Por favor intenta nuevamente.
+        </div>
+      </form>
+      
+      <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--gray-200);">
+        <p style="color: var(--gray-500); font-size: 0.875rem;">
+          💡 <strong>Respuesta rápida:</strong> También puedes contactarme directamente por 
+          <a href="mailto:giovanemere@gmail.com" style="color: var(--primary-600);">email</a> o 
+          <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank" style="color: var(--primary-600);">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="section">
   <div class="container">
     <div class="text-center">
@@ -605,8 +685,8 @@
       </div>
       
       <div class="hero-cta mb-4">
-        <a href="mailto:giovanemere@gmail.com" class="btn">📧 Contactar por Email</a>
-        <a href="https://linkedin.com/in/edisson-giovanni-zuñiga-lopez" target="_blank" class="btn btn-outline">💼 Ver LinkedIn</a>
+        <a href="#contact-form" class="btn">📧 Contactar por Email</a>
+        <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank" class="btn btn-outline">💼 Ver LinkedIn</a>
         <a href="https://github.com/giovanemere" target="_blank" class="btn">🐙 Ver GitHub</a>
       </div>
       
@@ -617,6 +697,9 @@
     </div>
   </div>
 </div>
+
+<script src="/Edisson-Giovanni-Z-Lopez/assets/js/contact-form.js"></script>
+
 
         </section>
 
