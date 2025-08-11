@@ -1,66 +1,68 @@
-// METEORITE SHOWER IN HERO-CONTENT AREA
-console.log('☄️ METEORITE SHOWER SCRIPT STARTING');
+// WHITE BRIGHT METEORITE SHOWER FOLLOWING MOUSE CLOSELY
+console.log('⚪ WHITE METEORITE SHOWER SCRIPT STARTING');
 
 function createMeteoriteShower(x, y) {
-  console.log('☄️ Creating meteorite shower at:', x, y);
+  console.log('⚪ Creating white meteorite shower at:', x, y);
   
-  // Create multiple small meteorites
-  const meteoriteCount = Math.floor(Math.random() * 5) + 3; // 3-7 meteorites
+  // Create fewer meteorites (2-4) but more responsive
+  const meteoriteCount = Math.floor(Math.random() * 3) + 2; // 2-4 meteorites
   
   for (let i = 0; i < meteoriteCount; i++) {
     setTimeout(() => {
       createSingleMeteorite(x, y, i);
-    }, i * 50); // Staggered timing
+    }, i * 30); // Faster staggered timing
   }
 }
 
 function createSingleMeteorite(baseX, baseY, index) {
-  // Random offset for each meteorite
-  const offsetX = (Math.random() - 0.5) * 60;
-  const offsetY = (Math.random() - 0.5) * 60;
+  // Smaller random offset for closer following
+  const offsetX = (Math.random() - 0.5) * 20; // Reduced from 60 to 20
+  const offsetY = (Math.random() - 0.5) * 20; // Reduced from 60 to 20
   const x = baseX + offsetX;
   const y = baseY + offsetY;
   
   // Create meteorite element
   const meteorite = document.createElement('div');
-  meteorite.innerHTML = '🔥';
+  meteorite.innerHTML = '⚪';
   meteorite.style.cssText = `
     position: absolute !important;
     left: ${x}px !important;
     top: ${y}px !important;
-    width: 8px !important;
-    height: 8px !important;
-    font-size: 8px !important;
+    width: 4px !important;
+    height: 4px !important;
+    font-size: 4px !important;
+    color: #ffffff !important;
     z-index: 10 !important;
     pointer-events: none !important;
-    filter: brightness(2) saturate(1.5) !important;
+    filter: brightness(3) saturate(0) !important;
     text-shadow: 
-      0 0 5px #ff6b00,
-      0 0 10px #ff4500,
-      0 0 15px #ff0000 !important;
-    animation: meteoriteAnim${index % 3} 1.2s ease-out forwards !important;
+      0 0 3px #ffffff,
+      0 0 6px #ffffff,
+      0 0 9px #ffffff,
+      0 0 12px #ffffff !important;
+    animation: whiteMeteoriteAnim${index % 3} 0.8s ease-out forwards !important;
   `;
   
-  // Create bright trail
+  // Create bright white trail
   const trail = document.createElement('div');
-  const trailLength = Math.random() * 20 + 15; // 15-35px
+  const trailLength = Math.random() * 8 + 6; // 6-14px (much smaller)
   trail.style.cssText = `
     position: absolute !important;
-    left: ${x + 4}px !important;
-    top: ${y + 4}px !important;
+    left: ${x + 2}px !important;
+    top: ${y + 2}px !important;
     width: ${trailLength}px !important;
     height: 1px !important;
     background: linear-gradient(90deg, 
       rgba(255, 255, 255, 1) 0%,
-      rgba(255, 200, 0, 0.9) 20%,
-      rgba(255, 100, 0, 0.7) 50%,
-      rgba(255, 50, 0, 0.5) 80%,
-      rgba(200, 0, 0, 0) 100%
+      rgba(255, 255, 255, 0.8) 30%,
+      rgba(255, 255, 255, 0.5) 60%,
+      rgba(255, 255, 255, 0.2) 80%,
+      rgba(255, 255, 255, 0) 100%
     ) !important;
     z-index: 9 !important;
     pointer-events: none !important;
-    box-shadow: 0 0 8px rgba(255, 100, 0, 0.8) !important;
-    animation: trailAnim${index % 3} 1.2s ease-out forwards !important;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8) !important;
+    animation: whiteTrailAnim${index % 3} 0.8s ease-out forwards !important;
   `;
   
   // Find hero-content container
@@ -69,160 +71,160 @@ function createSingleMeteorite(baseX, baseY, index) {
     heroContent.appendChild(meteorite);
     heroContent.appendChild(trail);
     
-    // Remove after animation
+    // Remove after animation (shorter duration)
     setTimeout(() => {
       if (meteorite.parentNode) meteorite.parentNode.removeChild(meteorite);
       if (trail.parentNode) trail.parentNode.removeChild(trail);
-    }, 1200);
+    }, 800);
   }
 }
 
-// Add meteorite animations with variations
+// Add white meteorite animations (faster and shorter)
 const meteoriteStyle = document.createElement('style');
 meteoriteStyle.textContent = `
-  @keyframes meteoriteAnim0 {
+  @keyframes whiteMeteoriteAnim0 {
     0% {
       opacity: 0;
-      transform: translateX(-15px) translateY(8px) scale(0.3);
-    }
-    15% {
-      opacity: 1;
-      transform: translateX(-5px) translateY(3px) scale(1.2);
-    }
-    85% {
-      opacity: 0.9;
-      transform: translateX(25px) translateY(-15px) scale(0.8);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(45px) translateY(-25px) scale(0.2);
-    }
-  }
-  
-  @keyframes meteoriteAnim1 {
-    0% {
-      opacity: 0;
-      transform: translateX(-20px) translateY(12px) scale(0.2);
+      transform: translateX(-8px) translateY(4px) scale(0.5);
     }
     20% {
       opacity: 1;
-      transform: translateX(-8px) translateY(5px) scale(1.1);
+      transform: translateX(-2px) translateY(1px) scale(1.5);
     }
     80% {
-      opacity: 0.8;
-      transform: translateX(30px) translateY(-18px) scale(0.7);
+      opacity: 0.9;
+      transform: translateX(12px) translateY(-8px) scale(1);
     }
     100% {
       opacity: 0;
-      transform: translateX(55px) translateY(-35px) scale(0.1);
+      transform: translateX(20px) translateY(-12px) scale(0.3);
     }
   }
   
-  @keyframes meteoriteAnim2 {
+  @keyframes whiteMeteoriteAnim1 {
     0% {
       opacity: 0;
-      transform: translateX(-10px) translateY(5px) scale(0.4);
+      transform: translateX(-10px) translateY(6px) scale(0.4);
     }
-    10% {
+    25% {
       opacity: 1;
-      transform: translateX(-2px) translateY(1px) scale(1.3);
+      transform: translateX(-3px) translateY(2px) scale(1.4);
     }
-    90% {
+    75% {
+      opacity: 0.8;
+      transform: translateX(15px) translateY(-10px) scale(0.9);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(25px) translateY(-15px) scale(0.2);
+    }
+  }
+  
+  @keyframes whiteMeteoriteAnim2 {
+    0% {
+      opacity: 0;
+      transform: translateX(-6px) translateY(3px) scale(0.6);
+    }
+    15% {
+      opacity: 1;
+      transform: translateX(-1px) translateY(0px) scale(1.6);
+    }
+    85% {
       opacity: 0.7;
-      transform: translateX(35px) translateY(-20px) scale(0.6);
+      transform: translateX(18px) translateY(-12px) scale(0.8);
     }
     100% {
       opacity: 0;
-      transform: translateX(50px) translateY(-30px) scale(0.1);
+      transform: translateX(22px) translateY(-16px) scale(0.1);
     }
   }
   
-  @keyframes trailAnim0 {
+  @keyframes whiteTrailAnim0 {
     0% {
       opacity: 0;
       width: 0px;
-      transform: translateX(-15px) translateY(8px);
-    }
-    15% {
-      opacity: 0.9;
-      transform: translateX(-5px) translateY(3px);
-    }
-    85% {
-      opacity: 0.5;
-      transform: translateX(25px) translateY(-15px);
-    }
-    100% {
-      opacity: 0;
-      width: 8px;
-      transform: translateX(45px) translateY(-25px);
-    }
-  }
-  
-  @keyframes trailAnim1 {
-    0% {
-      opacity: 0;
-      width: 0px;
-      transform: translateX(-20px) translateY(12px);
+      transform: translateX(-8px) translateY(4px);
     }
     20% {
-      opacity: 0.8;
-      transform: translateX(-8px) translateY(5px);
-    }
-    80% {
-      opacity: 0.4;
-      transform: translateX(30px) translateY(-18px);
-    }
-    100% {
-      opacity: 0;
-      width: 6px;
-      transform: translateX(55px) translateY(-35px);
-    }
-  }
-  
-  @keyframes trailAnim2 {
-    0% {
-      opacity: 0;
-      width: 0px;
-      transform: translateX(-10px) translateY(5px);
-    }
-    10% {
       opacity: 1;
       transform: translateX(-2px) translateY(1px);
     }
-    90% {
+    80% {
       opacity: 0.6;
-      transform: translateX(35px) translateY(-20px);
+      transform: translateX(12px) translateY(-8px);
     }
     100% {
       opacity: 0;
-      width: 10px;
-      transform: translateX(50px) translateY(-30px);
+      width: 3px;
+      transform: translateX(20px) translateY(-12px);
+    }
+  }
+  
+  @keyframes whiteTrailAnim1 {
+    0% {
+      opacity: 0;
+      width: 0px;
+      transform: translateX(-10px) translateY(6px);
+    }
+    25% {
+      opacity: 0.9;
+      transform: translateX(-3px) translateY(2px);
+    }
+    75% {
+      opacity: 0.5;
+      transform: translateX(15px) translateY(-10px);
+    }
+    100% {
+      opacity: 0;
+      width: 4px;
+      transform: translateX(25px) translateY(-15px);
+    }
+  }
+  
+  @keyframes whiteTrailAnim2 {
+    0% {
+      opacity: 0;
+      width: 0px;
+      transform: translateX(-6px) translateY(3px);
+    }
+    15% {
+      opacity: 1;
+      transform: translateX(-1px) translateY(0px);
+    }
+    85% {
+      opacity: 0.7;
+      transform: translateX(18px) translateY(-12px);
+    }
+    100% {
+      opacity: 0;
+      width: 5px;
+      transform: translateX(22px) translateY(-16px);
     }
   }
 `;
 document.head.appendChild(meteoriteStyle);
 
-// Create meteorite showers when mouse is over hero-content
+// Create meteorite showers with higher frequency for closer following
 let heroContentActive = false;
 
 document.addEventListener('DOMContentLoaded', function() {
   const heroContent = document.querySelector('.hero-content');
   
   if (heroContent) {
-    console.log('✅ Hero-content found, setting up meteorite shower');
+    console.log('✅ Hero-content found, setting up white meteorite shower');
     
     // Mouse enter/leave events for hero-content
     heroContent.addEventListener('mouseenter', function() {
       heroContentActive = true;
-      console.log('☄️ Mouse entered hero-content - meteorite shower activated');
+      console.log('⚪ Mouse entered hero-content - white meteorite shower activated');
     });
     
     heroContent.addEventListener('mouseleave', function() {
       heroContentActive = false;
-      console.log('☄️ Mouse left hero-content - meteorite shower deactivated');
+      console.log('⚪ Mouse left hero-content - white meteorite shower deactivated');
     });
     
-    // Mouse move event for hero-content
+    // Mouse move event with higher frequency for closer following
     heroContent.addEventListener('mousemove', function(e) {
       if (!heroContentActive) return;
       
@@ -231,22 +233,22 @@ document.addEventListener('DOMContentLoaded', function() {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      // Create meteorite shower with 20% probability
-      if (Math.random() < 0.2) {
+      // Higher probability for closer following (40% vs 20%)
+      if (Math.random() < 0.4) {
         createMeteoriteShower(x, y);
       }
     });
     
-    // Create ambient meteorite showers occasionally
+    // Reduced ambient showers for more mouse-focused experience
     setInterval(() => {
       if (heroContentActive) {
         const rect = heroContent.getBoundingClientRect();
         const randomX = Math.random() * rect.width;
         const randomY = Math.random() * rect.height;
         createMeteoriteShower(randomX, randomY);
-        console.log('🌌 Ambient meteorite shower created');
+        console.log('🌌 Ambient white meteorite shower created');
       }
-    }, 3000); // Every 3 seconds
+    }, 5000); // Every 5 seconds (less frequent)
     
   } else {
     console.log('❌ Hero-content not found');
@@ -254,12 +256,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Manual test function
-window.createTestMeteoriteShower = function() {
-  console.log('🧪 Manual meteorite shower test');
+window.createTestWhiteMeteoriteShower = function() {
+  console.log('🧪 Manual white meteorite shower test');
   createMeteoriteShower(200, 100);
 };
 
-console.log('☄️ METEORITE SHOWER SCRIPT LOADED');
+console.log('⚪ WHITE METEORITE SHOWER SCRIPT LOADED');
 
 // ===== REST OF THE SCRIPT WITH NULL CHECKS =====
 
