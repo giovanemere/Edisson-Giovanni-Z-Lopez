@@ -1,89 +1,169 @@
-// MAXIMUM VISIBILITY METEORITE - APPEARS ABOVE EVERYTHING (PRIORITY)
-console.log('🚀 MAXIMUM VISIBILITY METEORITE SCRIPT STARTING');
+// SHOOTING STARS IN HERO-CONTENT AREA ONLY
+console.log('🌟 SHOOTING STARS SCRIPT STARTING');
 
-function createSuperVisibleMeteorite(x, y) {
-  console.log('🌟 CREATING SUPER VISIBLE METEORITE');
+function createShootingStar(x, y) {
+  console.log('⭐ Creating shooting star at:', x, y);
   
-  // Create meteorite directly in body (not in container)
-  const meteorite = document.createElement('div');
-  meteorite.innerHTML = '🔥 METEORITE 🔥';
-  meteorite.style.cssText = `
-    position: fixed !important;
+  // Create shooting star element
+  const star = document.createElement('div');
+  star.innerHTML = '⭐';
+  star.style.cssText = `
+    position: absolute !important;
     left: ${x}px !important;
     top: ${y}px !important;
-    width: 100px !important;
-    height: 50px !important;
-    background: red !important;
-    color: white !important;
-    border: 5px solid yellow !important;
-    border-radius: 10px !important;
-    font-size: 12px !important;
-    font-weight: bold !important;
-    z-index: 999999 !important;
+    width: 20px !important;
+    height: 20px !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    z-index: 10 !important;
     pointer-events: none !important;
-    text-align: center !important;
-    line-height: 40px !important;
-    box-shadow: 0 0 30px red !important;
-    animation: blink 0.5s infinite !important;
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #667eea !important;
+    animation: shootingStarAnim 1.5s ease-out forwards !important;
   `;
   
-  // Add directly to body
-  document.body.appendChild(meteorite);
-  console.log('✅ SUPER METEORITE ADDED TO BODY');
+  // Add shooting trail
+  const trail = document.createElement('div');
+  trail.style.cssText = `
+    position: absolute !important;
+    left: ${x + 10}px !important;
+    top: ${y + 10}px !important;
+    width: 60px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(0, 212, 255, 0.7) 30%,
+      rgba(102, 126, 234, 0.5) 60%,
+      rgba(255, 255, 255, 0) 100%
+    ) !important;
+    z-index: 9 !important;
+    pointer-events: none !important;
+    border-radius: 1px !important;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6) !important;
+    animation: trailAnim 1.5s ease-out forwards !important;
+  `;
   
-  // Remove after 5 seconds
-  setTimeout(() => {
-    if (meteorite.parentNode) {
-      meteorite.parentNode.removeChild(meteorite);
-      console.log('🗑️ SUPER METEORITE REMOVED');
-    }
-  }, 5000);
+  // Find hero-content container
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) {
+    heroContent.appendChild(star);
+    heroContent.appendChild(trail);
+    console.log('✅ Shooting star added to hero-content');
+    
+    // Remove after animation
+    setTimeout(() => {
+      if (star.parentNode) star.parentNode.removeChild(star);
+      if (trail.parentNode) trail.parentNode.removeChild(trail);
+    }, 1500);
+  } else {
+    console.log('❌ Hero-content not found');
+  }
 }
 
-// Add blinking animation
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes blink {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.1); }
-    100% { opacity: 1; transform: scale(1); }
+// Add shooting star animations
+const starStyle = document.createElement('style');
+starStyle.textContent = `
+  @keyframes shootingStarAnim {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px) translateY(10px) scale(0.5);
+    }
+    20% {
+      opacity: 1;
+      transform: translateX(0px) translateY(0px) scale(1);
+    }
+    80% {
+      opacity: 0.8;
+      transform: translateX(40px) translateY(-20px) scale(0.8);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(80px) translateY(-40px) scale(0.3);
+    }
+  }
+  
+  @keyframes trailAnim {
+    0% {
+      opacity: 0;
+      width: 0px;
+      transform: translateX(-20px) translateY(10px);
+    }
+    20% {
+      opacity: 0.8;
+      width: 60px;
+      transform: translateX(0px) translateY(0px);
+    }
+    80% {
+      opacity: 0.4;
+      width: 40px;
+      transform: translateX(40px) translateY(-20px);
+    }
+    100% {
+      opacity: 0;
+      width: 20px;
+      transform: translateX(80px) translateY(-40px);
+    }
   }
 `;
-document.head.appendChild(style);
+document.head.appendChild(starStyle);
 
-// Create test meteorite immediately
-console.log('🧪 CREATING IMMEDIATE TEST METEORITE');
-createSuperVisibleMeteorite(100, 100);
+// Create shooting stars only when mouse is over hero-content
+let heroContentActive = false;
 
-// Create meteorite every 3 seconds
-setInterval(() => {
-  console.log('⏰ CREATING INTERVAL METEORITE');
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
-  createSuperVisibleMeteorite(x, y);
-}, 3000);
-
-// Mouse move meteorites
-document.addEventListener('mousemove', function(e) {
-  if (Math.random() < 0.05) { // 5% chance
-    console.log('🖱️ CREATING MOUSE METEORITE');
-    createSuperVisibleMeteorite(e.clientX, e.clientY);
+document.addEventListener('DOMContentLoaded', function() {
+  const heroContent = document.querySelector('.hero-content');
+  
+  if (heroContent) {
+    console.log('✅ Hero-content found, setting up shooting stars');
+    
+    // Mouse enter/leave events for hero-content
+    heroContent.addEventListener('mouseenter', function() {
+      heroContentActive = true;
+      console.log('🌟 Mouse entered hero-content - stars activated');
+    });
+    
+    heroContent.addEventListener('mouseleave', function() {
+      heroContentActive = false;
+      console.log('🌟 Mouse left hero-content - stars deactivated');
+    });
+    
+    // Mouse move event for hero-content
+    heroContent.addEventListener('mousemove', function(e) {
+      if (!heroContentActive) return;
+      
+      // Get position relative to hero-content
+      const rect = heroContent.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Create shooting star with 15% probability
+      if (Math.random() < 0.15) {
+        createShootingStar(x, y);
+      }
+    });
+    
+    // Create ambient shooting stars occasionally
+    setInterval(() => {
+      if (heroContentActive) {
+        const rect = heroContent.getBoundingClientRect();
+        const randomX = Math.random() * rect.width;
+        const randomY = Math.random() * rect.height;
+        createShootingStar(randomX, randomY);
+        console.log('🌌 Ambient shooting star created');
+      }
+    }, 4000); // Every 4 seconds
+    
+  } else {
+    console.log('❌ Hero-content not found');
   }
 });
 
-// Manual test
-window.createSuperMeteorite = function() {
-  console.log('🧪 MANUAL SUPER METEORITE');
-  createSuperVisibleMeteorite(200, 200);
+// Manual test function
+window.createTestStar = function() {
+  console.log('🧪 Manual shooting star test');
+  createShootingStar(200, 100);
 };
 
-console.log('🚀 SUPER VISIBLE METEORITE SCRIPT LOADED');
-
-// Also create one after 1 second just in case
-setTimeout(() => {
-  console.log('🔄 BACKUP TEST METEORITE');
-  createSuperVisibleMeteorite(300, 150);
-}, 1000);
+console.log('🌟 SHOOTING STARS SCRIPT LOADED');
 
 // ===== REST OF THE SCRIPT WITH NULL CHECKS =====
 
