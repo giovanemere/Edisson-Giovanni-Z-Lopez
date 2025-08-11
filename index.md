@@ -617,6 +617,14 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
           <a href="mailto:giovanemere@gmail.com" style="color: var(--primary-600);">email</a> o 
           <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank" style="color: var(--primary-600);">LinkedIn</a>
         </p>
+        
+        <div style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 0.5rem;">
+          <p style="color: var(--gray-600); font-size: 0.8rem; margin: 0;">
+            🔧 <strong>Estado del formulario:</strong> Configurado con múltiples métodos de envío<br>
+            📧 <strong>Destino:</strong> giovanemere@gmail.com<br>
+            ⚡ <strong>Respaldo:</strong> Si falla el envío web, se abre tu cliente de email automáticamente
+          </p>
+        </div>
       </div>
     </div>
   </div>
