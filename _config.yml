@@ -1,1 +1,61 @@
-theme: jekyll-theme-architect
+# Site settings
+title: "Edisson Giovanni Zuñiga Lopez - Arquitecto DevOps"
+description: "Arquitecto DevOps Senior con más de 10 años de experiencia en infraestructura, CI/CD, Docker, Kubernetes y metodologías ágiles."
+baseurl: "/Edisson-Giovanni-Z-Lopez"
+url: "https://giovanemere.github.io"
+
+# Author information
+author:
+  name: "Edisson Giovanni Zuñiga Lopez"
+  email: "giovanemere@gmail.com"
+  bio: "Arquitecto DevOps Senior especializado en infraestructura cloud, CI/CD, Docker, Kubernetes y metodologías ágiles."
+  location: "Zipaquirá, Colombia"
+  linkedin: "edisson-giovanni-zuñiga-lopez"
+  github: "giovanemere"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+lang: es
+locale: es_CO
+
+# Social media
+social:
+  name: Edisson Giovanni Zuñiga Lopez
+  links:
+    - https://github.com/giovanemere
+    - https://www.linkedin.com/in/edisson-giovanni-zuñiga-lopez/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE
+  - CHANGELOG.md
+  - "*.sh"
+
+# Sass configuration
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
