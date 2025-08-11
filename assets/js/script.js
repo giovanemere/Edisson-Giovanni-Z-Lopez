@@ -819,87 +819,89 @@ window.addEventListener('load', function() {
     }, 500);
   }
 });
-// Direct Meteorite Implementation - No delays, no conditions
-console.log('🚀 STARTING DIRECT METEORITE SCRIPT');
+// MAXIMUM VISIBILITY METEORITE - APPEARS ABOVE EVERYTHING
+console.log('🚀 MAXIMUM VISIBILITY METEORITE SCRIPT STARTING');
 
-// Function to create meteorite immediately
-function createDirectMeteorite(x, y) {
-  console.log('🌟 CREATING METEORITE AT:', x, y);
+function createSuperVisibleMeteorite(x, y) {
+  console.log('🌟 CREATING SUPER VISIBLE METEORITE');
   
-  const container = document.querySelector('.shooting-stars-container');
-  console.log('📦 CONTAINER FOUND:', container);
-  
-  if (!container) {
-    console.log('❌ NO CONTAINER - ABORTING');
-    return;
-  }
-  
-  // Create meteorite with direct styles
+  // Create meteorite directly in body (not in container)
   const meteorite = document.createElement('div');
-  meteorite.innerHTML = '🔥'; // Use emoji for visibility
+  meteorite.innerHTML = '🔥 METEORITE 🔥';
   meteorite.style.cssText = `
-    position: absolute;
-    left: ${x}px;
-    top: ${y}px;
-    width: 30px;
-    height: 30px;
-    background: yellow;
-    border: 3px solid orange;
-    border-radius: 50%;
-    font-size: 20px;
-    z-index: 1000;
-    pointer-events: none;
-    box-shadow: 0 0 20px yellow;
+    position: fixed !important;
+    left: ${x}px !important;
+    top: ${y}px !important;
+    width: 100px !important;
+    height: 50px !important;
+    background: red !important;
+    color: white !important;
+    border: 5px solid yellow !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    z-index: 999999 !important;
+    pointer-events: none !important;
+    text-align: center !important;
+    line-height: 40px !important;
+    box-shadow: 0 0 30px red !important;
+    animation: blink 0.5s infinite !important;
   `;
   
-  container.appendChild(meteorite);
-  console.log('✅ METEORITE ADDED TO DOM');
+  // Add directly to body
+  document.body.appendChild(meteorite);
+  console.log('✅ SUPER METEORITE ADDED TO BODY');
   
-  // Remove after 3 seconds
+  // Remove after 5 seconds
   setTimeout(() => {
     if (meteorite.parentNode) {
       meteorite.parentNode.removeChild(meteorite);
-      console.log('🗑️ METEORITE REMOVED');
+      console.log('🗑️ SUPER METEORITE REMOVED');
     }
-  }, 3000);
+  }, 5000);
 }
 
-// Test immediately when script loads
-console.log('🧪 CREATING TEST METEORITE IMMEDIATELY');
-setTimeout(() => {
-  createDirectMeteorite(150, 100);
-}, 100);
+// Add blinking animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes blink {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+`;
+document.head.appendChild(style);
 
-// Set up mouse events immediately
-console.log('🖱️ SETTING UP MOUSE EVENTS');
+// Create test meteorite immediately
+console.log('🧪 CREATING IMMEDIATE TEST METEORITE');
+createSuperVisibleMeteorite(100, 100);
+
+// Create meteorite every 3 seconds
+setInterval(() => {
+  console.log('⏰ CREATING INTERVAL METEORITE');
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  createSuperVisibleMeteorite(x, y);
+}, 3000);
+
+// Mouse move meteorites
 document.addEventListener('mousemove', function(e) {
-  const heroSection = document.querySelector('.hero-section');
-  if (!heroSection) return;
-  
-  const rect = heroSection.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
-  
-  // Check if mouse is over hero section
-  if (mouseX >= 0 && mouseX <= rect.width && mouseY >= 0 && mouseY <= rect.height) {
-    // Only create meteorite 10% of the time to avoid spam
-    if (Math.random() < 0.1) {
-      console.log('🖱️ MOUSE OVER HERO - CREATING METEORITE');
-      createDirectMeteorite(mouseX, mouseY);
-    }
+  if (Math.random() < 0.05) { // 5% chance
+    console.log('🖱️ CREATING MOUSE METEORITE');
+    createSuperVisibleMeteorite(e.clientX, e.clientY);
   }
 });
 
-// Manual test function
-window.createTestMeteorite = function() {
-  console.log('🧪 MANUAL TEST TRIGGERED');
-  createDirectMeteorite(200, 150);
+// Manual test
+window.createSuperMeteorite = function() {
+  console.log('🧪 MANUAL SUPER METEORITE');
+  createSuperVisibleMeteorite(200, 200);
 };
 
-// Create test meteorites every 2 seconds for testing
-setInterval(() => {
-  console.log('⏰ INTERVAL TEST');
-  createDirectMeteorite(Math.random() * 300, Math.random() * 200);
-}, 2000);
+console.log('🚀 SUPER VISIBLE METEORITE SCRIPT LOADED');
 
-console.log('🚀 DIRECT METEORITE SCRIPT LOADED');
+// Also create one after 1 second just in case
+setTimeout(() => {
+  console.log('🔄 BACKUP TEST METEORITE');
+  createSuperVisibleMeteorite(300, 150);
+}, 1000);
