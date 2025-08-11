@@ -1,26 +1,11 @@
-// WHITE BRIGHT METEORITE SHOWER FOLLOWING MOUSE CLOSELY
-console.log('⚪ WHITE METEORITE SHOWER SCRIPT STARTING');
+// WHITE METEORITES FOLLOWING MOUSE CONTINUOUSLY
+console.log('⚪ CONTINUOUS MOUSE FOLLOWING METEORITES STARTING');
 
-function createMeteoriteShower(x, y) {
-  console.log('⚪ Creating white meteorite shower at:', x, y);
-  
-  // Create fewer meteorites (2-4) but more responsive
-  const meteoriteCount = Math.floor(Math.random() * 3) + 2; // 2-4 meteorites
-  
-  for (let i = 0; i < meteoriteCount; i++) {
-    setTimeout(() => {
-      createSingleMeteorite(x, y, i);
-    }, i * 30); // Faster staggered timing
-  }
-}
+let activeMeteorites = [];
+let heroContentActive = false;
+let mousePosition = { x: 0, y: 0 };
 
-function createSingleMeteorite(baseX, baseY, index) {
-  // Smaller random offset for closer following
-  const offsetX = (Math.random() - 0.5) * 20; // Reduced from 60 to 20
-  const offsetY = (Math.random() - 0.5) * 20; // Reduced from 60 to 20
-  const x = baseX + offsetX;
-  const y = baseY + offsetY;
-  
+function createFollowingMeteorite(x, y, index) {
   // Create meteorite element
   const meteorite = document.createElement('div');
   meteorite.innerHTML = '⚪';
@@ -38,217 +23,140 @@ function createSingleMeteorite(baseX, baseY, index) {
     text-shadow: 
       0 0 3px #ffffff,
       0 0 6px #ffffff,
-      0 0 9px #ffffff,
-      0 0 12px #ffffff !important;
-    animation: whiteMeteoriteAnim${index % 3} 0.8s ease-out forwards !important;
+      0 0 9px #ffffff !important;
+    transition: all 0.3s ease-out !important;
   `;
   
-  // Create bright white trail
+  // Create trail
   const trail = document.createElement('div');
-  const trailLength = Math.random() * 8 + 6; // 6-14px (much smaller)
   trail.style.cssText = `
     position: absolute !important;
     left: ${x + 2}px !important;
     top: ${y + 2}px !important;
-    width: ${trailLength}px !important;
+    width: 8px !important;
     height: 1px !important;
     background: linear-gradient(90deg, 
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.8) 30%,
-      rgba(255, 255, 255, 0.5) 60%,
-      rgba(255, 255, 255, 0.2) 80%,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
       rgba(255, 255, 255, 0) 100%
     ) !important;
     z-index: 9 !important;
     pointer-events: none !important;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8) !important;
-    animation: whiteTrailAnim${index % 3} 0.8s ease-out forwards !important;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s ease-out !important;
   `;
   
-  // Find hero-content container
   const heroContent = document.querySelector('.hero-content');
   if (heroContent) {
     heroContent.appendChild(meteorite);
     heroContent.appendChild(trail);
     
-    // Remove after animation (shorter duration)
-    setTimeout(() => {
-      if (meteorite.parentNode) meteorite.parentNode.removeChild(meteorite);
-      if (trail.parentNode) trail.parentNode.removeChild(trail);
-    }, 800);
+    // Store meteorite data for following
+    const meteoriteData = {
+      element: meteorite,
+      trail: trail,
+      targetX: x,
+      targetY: y,
+      currentX: x,
+      currentY: y,
+      offsetX: (Math.random() - 0.5) * 30,
+      offsetY: (Math.random() - 0.5) * 30,
+      speed: 0.15 + Math.random() * 0.1, // 0.15-0.25 speed
+      index: index
+    };
+    
+    activeMeteorites.push(meteoriteData);
+    console.log('⚪ Created following meteorite', index);
   }
 }
 
-// Add white meteorite animations (faster and shorter)
-const meteoriteStyle = document.createElement('style');
-meteoriteStyle.textContent = `
-  @keyframes whiteMeteoriteAnim0 {
-    0% {
-      opacity: 0;
-      transform: translateX(-8px) translateY(4px) scale(0.5);
-    }
-    20% {
-      opacity: 1;
-      transform: translateX(-2px) translateY(1px) scale(1.5);
-    }
-    80% {
-      opacity: 0.9;
-      transform: translateX(12px) translateY(-8px) scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(20px) translateY(-12px) scale(0.3);
-    }
-  }
+function updateMeteoritePositions() {
+  if (!heroContentActive || activeMeteorites.length === 0) return;
   
-  @keyframes whiteMeteoriteAnim1 {
-    0% {
-      opacity: 0;
-      transform: translateX(-10px) translateY(6px) scale(0.4);
-    }
-    25% {
-      opacity: 1;
-      transform: translateX(-3px) translateY(2px) scale(1.4);
-    }
-    75% {
-      opacity: 0.8;
-      transform: translateX(15px) translateY(-10px) scale(0.9);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(25px) translateY(-15px) scale(0.2);
-    }
-  }
-  
-  @keyframes whiteMeteoriteAnim2 {
-    0% {
-      opacity: 0;
-      transform: translateX(-6px) translateY(3px) scale(0.6);
-    }
-    15% {
-      opacity: 1;
-      transform: translateX(-1px) translateY(0px) scale(1.6);
-    }
-    85% {
-      opacity: 0.7;
-      transform: translateX(18px) translateY(-12px) scale(0.8);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(22px) translateY(-16px) scale(0.1);
-    }
-  }
-  
-  @keyframes whiteTrailAnim0 {
-    0% {
-      opacity: 0;
-      width: 0px;
-      transform: translateX(-8px) translateY(4px);
-    }
-    20% {
-      opacity: 1;
-      transform: translateX(-2px) translateY(1px);
-    }
-    80% {
-      opacity: 0.6;
-      transform: translateX(12px) translateY(-8px);
-    }
-    100% {
-      opacity: 0;
-      width: 3px;
-      transform: translateX(20px) translateY(-12px);
-    }
-  }
-  
-  @keyframes whiteTrailAnim1 {
-    0% {
-      opacity: 0;
-      width: 0px;
-      transform: translateX(-10px) translateY(6px);
-    }
-    25% {
-      opacity: 0.9;
-      transform: translateX(-3px) translateY(2px);
-    }
-    75% {
-      opacity: 0.5;
-      transform: translateX(15px) translateY(-10px);
-    }
-    100% {
-      opacity: 0;
-      width: 4px;
-      transform: translateX(25px) translateY(-15px);
-    }
-  }
-  
-  @keyframes whiteTrailAnim2 {
-    0% {
-      opacity: 0;
-      width: 0px;
-      transform: translateX(-6px) translateY(3px);
-    }
-    15% {
-      opacity: 1;
-      transform: translateX(-1px) translateY(0px);
-    }
-    85% {
-      opacity: 0.7;
-      transform: translateX(18px) translateY(-12px);
-    }
-    100% {
-      opacity: 0;
-      width: 5px;
-      transform: translateX(22px) translateY(-16px);
-    }
-  }
-`;
-document.head.appendChild(meteoriteStyle);
+  activeMeteorites.forEach(meteorite => {
+    // Calculate target position with offset
+    meteorite.targetX = mousePosition.x + meteorite.offsetX;
+    meteorite.targetY = mousePosition.y + meteorite.offsetY;
+    
+    // Smooth movement towards target
+    const deltaX = meteorite.targetX - meteorite.currentX;
+    const deltaY = meteorite.targetY - meteorite.currentY;
+    
+    meteorite.currentX += deltaX * meteorite.speed;
+    meteorite.currentY += deltaY * meteorite.speed;
+    
+    // Update positions
+    meteorite.element.style.left = meteorite.currentX + 'px';
+    meteorite.element.style.top = meteorite.currentY + 'px';
+    meteorite.trail.style.left = (meteorite.currentX + 2) + 'px';
+    meteorite.trail.style.top = (meteorite.currentY + 2) + 'px';
+  });
+}
 
-// Create meteorite showers with higher frequency for closer following
-let heroContentActive = false;
+function createMeteoriteFollowers() {
+  // Only create 1-2 meteorites (half of previous 2-4)
+  const meteoriteCount = Math.floor(Math.random() * 2) + 1; // 1-2 meteorites
+  
+  for (let i = 0; i < meteoriteCount; i++) {
+    createFollowingMeteorite(mousePosition.x, mousePosition.y, i);
+  }
+}
+
+function clearAllMeteorites() {
+  activeMeteorites.forEach(meteorite => {
+    if (meteorite.element.parentNode) {
+      meteorite.element.parentNode.removeChild(meteorite.element);
+    }
+    if (meteorite.trail.parentNode) {
+      meteorite.trail.parentNode.removeChild(meteorite.trail);
+    }
+  });
+  activeMeteorites = [];
+  console.log('🧹 Cleared all meteorites');
+}
+
+// Animation loop for smooth following
+function animateMeteorites() {
+  updateMeteoritePositions();
+  requestAnimationFrame(animateMeteorites);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   const heroContent = document.querySelector('.hero-content');
   
   if (heroContent) {
-    console.log('✅ Hero-content found, setting up white meteorite shower');
+    console.log('✅ Hero-content found, setting up following meteorites');
     
-    // Mouse enter/leave events for hero-content
+    // Start animation loop
+    animateMeteorites();
+    
+    // Mouse enter event
     heroContent.addEventListener('mouseenter', function() {
       heroContentActive = true;
-      console.log('⚪ Mouse entered hero-content - white meteorite shower activated');
+      console.log('⚪ Mouse entered - creating following meteorites');
+      createMeteoriteFollowers();
     });
     
+    // Mouse leave event
     heroContent.addEventListener('mouseleave', function() {
       heroContentActive = false;
-      console.log('⚪ Mouse left hero-content - white meteorite shower deactivated');
+      console.log('⚪ Mouse left - clearing meteorites');
+      clearAllMeteorites();
     });
     
-    // Mouse move event with higher frequency for closer following
+    // Mouse move event - update target position
     heroContent.addEventListener('mousemove', function(e) {
       if (!heroContentActive) return;
       
-      // Get position relative to hero-content
       const rect = heroContent.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      mousePosition.x = e.clientX - rect.left;
+      mousePosition.y = e.clientY - rect.top;
       
-      // Higher probability for closer following (40% vs 20%)
-      if (Math.random() < 0.4) {
-        createMeteoriteShower(x, y);
+      // Create new meteorites occasionally (low frequency)
+      if (Math.random() < 0.05 && activeMeteorites.length < 3) {
+        createFollowingMeteorite(mousePosition.x, mousePosition.y, activeMeteorites.length);
       }
     });
-    
-    // Reduced ambient showers for more mouse-focused experience
-    setInterval(() => {
-      if (heroContentActive) {
-        const rect = heroContent.getBoundingClientRect();
-        const randomX = Math.random() * rect.width;
-        const randomY = Math.random() * rect.height;
-        createMeteoriteShower(randomX, randomY);
-        console.log('🌌 Ambient white meteorite shower created');
-      }
-    }, 5000); // Every 5 seconds (less frequent)
     
   } else {
     console.log('❌ Hero-content not found');
@@ -256,12 +164,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Manual test function
-window.createTestWhiteMeteoriteShower = function() {
-  console.log('🧪 Manual white meteorite shower test');
-  createMeteoriteShower(200, 100);
+window.createTestFollowingMeteorites = function() {
+  console.log('🧪 Manual following meteorites test');
+  mousePosition.x = 200;
+  mousePosition.y = 100;
+  heroContentActive = true;
+  createMeteoriteFollowers();
 };
 
-console.log('⚪ WHITE METEORITE SHOWER SCRIPT LOADED');
+// Clear function for testing
+window.clearTestMeteorites = function() {
+  clearAllMeteorites();
+};
+
+console.log('⚪ CONTINUOUS FOLLOWING METEORITES SCRIPT LOADED');
 
 // ===== REST OF THE SCRIPT WITH NULL CHECKS =====
 
