@@ -819,163 +819,109 @@ window.addEventListener('load', function() {
     }, 500);
   }
 });
-// Meteorite Shower Mouse Follower Animation
-let meteoriteActive = false;
-let heroSection = null;
-let starsContainer = null;
-let mousePosition = { x: 0, y: 0 };
-let meteoriteTrail = [];
-let animationFrame = null;
-
-function initMeteoriteShower() {
-  console.log('☄️ Initializing meteorite shower...');
+// Simple Meteorite Animation - Fixed Version
+let meteoriteSystem = {
+  active: false,
+  heroSection: null,
+  container: null,
+  mousePos: { x: 0, y: 0 },
   
-  heroSection = document.querySelector('.hero-section');
-  starsContainer = document.querySelector('.shooting-stars-container');
-  
-  if (!heroSection || !starsContainer) {
-    console.log('❌ Hero section or stars container not found');
-    return;
-  }
-  
-  console.log('✅ Elements found, setting up meteorite shower');
-  
-  // Add mouse move event to entire hero section
-  heroSection.addEventListener('mousemove', function(e) {
-    if (!meteoriteActive) return;
+  init: function() {
+    console.log('☄️ Initializing simple meteorite system...');
     
-    // Get position relative to hero section
-    const rect = heroSection.getBoundingClientRect();
-    mousePosition.x = e.clientX - rect.left;
-    mousePosition.y = e.clientY - rect.top;
+    this.heroSection = document.querySelector('.hero-section');
+    this.container = document.querySelector('.shooting-stars-container');
     
-    // Add to trail history
-    meteoriteTrail.push({
-      x: mousePosition.x,
-      y: mousePosition.y,
-      time: Date.now()
+    if (!this.heroSection || !this.container) {
+      console.log('❌ Required elements not found');
+      console.log('Hero section:', this.heroSection);
+      console.log('Container:', this.container);
+      return false;
+    }
+    
+    console.log('✅ Elements found, setting up events');
+    this.setupEvents();
+    return true;
+  },
+  
+  setupEvents: function() {
+    // Mouse move event
+    this.heroSection.addEventListener('mousemove', (e) => {
+      if (!this.active) return;
+      
+      const rect = this.heroSection.getBoundingClientRect();
+      this.mousePos.x = e.clientX - rect.left;
+      this.mousePos.y = e.clientY - rect.top;
+      
+      this.createMeteorite(this.mousePos.x, this.mousePos.y);
     });
     
-    // Keep only recent positions (last 800ms)
-    const now = Date.now();
-    meteoriteTrail = meteoriteTrail.filter(point => now - point.time < 800);
+    // Mouse enter/leave
+    this.heroSection.addEventListener('mouseenter', () => {
+      this.active = true;
+      console.log('☄️ Meteorites activated');
+    });
     
-    // Create meteorite at current position
-    createMeteorite(mousePosition.x, mousePosition.y, 'main');
-  });
+    this.heroSection.addEventListener('mouseleave', () => {
+      this.active = false;
+      console.log('☄️ Meteorites deactivated');
+    });
+  },
   
-  // Add mouse enter/leave events
-  heroSection.addEventListener('mouseenter', function() {
-    meteoriteActive = true;
-    console.log('☄️ Mouse entered hero section - meteorites activated');
-    startMeteoriteTrail();
-  });
-  
-  heroSection.addEventListener('mouseleave', function() {
-    meteoriteActive = false;
-    meteoriteTrail = [];
-    console.log('☄️ Mouse left hero section - meteorites deactivated');
-    stopMeteoriteTrail();
-  });
-  
-  console.log('☄️ Meteorite shower initialized successfully');
-}
-
-function createMeteorite(x, y, type = 'trail', delay = 0) {
-  if (!starsContainer) return;
-  
-  setTimeout(() => {
+  createMeteorite: function(x, y) {
+    if (!this.container) return;
+    
     const meteorite = document.createElement('div');
-    meteorite.className = `meteorite meteorite-${type}`;
+    meteorite.className = 'simple-meteorite';
+    meteorite.style.left = x + 'px';
+    meteorite.style.top = y + 'px';
     
-    // Add random offset for more natural effect
-    const offsetX = (Math.random() - 0.5) * (type === 'main' ? 10 : 25);
-    const offsetY = (Math.random() - 0.5) * (type === 'main' ? 10 : 25);
+    // Add random offset
+    const offsetX = (Math.random() - 0.5) * 20;
+    const offsetY = (Math.random() - 0.5) * 20;
+    meteorite.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
     
-    meteorite.style.left = (x + offsetX) + 'px';
-    meteorite.style.top = (y + offsetY) + 'px';
+    this.container.appendChild(meteorite);
     
-    // Random rotation for variety
-    const rotation = Math.random() * 360;
-    meteorite.style.transform = `rotate(${rotation}deg)`;
-    
-    // Add to container
-    starsContainer.appendChild(meteorite);
-    
-    // Trigger animation
+    // Animate
     setTimeout(() => {
       meteorite.classList.add('animate');
     }, 10);
     
-    // Remove after animation
+    // Remove
     setTimeout(() => {
-      if (meteorite && meteorite.parentNode) {
+      if (meteorite.parentNode) {
         meteorite.parentNode.removeChild(meteorite);
       }
-    }, type === 'main' ? 1200 : 1000);
-  }, delay);
-}
-
-function startMeteoriteTrail() {
-  let trailIndex = 0;
-  
-  function animateTrail() {
-    if (!meteoriteActive) return;
+    }, 1000);
     
-    // Create trail meteorites from recent positions
-    if (meteoriteTrail.length > 2) {
-      const recentPositions = meteoriteTrail.slice(-6); // Last 6 positions
-      
-      recentPositions.forEach((position, index) => {
-        if (index > 0 && index < recentPositions.length - 1) { // Skip current and very old
-          const delay = index * 30; // Staggered timing
-          createMeteorite(position.x, position.y, 'trail', delay);
-        }
-      });
-    }
-    
-    // Create random ambient meteorites around mouse
-    if (meteoriteTrail.length > 0) {
-      const lastPos = meteoriteTrail[meteoriteTrail.length - 1];
-      for (let i = 0; i < 2; i++) {
-        const ambientX = lastPos.x + (Math.random() - 0.5) * 100;
-        const ambientY = lastPos.y + (Math.random() - 0.5) * 100;
-        createMeteorite(ambientX, ambientY, 'ambient', i * 100);
-      }
-    }
-    
-    animationFrame = requestAnimationFrame(animateTrail);
+    console.log('⭐ Created meteorite at:', x, y);
   }
-  
-  animateTrail();
-}
-
-function stopMeteoriteTrail() {
-  if (animationFrame) {
-    cancelAnimationFrame(animationFrame);
-    animationFrame = null;
-  }
-}
+};
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('📄 DOM loaded, checking for desktop...');
+  console.log('📄 DOM loaded');
   
   if (window.innerWidth > 768) {
-    console.log('💻 Desktop detected, initializing meteorite shower');
+    console.log('💻 Desktop detected');
     setTimeout(() => {
-      initMeteoriteShower();
+      if (meteoriteSystem.init()) {
+        console.log('🚀 Meteorite system ready!');
+      }
     }, 1000);
   } else {
-    console.log('📱 Mobile detected, skipping meteorite shower');
+    console.log('📱 Mobile detected, skipping meteorites');
   }
 });
 
 // Test function
-window.testMeteoriteShower = function() {
-  console.log('🧪 Testing meteorite shower...');
-  if (starsContainer && heroSection) {
-    const rect = heroSection.getBoundingClientRect();
-    createMeteorite(rect.width / 2, rect.height / 2, 'main');
+window.testMeteoriteSystem = function() {
+  console.log('🧪 Testing meteorite system...');
+  if (meteoriteSystem.container && meteoriteSystem.heroSection) {
+    meteoriteSystem.createMeteorite(100, 100);
+    console.log('✅ Test meteorite created');
+  } else {
+    console.log('❌ System not ready');
   }
 };

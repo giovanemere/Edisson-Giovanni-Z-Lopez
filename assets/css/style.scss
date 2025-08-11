@@ -2635,7 +2635,7 @@ body {
 .scroll-indicator:hover .scroll-arrow {
   animation-duration: 1s;
 }
-/* ===== METEORITE SHOWER ANIMATION ===== */
+/* ===== SIMPLE METEORITE ANIMATION ===== */
 .shooting-stars-container {
   position: absolute;
   top: 0;
@@ -2645,207 +2645,94 @@ body {
   pointer-events: none;
   overflow: hidden;
   z-index: 5;
+  background: rgba(255, 0, 0, 0.1); /* Temporary debug background */
 }
 
-.meteorite {
+.simple-meteorite {
   position: absolute;
-  pointer-events: none;
-  opacity: 0;
-  transform-origin: center;
-}
-
-/* Main meteorite (follows cursor directly) */
-.meteorite-main {
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(ellipse 60% 40%, 
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, 
     rgba(255, 255, 255, 1) 0%,
-    rgba(255, 200, 100, 0.9) 20%,
-    rgba(255, 150, 50, 0.8) 40%,
-    rgba(255, 100, 0, 0.6) 70%,
-    rgba(200, 50, 0, 0.3) 90%,
+    rgba(255, 200, 0, 0.9) 30%,
+    rgba(255, 100, 0, 0.7) 60%,
+    rgba(200, 50, 0, 0.5) 80%,
     rgba(0, 0, 0, 0) 100%
   );
-  border-radius: 60% 40% 60% 40%;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
   box-shadow: 
-    0 0 10px rgba(255, 200, 100, 0.8),
-    0 0 20px rgba(255, 150, 50, 0.6),
-    0 0 30px rgba(255, 100, 0, 0.4);
+    0 0 15px rgba(255, 200, 0, 0.8),
+    0 0 25px rgba(255, 100, 0, 0.6),
+    0 0 35px rgba(200, 50, 0, 0.4);
+  transform: scale(0);
 }
 
-.meteorite-main::before {
+.simple-meteorite::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40px;
+  width: 30px;
   height: 3px;
   background: linear-gradient(90deg, 
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.9) 10%,
-    rgba(255, 200, 100, 0.8) 30%,
-    rgba(255, 150, 50, 0.6) 60%,
-    rgba(255, 100, 0, 0.4) 80%,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 200, 0, 0.8) 50%,
+    rgba(255, 100, 0, 0.6) 80%,
     rgba(200, 50, 0, 0) 100%
   );
   transform: translate(-50%, -50%);
   border-radius: 2px;
-  box-shadow: 0 0 15px rgba(255, 150, 50, 0.6);
+  box-shadow: 0 0 10px rgba(255, 200, 0, 0.6);
 }
 
-.meteorite-main::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 12px;
-  height: 12px;
-  background: radial-gradient(circle, 
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 200, 100, 0.6) 30%,
-    rgba(255, 150, 50, 0.4) 60%,
-    rgba(255, 100, 0, 0.2) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: meteoriteGlow 1.2s ease-out;
+.simple-meteorite.animate {
+  animation: simpleMeteoriteAnim 1s ease-out forwards;
 }
 
-/* Trail meteorites (follow mouse path) */
-.meteorite-trail {
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(ellipse 60% 40%, 
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 200, 100, 0.7) 20%,
-    rgba(255, 150, 50, 0.6) 40%,
-    rgba(255, 100, 0, 0.4) 70%,
-    rgba(200, 50, 0, 0.2) 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  border-radius: 60% 40% 60% 40%;
-  box-shadow: 
-    0 0 8px rgba(255, 200, 100, 0.6),
-    0 0 15px rgba(255, 150, 50, 0.4);
-}
-
-.meteorite-trail::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 25px;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.7) 15%,
-    rgba(255, 200, 100, 0.6) 40%,
-    rgba(255, 150, 50, 0.4) 70%,
-    rgba(255, 100, 0, 0.2) 90%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  transform: translate(-50%, -50%);
-  border-radius: 1px;
-}
-
-/* Ambient meteorites (random around mouse) */
-.meteorite-ambient {
-  width: 4px;
-  height: 4px;
-  background: radial-gradient(ellipse 60% 40%, 
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 200, 100, 0.5) 30%,
-    rgba(255, 150, 50, 0.4) 60%,
-    rgba(255, 100, 0, 0.2) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  border-radius: 60% 40% 60% 40%;
-  box-shadow: 0 0 6px rgba(255, 200, 100, 0.4);
-}
-
-.meteorite-ambient::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 15px;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.5) 20%,
-    rgba(255, 200, 100, 0.4) 50%,
-    rgba(255, 150, 50, 0.2) 80%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  transform: translate(-50%, -50%);
-  border-radius: 1px;
-}
-
-/* Animations */
-.meteorite.animate {
-  animation: meteoriteShower 1s ease-out forwards;
-}
-
-@keyframes meteoriteShower {
+@keyframes simpleMeteoriteAnim {
   0% {
     opacity: 0;
     transform: scale(0) rotate(0deg);
   }
-  15% {
+  20% {
     opacity: 1;
-    transform: scale(1.2) rotate(45deg);
+    transform: scale(1.2) rotate(90deg);
   }
-  85% {
+  80% {
     opacity: 0.8;
     transform: scale(1) rotate(270deg);
   }
   100% {
     opacity: 0;
-    transform: scale(0.2) rotate(360deg);
+    transform: scale(0.3) rotate(360deg);
   }
 }
 
-@keyframes meteoriteGlow {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.8;
-  }
-  40% {
-    transform: translate(-50%, -50%) scale(2.5);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-  }
-}
-
-/* Enhanced hover effect for hero section */
-.hero-section:hover {
-  background: rgba(255, 100, 0, 0.01);
-  transition: background 0.3s ease;
-}
-
-/* Debug indicator */
+/* Debug info */
 .shooting-stars-container::after {
-  content: 'Meteorite Shower Active';
+  content: 'Meteorite Container Ready';
   position: absolute;
-  top: 5px;
-  left: 5px;
-  color: rgba(255, 200, 100, 0.3);
-  font-size: 8px;
+  top: 10px;
+  left: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 3px;
   pointer-events: none;
   z-index: 10;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-  .meteorite {
+  .simple-meteorite {
     display: none;
   }
   
-  .shooting-stars-container::after {
+  .shooting-stars-container {
     display: none;
   }
 }
