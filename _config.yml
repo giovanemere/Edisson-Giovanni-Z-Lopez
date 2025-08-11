@@ -10,16 +10,13 @@ author:
   email: "giovanemere@gmail.com"
   bio: "Arquitecto DevOps Senior especializado en infraestructura cloud, CI/CD, Docker, Kubernetes y metodologías ágiles."
   location: "Zipaquirá, Colombia"
-  linkedin: "edissonzuniga"
+  linkedin: "edisson-giovanni-zuñiga-lopez"
   github: "giovanemere"
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
-
-# Theme
-theme: jekyll-theme-architect
 
 # Plugins
 plugins:
@@ -36,10 +33,7 @@ social:
   name: Edisson Giovanni Zuñiga Lopez
   links:
     - https://github.com/giovanemere
-    - https://www.linkedin.com/in/edissonzuniga/
-
-# Google Analytics (uncomment and add your tracking ID)
-# google_analytics: UA-XXXXXXXXX-X
+    - https://www.linkedin.com/in/edisson-giovanni-zuñiga-lopez/
 
 # Exclude from processing
 exclude:
@@ -53,43 +47,15 @@ exclude:
   - README.md
   - LICENSE
   - CHANGELOG.md
-
-# Include files
-include:
-  - _pages
-
-# Collections
-collections:
-  projects:
-    output: true
-    permalink: /:collection/:name/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "Edisson Giovanni Zuñiga Lopez"
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
+  - "*.sh"
 
 # Sass configuration
 sass:
-  sass_dir: _sass
+  sass_dir: assets/css
   style: compressed
-  quiet_deps: true
-  verbose: false
 
 # Compression
 compress_html:
   clippings: all
   comments: all
   endings: all
-  startings: []
-  blanklines: false
-  profile: false
