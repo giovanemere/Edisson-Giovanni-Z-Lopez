@@ -1,17 +1,250 @@
-// Mobile Navigation Toggle
+// WHITE METEORITES ON BLACK BACKGROUND - FULL HERO SECTION
+console.log('⚪ METEORITES WITH BLACK HERO SECTION STARTING');
+
+let activeMeteorites = [];
+let heroContentActive = false;
+let mousePosition = { x: 0, y: 0 };
+
+function createFollowingMeteorite(x, y, index) {
+  // Create meteorite element
+  const meteorite = document.createElement('div');
+  meteorite.innerHTML = '⚪';
+  meteorite.style.cssText = `
+    position: absolute !important;
+    left: ${x}px !important;
+    top: ${y}px !important;
+    width: 4px !important;
+    height: 4px !important;
+    font-size: 4px !important;
+    color: #ffffff !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    filter: brightness(3) saturate(0) !important;
+    text-shadow: 
+      0 0 3px #ffffff,
+      0 0 6px #ffffff,
+      0 0 9px #ffffff !important;
+    transition: all 0.3s ease-out !important;
+  `;
+  
+  // Create trail
+  const trail = document.createElement('div');
+  trail.style.cssText = `
+    position: absolute !important;
+    left: ${x + 2}px !important;
+    top: ${y + 2}px !important;
+    width: 8px !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ) !important;
+    z-index: 9 !important;
+    pointer-events: none !important;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s ease-out !important;
+  `;
+  
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) {
+    heroContent.appendChild(meteorite);
+    heroContent.appendChild(trail);
+    
+    // Store meteorite data for following
+    const meteoriteData = {
+      element: meteorite,
+      trail: trail,
+      targetX: x,
+      targetY: y,
+      currentX: x,
+      currentY: y,
+      offsetX: (Math.random() - 0.5) * 50, // Larger spread for more meteorites
+      offsetY: (Math.random() - 0.5) * 50,
+      speed: 0.03 + Math.random() * 0.02, // Even slower: 0.03-0.05 (was 0.05-0.08)
+      index: index
+    };
+    
+    activeMeteorites.push(meteoriteData);
+    console.log('⚪ Created slow following meteorite', index);
+  }
+}
+
+function updateMeteoritePositions() {
+  if (!heroContentActive || activeMeteorites.length === 0) return;
+  
+  activeMeteorites.forEach(meteorite => {
+    // Calculate target position with offset
+    meteorite.targetX = mousePosition.x + meteorite.offsetX;
+    meteorite.targetY = mousePosition.y + meteorite.offsetY;
+    
+    // Very slow movement towards target (3+ seconds to reach)
+    const deltaX = meteorite.targetX - meteorite.currentX;
+    const deltaY = meteorite.targetY - meteorite.currentY;
+    
+    meteorite.currentX += deltaX * meteorite.speed;
+    meteorite.currentY += deltaY * meteorite.speed;
+    
+    // Update positions
+    meteorite.element.style.left = meteorite.currentX + 'px';
+    meteorite.element.style.top = meteorite.currentY + 'px';
+    meteorite.trail.style.left = (meteorite.currentX + 2) + 'px';
+    meteorite.trail.style.top = (meteorite.currentY + 2) + 'px';
+  });
+}
+
+function createMeteoriteFollowers() {
+  // Even more meteorites: 4-7 (increased from 3-5)
+  const meteoriteCount = Math.floor(Math.random() * 4) + 4; // 4-7 meteorites
+  
+  for (let i = 0; i < meteoriteCount; i++) {
+    createFollowingMeteorite(mousePosition.x, mousePosition.y, i);
+  }
+}
+
+function clearAllMeteorites() {
+  activeMeteorites.forEach(meteorite => {
+    if (meteorite.element.parentNode) {
+      meteorite.element.parentNode.removeChild(meteorite.element);
+    }
+    if (meteorite.trail.parentNode) {
+      meteorite.trail.parentNode.removeChild(meteorite.trail);
+    }
+  });
+  activeMeteorites = [];
+  console.log('🧹 Cleared all meteorites');
+}
+
+function addBlackBackgrounds() {
+  const heroSection = document.querySelector('.hero-section');
+  const heroContent = document.querySelector('.hero-content');
+  
+  if (heroSection) {
+    heroSection.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 40, 0.8) 100%)';
+    heroSection.style.transition = 'background 0.8s ease';
+    console.log('🖤 Added black background to hero-section');
+  }
+  
+  if (heroContent) {
+    heroContent.style.background = 'rgba(0, 0, 0, 0.6)';
+    heroContent.style.borderRadius = '15px';
+    heroContent.style.transition = 'background 0.5s ease';
+    console.log('🖤 Added black background to hero-content');
+  }
+}
+
+function removeBlackBackgrounds() {
+  const heroSection = document.querySelector('.hero-section');
+  const heroContent = document.querySelector('.hero-content');
+  
+  if (heroSection) {
+    heroSection.style.background = '';
+    console.log('🤍 Removed black background from hero-section');
+  }
+  
+  if (heroContent) {
+    heroContent.style.background = 'transparent';
+    console.log('🤍 Removed black background from hero-content');
+  }
+}
+
+// Animation loop for smooth following
+function animateMeteorites() {
+  updateMeteoritePositions();
+  requestAnimationFrame(animateMeteorites);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const heroContent = document.querySelector('.hero-content');
+  
+  if (heroContent) {
+    console.log('✅ Hero-content found, setting up meteorite system with black backgrounds');
+    
+    // Start animation loop
+    animateMeteorites();
+    
+    // Mouse enter event
+    heroContent.addEventListener('mouseenter', function() {
+      heroContentActive = true;
+      console.log('⚪ Mouse entered - adding black backgrounds and creating meteorites');
+      addBlackBackgrounds();
+      setTimeout(() => {
+        createMeteoriteFollowers();
+      }, 300); // Delay for background transition
+    });
+    
+    // Mouse leave event
+    heroContent.addEventListener('mouseleave', function() {
+      heroContentActive = false;
+      console.log('⚪ Mouse left - removing backgrounds and clearing meteorites');
+      removeBlackBackgrounds();
+      clearAllMeteorites();
+    });
+    
+    // Mouse move event - update target position
+    heroContent.addEventListener('mousemove', function(e) {
+      if (!heroContentActive) return;
+      
+      const rect = heroContent.getBoundingClientRect();
+      mousePosition.x = e.clientX - rect.left;
+      mousePosition.y = e.clientY - rect.top;
+      
+      // Create new meteorites occasionally (very low frequency)
+      if (Math.random() < 0.015 && activeMeteorites.length < 8) { // Max 8 meteorites
+        createFollowingMeteorite(mousePosition.x, mousePosition.y, activeMeteorites.length);
+      }
+    });
+    
+  } else {
+    console.log('❌ Hero-content not found');
+  }
+});
+
+// Manual test function
+window.createTestSpaceMeteoriteShower = function() {
+  console.log('🧪 Manual space meteorite shower test');
+  mousePosition.x = 200;
+  mousePosition.y = 100;
+  heroContentActive = true;
+  addBlackBackgrounds();
+  createMeteoriteFollowers();
+};
+
+// Clear function for testing
+window.clearTestMeteorites = function() {
+  clearAllMeteorites();
+  removeBlackBackgrounds();
+};
+
+console.log('⚪ SPACE METEORITE SHOWER SCRIPT LOADED');
+
+// ===== REST OF THE SCRIPT WITH NULL CHECKS =====
+
+// Mobile Navigation Toggle (with null check)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+  });
+} else {
+  console.log('⚠️ Hamburger or navMenu not found, skipping mobile nav setup');
+}
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+// Close mobile menu when clicking on a link (with null check)
+if (hamburger && navMenu) {
+  const navLinksForMenu = document.querySelectorAll('.nav-link');
+  if (navLinksForMenu.length > 0) {
+    navLinksForMenu.forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+  }
+} else {
+  console.log('⚠️ Nav links or menu elements not found, skipping nav link setup');
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -417,3 +650,385 @@ window.addEventListener('scroll', debouncedScrollHandler);
 console.log('🚀 Portfolio website loaded successfully!');
 console.log('👨‍💻 Developed by Edisson Giovanni Zuñiga Lopez');
 console.log('📧 Contact: giovanemere@gmail.com');
+
+// ===== HERO SECTION ENHANCEMENTS =====
+
+// Typewriter Effect
+class TypeWriter {
+    constructor(element, words, wait = 3000) {
+        this.element = element;
+        this.words = words;
+        this.txt = '';
+        this.wordIndex = 0;
+        this.wait = parseInt(wait, 10);
+        this.type();
+        this.isDeleting = false;
+    }
+
+    type() {
+        const current = this.wordIndex % this.words.length;
+        const fullTxt = this.words[current];
+
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.element.innerHTML = this.txt;
+
+        let typeSpeed = 100;
+
+        if (this.isDeleting) {
+            typeSpeed /= 2;
+        }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+            typeSpeed = this.wait;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.wordIndex++;
+            typeSpeed = 500;
+        }
+
+        setTimeout(() => this.type(), typeSpeed);
+    }
+}
+
+// Initialize Typewriter Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const typewriterElement = document.querySelector('.typewriter');
+    if (typewriterElement) {
+        const words = JSON.parse(typewriterElement.getAttribute('data-words'));
+        new TypeWriter(typewriterElement, words, 2000);
+    }
+
+    // Animate hero elements on load
+    animateHeroElements();
+    
+    // Add parallax effect to floating elements
+    addParallaxEffect();
+    
+    // Add interactive hover effects
+    addInteractiveEffects();
+});
+
+// Animate hero elements with staggered delays
+function animateHeroElements() {
+    const elements = [
+        { selector: '.hero-greeting', delay: 200 },
+        { selector: '.name-part:nth-child(1)', delay: 400 },
+        { selector: '.name-part:nth-child(2)', delay: 600 },
+        { selector: '.name-part.surname', delay: 800 },
+        { selector: '.hero-title-container', delay: 1000 },
+        { selector: '.hero-description', delay: 1200 },
+        { selector: '.hero-badges', delay: 1400 },
+        { selector: '.hero-stats', delay: 1600 },
+        { selector: '.hero-cta', delay: 1800 }
+    ];
+
+    elements.forEach(({ selector, delay }) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }, delay);
+        }
+    });
+}
+
+// Add parallax effect to floating elements
+function addParallaxEffect() {
+    const floatingElements = document.querySelectorAll('.floating-element');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        floatingElements.forEach((element, index) => {
+            const speed = (index + 1) * 0.2;
+            element.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
+        });
+    });
+}
+
+// Add interactive effects
+function addInteractiveEffects() {
+    // Hero photo interactive effects
+    const heroPhoto = document.querySelector('.hero-photo');
+    if (heroPhoto) {
+        heroPhoto.addEventListener('mouseenter', () => {
+            heroPhoto.style.filter = 'brightness(1.1) contrast(1.1)';
+        });
+        
+        heroPhoto.addEventListener('mouseleave', () => {
+            heroPhoto.style.filter = 'brightness(1) contrast(1)';
+        });
+    }
+
+    // Badge hover effects with sound (optional)
+    const badges = document.querySelectorAll('.badge');
+    badges.forEach(badge => {
+        badge.addEventListener('mouseenter', () => {
+            badge.style.transform = 'translateY(-3px) scale(1.05)';
+            badge.style.boxShadow = '0 8px 25px rgba(0, 255, 136, 0.2)';
+        });
+        
+        badge.addEventListener('mouseleave', () => {
+            badge.style.transform = 'translateY(0) scale(1)';
+            badge.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+        });
+    });
+
+    // Name parts glitch effect on click
+    const nameParts = document.querySelectorAll('.name-part');
+    nameParts.forEach(part => {
+        part.addEventListener('click', () => {
+            part.style.animation = 'none';
+            setTimeout(() => {
+                part.style.animation = 'glitch 0.5s ease-in-out';
+            }, 10);
+        });
+    });
+}
+
+// Add mouse movement parallax effect
+document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    
+    const floatingElements = document.querySelectorAll('.floating-element');
+    floatingElements.forEach((element, index) => {
+        const speed = (index + 1) * 10;
+        const x = (mouseX - 0.5) * speed;
+        const y = (mouseY - 0.5) * speed;
+        
+        element.style.transform += ` translate(${x}px, ${y}px)`;
+    });
+    
+    // Photo glow follows mouse
+    const photoGlow = document.querySelector('.photo-glow');
+    if (photoGlow) {
+        const intensity = Math.abs(mouseX - 0.5) + Math.abs(mouseY - 0.5);
+        photoGlow.style.opacity = Math.min(intensity * 2, 1);
+    }
+});
+
+// Performance optimization: Throttle scroll events
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply throttling to scroll events
+const throttledParallax = throttle(addParallaxEffect, 16); // ~60fps
+window.addEventListener('scroll', throttledParallax);
+// Professional Metrics Counter Animation - Enhanced Version
+let animationTriggered = false;
+
+function animateCounters() {
+  if (animationTriggered) return; // Prevent multiple executions
+  animationTriggered = true;
+  
+  const counters = document.querySelectorAll('.metric-number');
+  console.log('🚀 Starting counter animation, found:', counters.length, 'counters');
+  
+  counters.forEach((counter, index) => {
+    const text = counter.textContent.trim();
+    console.log(`📊 Counter ${index + 1}:`, text);
+    
+    // Extract number from text (e.g., "50+" -> 50, "15+" -> 15)
+    const match = text.match(/(\d+)/);
+    if (match) {
+      const finalNumber = parseInt(match[1]);
+      const suffix = text.replace(match[1], ''); // Get the "+" or other suffix
+      console.log(`🔢 Animating from 0 to ${finalNumber} with suffix "${suffix}"`);
+      
+      // Special handling for the 50+ counter (make it extra dramatic)
+      if (finalNumber === 50) {
+        console.log('🎯 Special animation for 50+ counter!');
+        animateCounter(counter, 0, finalNumber, suffix, 5000, index * 800, true); // 5 seconds, extra dramatic
+      } else {
+        // Regular animation for other numbers
+        animateCounter(counter, 0, finalNumber, suffix, 4000, index * 800, false);
+      }
+    } else if (text.includes('Multi-Cloud') || text.includes('Multi')) {
+      // Special handling for text-based metrics
+      console.log('🌐 Animating Multi-Cloud text');
+      counter.style.opacity = '0';
+      counter.style.transform = 'scale(0.8)';
+      
+      setTimeout(() => {
+        counter.style.opacity = '1';
+        counter.style.transform = 'scale(1)';
+        counter.style.transition = 'all 0.8s ease';
+        
+        // Add a glow effect
+        setTimeout(() => {
+          counter.style.textShadow = '0 0 15px rgba(0, 212, 255, 0.6)';
+          setTimeout(() => {
+            counter.style.textShadow = 'none';
+          }, 1000);
+        }, 400);
+      }, 1200 + (index * 800));
+    }
+  });
+}
+
+function animateCounter(element, start, end, suffix, duration, delay = 0, isSpecial = false) {
+  // Set initial value immediately
+  element.textContent = start + suffix;
+  element.style.transform = 'scale(1)';
+  
+  // Add special styling for the 50+ counter
+  if (isSpecial) {
+    element.style.fontSize = '2rem'; // Make it slightly bigger
+    element.style.fontWeight = '900'; // Extra bold
+  }
+  
+  setTimeout(() => {
+    console.log(`⏰ Starting animation for ${end}${suffix} after ${delay}ms delay`);
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation (easeOutExpo)
+      const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = Math.floor(start + (end - start) * easeOutExpo);
+      
+      element.textContent = current + suffix;
+      
+      // Enhanced effects for special counter (50+)
+      if (isSpecial) {
+        // More dramatic pulsing for 50+
+        const pulseScale = 1 + Math.sin(progress * Math.PI * 10) * 0.12;
+        element.style.transform = `scale(${pulseScale})`;
+        
+        // Rainbow effect during animation
+        const hue = (progress * 360) % 360;
+        element.style.filter = `brightness(${1.2 + progress * 0.8}) hue-rotate(${hue}deg) saturate(${1.5 + progress})`;
+        
+        // Intense glow
+        const glowIntensity = progress * 25;
+        element.style.textShadow = `0 0 ${glowIntensity}px rgba(0, 212, 255, ${progress}), 0 0 ${glowIntensity * 2}px rgba(255, 107, 107, ${progress * 0.5})`;
+      } else {
+        // Regular effects for other counters
+        const pulseScale = 1 + Math.sin(progress * Math.PI * 8) * 0.08;
+        element.style.transform = `scale(${pulseScale})`;
+        
+        const intensity = 0.7 + (progress * 0.6);
+        element.style.filter = `brightness(${intensity}) saturate(${1 + progress * 0.5})`;
+        
+        const glowIntensity = progress * 15;
+        element.style.textShadow = `0 0 ${glowIntensity}px rgba(0, 212, 255, ${progress * 0.8})`;
+      }
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Enhanced final celebration for special counter
+        console.log(`🎉 Animation complete for ${end}${suffix}`);
+        
+        if (isSpecial) {
+          // Epic celebration for 50+
+          element.style.transform = 'scale(1.6)';
+          element.style.filter = 'brightness(2) drop-shadow(0 0 30px rgba(0, 212, 255, 1)) hue-rotate(180deg)';
+          element.style.textShadow = '0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(255, 107, 107, 0.8)';
+          
+          setTimeout(() => {
+            element.style.transform = 'scale(1)';
+            element.style.filter = 'brightness(1)';
+            element.style.textShadow = 'none';
+            element.style.transition = 'all 0.8s ease';
+          }, 1200); // Longer celebration
+        } else {
+          // Regular celebration
+          element.style.transform = 'scale(1.4)';
+          element.style.filter = 'brightness(1.8) drop-shadow(0 0 20px rgba(0, 212, 255, 1))';
+          element.style.textShadow = '0 0 25px rgba(0, 212, 255, 1)';
+          
+          setTimeout(() => {
+            element.style.transform = 'scale(1)';
+            element.style.filter = 'brightness(1)';
+            element.style.textShadow = 'none';
+            element.style.transition = 'all 0.6s ease';
+          }, 800);
+        }
+      }
+    }
+    
+    requestAnimationFrame(updateCounter);
+  }, delay);
+}
+
+// Multiple trigger methods to ensure animation runs
+function initCounterAnimation() {
+  console.log('🎬 Initializing counter animation system');
+  
+  // Method 1: Immediate trigger after DOM load
+  setTimeout(() => {
+    console.log('🎯 Trigger 1: Immediate after DOM load');
+    animateCounters();
+  }, 1500);
+  
+  // Method 2: Intersection Observer
+  const metricsContainer = document.querySelector('.professional-metrics');
+  if (metricsContainer) {
+    console.log('👁️ Setting up Intersection Observer');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animationTriggered) {
+          console.log('🎯 Trigger 2: Intersection Observer activated');
+          setTimeout(() => {
+            animateCounters();
+          }, 300);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '50px'
+    });
+    
+    observer.observe(metricsContainer);
+  }
+  
+  // Method 3: Manual trigger button (for testing)
+  if (window.location.hash === '#debug') {
+    const debugBtn = document.createElement('button');
+    debugBtn.textContent = '🔄 Restart Counter Animation';
+    debugBtn.style.cssText = 'position:fixed;top:10px;right:10px;z-index:9999;padding:10px;background:#00d4ff;color:white;border:none;border-radius:5px;cursor:pointer;';
+    debugBtn.onclick = () => {
+      animationTriggered = false;
+      animateCounters();
+    };
+    document.body.appendChild(debugBtn);
+  }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('📄 DOM Content Loaded - Initializing counters');
+  initCounterAnimation();
+});
+
+// Backup initialization on window load
+window.addEventListener('load', function() {
+  if (!animationTriggered) {
+    console.log('🔄 Backup trigger: Window load event');
+    setTimeout(() => {
+      animateCounters();
+    }, 500);
+  }
+});
