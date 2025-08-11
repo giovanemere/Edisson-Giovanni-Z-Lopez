@@ -1,129 +1,225 @@
-// SHOOTING STARS IN HERO-CONTENT AREA ONLY
-console.log('🌟 SHOOTING STARS SCRIPT STARTING');
+// METEORITE SHOWER IN HERO-CONTENT AREA
+console.log('☄️ METEORITE SHOWER SCRIPT STARTING');
 
-function createShootingStar(x, y) {
-  console.log('⭐ Creating shooting star at:', x, y);
+function createMeteoriteShower(x, y) {
+  console.log('☄️ Creating meteorite shower at:', x, y);
   
-  // Create shooting star element
-  const star = document.createElement('div');
-  star.innerHTML = '⭐';
-  star.style.cssText = `
+  // Create multiple small meteorites
+  const meteoriteCount = Math.floor(Math.random() * 5) + 3; // 3-7 meteorites
+  
+  for (let i = 0; i < meteoriteCount; i++) {
+    setTimeout(() => {
+      createSingleMeteorite(x, y, i);
+    }, i * 50); // Staggered timing
+  }
+}
+
+function createSingleMeteorite(baseX, baseY, index) {
+  // Random offset for each meteorite
+  const offsetX = (Math.random() - 0.5) * 60;
+  const offsetY = (Math.random() - 0.5) * 60;
+  const x = baseX + offsetX;
+  const y = baseY + offsetY;
+  
+  // Create meteorite element
+  const meteorite = document.createElement('div');
+  meteorite.innerHTML = '🔥';
+  meteorite.style.cssText = `
     position: absolute !important;
     left: ${x}px !important;
     top: ${y}px !important;
-    width: 20px !important;
-    height: 20px !important;
-    color: #ffffff !important;
-    font-size: 16px !important;
+    width: 8px !important;
+    height: 8px !important;
+    font-size: 8px !important;
     z-index: 10 !important;
     pointer-events: none !important;
-    text-shadow: 0 0 10px #00d4ff, 0 0 20px #667eea !important;
-    animation: shootingStarAnim 1.5s ease-out forwards !important;
+    filter: brightness(2) saturate(1.5) !important;
+    text-shadow: 
+      0 0 5px #ff6b00,
+      0 0 10px #ff4500,
+      0 0 15px #ff0000 !important;
+    animation: meteoriteAnim${index % 3} 1.2s ease-out forwards !important;
   `;
   
-  // Add shooting trail
+  // Create bright trail
   const trail = document.createElement('div');
+  const trailLength = Math.random() * 20 + 15; // 15-35px
   trail.style.cssText = `
     position: absolute !important;
-    left: ${x + 10}px !important;
-    top: ${y + 10}px !important;
-    width: 60px !important;
-    height: 2px !important;
+    left: ${x + 4}px !important;
+    top: ${y + 4}px !important;
+    width: ${trailLength}px !important;
+    height: 1px !important;
     background: linear-gradient(90deg, 
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(0, 212, 255, 0.7) 30%,
-      rgba(102, 126, 234, 0.5) 60%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 200, 0, 0.9) 20%,
+      rgba(255, 100, 0, 0.7) 50%,
+      rgba(255, 50, 0, 0.5) 80%,
+      rgba(200, 0, 0, 0) 100%
     ) !important;
     z-index: 9 !important;
     pointer-events: none !important;
-    border-radius: 1px !important;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6) !important;
-    animation: trailAnim 1.5s ease-out forwards !important;
+    box-shadow: 0 0 8px rgba(255, 100, 0, 0.8) !important;
+    animation: trailAnim${index % 3} 1.2s ease-out forwards !important;
   `;
   
   // Find hero-content container
   const heroContent = document.querySelector('.hero-content');
   if (heroContent) {
-    heroContent.appendChild(star);
+    heroContent.appendChild(meteorite);
     heroContent.appendChild(trail);
-    console.log('✅ Shooting star added to hero-content');
     
     // Remove after animation
     setTimeout(() => {
-      if (star.parentNode) star.parentNode.removeChild(star);
+      if (meteorite.parentNode) meteorite.parentNode.removeChild(meteorite);
       if (trail.parentNode) trail.parentNode.removeChild(trail);
-    }, 1500);
-  } else {
-    console.log('❌ Hero-content not found');
+    }, 1200);
   }
 }
 
-// Add shooting star animations
-const starStyle = document.createElement('style');
-starStyle.textContent = `
-  @keyframes shootingStarAnim {
+// Add meteorite animations with variations
+const meteoriteStyle = document.createElement('style');
+meteoriteStyle.textContent = `
+  @keyframes meteoriteAnim0 {
     0% {
       opacity: 0;
-      transform: translateX(-20px) translateY(10px) scale(0.5);
+      transform: translateX(-15px) translateY(8px) scale(0.3);
     }
-    20% {
+    15% {
       opacity: 1;
-      transform: translateX(0px) translateY(0px) scale(1);
+      transform: translateX(-5px) translateY(3px) scale(1.2);
     }
-    80% {
-      opacity: 0.8;
-      transform: translateX(40px) translateY(-20px) scale(0.8);
+    85% {
+      opacity: 0.9;
+      transform: translateX(25px) translateY(-15px) scale(0.8);
     }
     100% {
       opacity: 0;
-      transform: translateX(80px) translateY(-40px) scale(0.3);
+      transform: translateX(45px) translateY(-25px) scale(0.2);
     }
   }
   
-  @keyframes trailAnim {
+  @keyframes meteoriteAnim1 {
     0% {
       opacity: 0;
-      width: 0px;
-      transform: translateX(-20px) translateY(10px);
+      transform: translateX(-20px) translateY(12px) scale(0.2);
     }
     20% {
-      opacity: 0.8;
-      width: 60px;
-      transform: translateX(0px) translateY(0px);
+      opacity: 1;
+      transform: translateX(-8px) translateY(5px) scale(1.1);
     }
     80% {
-      opacity: 0.4;
-      width: 40px;
-      transform: translateX(40px) translateY(-20px);
+      opacity: 0.8;
+      transform: translateX(30px) translateY(-18px) scale(0.7);
     }
     100% {
       opacity: 0;
-      width: 20px;
-      transform: translateX(80px) translateY(-40px);
+      transform: translateX(55px) translateY(-35px) scale(0.1);
+    }
+  }
+  
+  @keyframes meteoriteAnim2 {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px) translateY(5px) scale(0.4);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-2px) translateY(1px) scale(1.3);
+    }
+    90% {
+      opacity: 0.7;
+      transform: translateX(35px) translateY(-20px) scale(0.6);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(50px) translateY(-30px) scale(0.1);
+    }
+  }
+  
+  @keyframes trailAnim0 {
+    0% {
+      opacity: 0;
+      width: 0px;
+      transform: translateX(-15px) translateY(8px);
+    }
+    15% {
+      opacity: 0.9;
+      transform: translateX(-5px) translateY(3px);
+    }
+    85% {
+      opacity: 0.5;
+      transform: translateX(25px) translateY(-15px);
+    }
+    100% {
+      opacity: 0;
+      width: 8px;
+      transform: translateX(45px) translateY(-25px);
+    }
+  }
+  
+  @keyframes trailAnim1 {
+    0% {
+      opacity: 0;
+      width: 0px;
+      transform: translateX(-20px) translateY(12px);
+    }
+    20% {
+      opacity: 0.8;
+      transform: translateX(-8px) translateY(5px);
+    }
+    80% {
+      opacity: 0.4;
+      transform: translateX(30px) translateY(-18px);
+    }
+    100% {
+      opacity: 0;
+      width: 6px;
+      transform: translateX(55px) translateY(-35px);
+    }
+  }
+  
+  @keyframes trailAnim2 {
+    0% {
+      opacity: 0;
+      width: 0px;
+      transform: translateX(-10px) translateY(5px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-2px) translateY(1px);
+    }
+    90% {
+      opacity: 0.6;
+      transform: translateX(35px) translateY(-20px);
+    }
+    100% {
+      opacity: 0;
+      width: 10px;
+      transform: translateX(50px) translateY(-30px);
     }
   }
 `;
-document.head.appendChild(starStyle);
+document.head.appendChild(meteoriteStyle);
 
-// Create shooting stars only when mouse is over hero-content
+// Create meteorite showers when mouse is over hero-content
 let heroContentActive = false;
 
 document.addEventListener('DOMContentLoaded', function() {
   const heroContent = document.querySelector('.hero-content');
   
   if (heroContent) {
-    console.log('✅ Hero-content found, setting up shooting stars');
+    console.log('✅ Hero-content found, setting up meteorite shower');
     
     // Mouse enter/leave events for hero-content
     heroContent.addEventListener('mouseenter', function() {
       heroContentActive = true;
-      console.log('🌟 Mouse entered hero-content - stars activated');
+      console.log('☄️ Mouse entered hero-content - meteorite shower activated');
     });
     
     heroContent.addEventListener('mouseleave', function() {
       heroContentActive = false;
-      console.log('🌟 Mouse left hero-content - stars deactivated');
+      console.log('☄️ Mouse left hero-content - meteorite shower deactivated');
     });
     
     // Mouse move event for hero-content
@@ -135,22 +231,22 @@ document.addEventListener('DOMContentLoaded', function() {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      // Create shooting star with 15% probability
-      if (Math.random() < 0.15) {
-        createShootingStar(x, y);
+      // Create meteorite shower with 20% probability
+      if (Math.random() < 0.2) {
+        createMeteoriteShower(x, y);
       }
     });
     
-    // Create ambient shooting stars occasionally
+    // Create ambient meteorite showers occasionally
     setInterval(() => {
       if (heroContentActive) {
         const rect = heroContent.getBoundingClientRect();
         const randomX = Math.random() * rect.width;
         const randomY = Math.random() * rect.height;
-        createShootingStar(randomX, randomY);
-        console.log('🌌 Ambient shooting star created');
+        createMeteoriteShower(randomX, randomY);
+        console.log('🌌 Ambient meteorite shower created');
       }
-    }, 4000); // Every 4 seconds
+    }, 3000); // Every 3 seconds
     
   } else {
     console.log('❌ Hero-content not found');
@@ -158,12 +254,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Manual test function
-window.createTestStar = function() {
-  console.log('🧪 Manual shooting star test');
-  createShootingStar(200, 100);
+window.createTestMeteoriteShower = function() {
+  console.log('🧪 Manual meteorite shower test');
+  createMeteoriteShower(200, 100);
 };
 
-console.log('🌟 SHOOTING STARS SCRIPT LOADED');
+console.log('☄️ METEORITE SHOWER SCRIPT LOADED');
 
 // ===== REST OF THE SCRIPT WITH NULL CHECKS =====
 
