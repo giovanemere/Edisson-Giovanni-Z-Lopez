@@ -1,5 +1,5 @@
-// WHITE METEORITES ON BLACK BACKGROUND FOLLOWING MOUSE SLOWLY
-console.log('⚪ SLOW FOLLOWING METEORITES WITH BLACK BACKGROUND STARTING');
+// WHITE METEORITES ON BLACK BACKGROUND - FULL HERO SECTION
+console.log('⚪ METEORITES WITH BLACK HERO SECTION STARTING');
 
 let activeMeteorites = [];
 let heroContentActive = false;
@@ -59,9 +59,9 @@ function createFollowingMeteorite(x, y, index) {
       targetY: y,
       currentX: x,
       currentY: y,
-      offsetX: (Math.random() - 0.5) * 40, // Slightly larger spread
-      offsetY: (Math.random() - 0.5) * 40,
-      speed: 0.05 + Math.random() * 0.03, // Much slower: 0.05-0.08 (was 0.15-0.25)
+      offsetX: (Math.random() - 0.5) * 50, // Larger spread for more meteorites
+      offsetY: (Math.random() - 0.5) * 50,
+      speed: 0.03 + Math.random() * 0.02, // Even slower: 0.03-0.05 (was 0.05-0.08)
       index: index
     };
     
@@ -78,7 +78,7 @@ function updateMeteoritePositions() {
     meteorite.targetX = mousePosition.x + meteorite.offsetX;
     meteorite.targetY = mousePosition.y + meteorite.offsetY;
     
-    // Much slower movement towards target (2+ seconds to reach)
+    // Very slow movement towards target (3+ seconds to reach)
     const deltaX = meteorite.targetX - meteorite.currentX;
     const deltaY = meteorite.targetY - meteorite.currentY;
     
@@ -94,8 +94,8 @@ function updateMeteoritePositions() {
 }
 
 function createMeteoriteFollowers() {
-  // More meteorites: 3-5 (increased from 1-2)
-  const meteoriteCount = Math.floor(Math.random() * 3) + 3; // 3-5 meteorites
+  // Even more meteorites: 4-7 (increased from 3-5)
+  const meteoriteCount = Math.floor(Math.random() * 4) + 4; // 4-7 meteorites
   
   for (let i = 0; i < meteoriteCount; i++) {
     createFollowingMeteorite(mousePosition.x, mousePosition.y, i);
@@ -115,18 +115,33 @@ function clearAllMeteorites() {
   console.log('🧹 Cleared all meteorites');
 }
 
-function addBlackBackground() {
+function addBlackBackgrounds() {
+  const heroSection = document.querySelector('.hero-section');
   const heroContent = document.querySelector('.hero-content');
+  
+  if (heroSection) {
+    heroSection.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 40, 0.8) 100%)';
+    heroSection.style.transition = 'background 0.8s ease';
+    console.log('🖤 Added black background to hero-section');
+  }
+  
   if (heroContent) {
-    heroContent.style.background = 'rgba(0, 0, 0, 0.8)';
+    heroContent.style.background = 'rgba(0, 0, 0, 0.6)';
     heroContent.style.borderRadius = '15px';
     heroContent.style.transition = 'background 0.5s ease';
     console.log('🖤 Added black background to hero-content');
   }
 }
 
-function removeBlackBackground() {
+function removeBlackBackgrounds() {
+  const heroSection = document.querySelector('.hero-section');
   const heroContent = document.querySelector('.hero-content');
+  
+  if (heroSection) {
+    heroSection.style.background = '';
+    console.log('🤍 Removed black background from hero-section');
+  }
+  
   if (heroContent) {
     heroContent.style.background = 'transparent';
     console.log('🤍 Removed black background from hero-content');
@@ -143,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const heroContent = document.querySelector('.hero-content');
   
   if (heroContent) {
-    console.log('✅ Hero-content found, setting up slow following meteorites');
+    console.log('✅ Hero-content found, setting up meteorite system with black backgrounds');
     
     // Start animation loop
     animateMeteorites();
@@ -151,18 +166,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mouse enter event
     heroContent.addEventListener('mouseenter', function() {
       heroContentActive = true;
-      console.log('⚪ Mouse entered - adding black background and creating meteorites');
-      addBlackBackground();
+      console.log('⚪ Mouse entered - adding black backgrounds and creating meteorites');
+      addBlackBackgrounds();
       setTimeout(() => {
         createMeteoriteFollowers();
-      }, 200); // Small delay for background transition
+      }, 300); // Delay for background transition
     });
     
     // Mouse leave event
     heroContent.addEventListener('mouseleave', function() {
       heroContentActive = false;
-      console.log('⚪ Mouse left - removing background and clearing meteorites');
-      removeBlackBackground();
+      console.log('⚪ Mouse left - removing backgrounds and clearing meteorites');
+      removeBlackBackgrounds();
       clearAllMeteorites();
     });
     
@@ -175,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
       mousePosition.y = e.clientY - rect.top;
       
       // Create new meteorites occasionally (very low frequency)
-      if (Math.random() < 0.02 && activeMeteorites.length < 6) { // Max 6 meteorites
+      if (Math.random() < 0.015 && activeMeteorites.length < 8) { // Max 8 meteorites
         createFollowingMeteorite(mousePosition.x, mousePosition.y, activeMeteorites.length);
       }
     });
@@ -186,22 +201,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Manual test function
-window.createTestSlowFollowingMeteorites = function() {
-  console.log('🧪 Manual slow following meteorites test');
+window.createTestSpaceMeteoriteShower = function() {
+  console.log('🧪 Manual space meteorite shower test');
   mousePosition.x = 200;
   mousePosition.y = 100;
   heroContentActive = true;
-  addBlackBackground();
+  addBlackBackgrounds();
   createMeteoriteFollowers();
 };
 
 // Clear function for testing
 window.clearTestMeteorites = function() {
   clearAllMeteorites();
-  removeBlackBackground();
+  removeBlackBackgrounds();
 };
 
-console.log('⚪ SLOW FOLLOWING METEORITES WITH BLACK BACKGROUND SCRIPT LOADED');
+console.log('⚪ SPACE METEORITE SHOWER SCRIPT LOADED');
 
 // ===== REST OF THE SCRIPT WITH NULL CHECKS =====
 
