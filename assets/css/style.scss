@@ -405,12 +405,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: var(--space-8);
       margin: var(--space-8) 0;
+      width: 100%;
       
       @media (min-width: 768px) {
         flex-direction: row;
         gap: var(--space-12);
+        align-items: center;
       }
       
       .hero-photo {
@@ -418,9 +421,17 @@
         height: 180px;
         border-radius: 50%;
         object-fit: cover;
+        object-position: center center;
         border: 6px solid rgba(255, 255, 255, 0.3);
         box-shadow: var(--shadow-2xl);
         transition: var(--transition-all);
+        display: block;
+        flex-shrink: 0;
+        margin: 0 auto;
+        position: relative;
+        
+        /* Asegurar que la imagen mantenga su aspecto */
+        aspect-ratio: 1 / 1;
         
         &:hover {
           transform: scale(1.05) rotate(2deg);
@@ -430,6 +441,13 @@
         @media (min-width: 768px) {
           width: 220px;
           height: 220px;
+          margin: 0;
+        }
+        
+        @media (max-width: 480px) {
+          width: 150px;
+          height: 150px;
+          border-width: 4px;
         }
       }
       
@@ -597,6 +615,12 @@ body {
     z-index: 10;
     max-width: 900px;
     padding: var(--space-8);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   h1 {
@@ -1490,5 +1514,76 @@ ul, ol {
       color: var(--primary-600);
       font-weight: 600;
     }
+  }
+}
+
+/* Botón CV específico */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6) !important;
+  }
+}
+
+/* ========================================
+   FIX ESPECÍFICO PARA CENTRADO DE IMAGEN
+======================================== */
+.hero-section .hero-content .hero-profile {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  
+  @media (min-width: 768px) {
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+}
+
+.hero-section .hero-content .hero-profile .hero-photo {
+  display: block !important;
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 16px !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  margin: 0 auto !important;
+  border: 4px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: var(--shadow-2xl) !important;
+  transition: var(--transition-all) !important;
+  
+  @media (min-width: 768px) {
+    width: 240px !important;
+    height: 240px !important;
+    margin: 0 !important;
+  }
+  
+  @media (max-width: 480px) {
+    width: 160px !important;
+    height: 160px !important;
+    border-width: 3px !important;
+    border-radius: 12px !important;
+  }
+  
+  &:hover {
+    transform: scale(1.03) translateY(-2px) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+  }
+}
+
+.hero-section .hero-content .hero-profile .hero-text {
+  width: 100%;
+  text-align: center;
+  
+  @media (min-width: 768px) {
+    text-align: left;
   }
 }

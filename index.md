@@ -33,7 +33,8 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
     
     <div class="hero-cta">
       <a href="#contact-form" class="btn">📧 Contactar</a>
-      <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
+      <a href="cv.html" class="btn btn-primary">📄 Ver CV Completo</a>
+      <a href="https://www.linkedin.com/in/edisson-giovanni-zuñiga-lopez/" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
     </div>
   </div>
   
@@ -653,7 +654,8 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
       
       <div class="hero-cta mb-4">
         <a href="#contact-form" class="btn">📧 Contactar por Email</a>
-        <a href="https://www.linkedin.com/in/edissonzuniga/" target="_blank" class="btn btn-outline">💼 Ver LinkedIn</a>
+        <a href="cv.html" class="btn btn-primary">📄 Ver CV Completo</a>
+        <a href="https://www.linkedin.com/in/edisson-giovanni-zuñiga-lopez/" target="_blank" class="btn btn-outline">💼 Ver LinkedIn</a>
         <a href="https://github.com/giovanemere" target="_blank" class="btn">🐙 Ver GitHub</a>
       </div>
       
