@@ -19,9 +19,10 @@ git add .
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M')
 git commit -m "Update CV and site structure - $TIMESTAMP"
 
-# Push al repositorio
-echo "🌐 Desplegando a GitHub..."
-git push origin main
+# Verificar rama actual y hacer push
+CURRENT_BRANCH=$(git branch --show-current)
+echo "🌐 Desplegando desde rama: $CURRENT_BRANCH"
+git push origin $CURRENT_BRANCH
 
 echo "✅ Despliegue completado"
 echo "🔗 Sitio se actualizará automáticamente en: https://giovanemere.github.io/Edisson-Giovanni-Z-Lopez/"
