@@ -1,0 +1,169 @@
+# Datos centralizados del CV - Actualizar solo este archivo
+personal:
+  name: "Edisson Giovanni Zuñiga Lopez"
+  title: "Arquitecto DevOps Senior"
+  email: "giovanemere@gmail.com"
+  phone: "+57 316 526 9803"
+  location: "Zipaquirá, Colombia"
+  linkedin: "edisson-giovanni-zuñiga-lopez"
+  github: "giovanemere"
+  experience_years: 15
+  
+profile: |
+  Experimentado profesional con más de 15 años de experiencia en sector financiero 
+  y especialización en proyectos tecnológicos. Actor clave en múltiples proyectos 
+  que abarcan definiciones de arquitectura en infraestructura, redes, aplicaciones, 
+  en soluciones On-Premise, Nube y Multi-Nube. Especializado en DevOps, CI/CD, 
+  containerización y metodologías ágiles.
+
+experience:
+  - company: "Colpatria"
+    position: "Arquitecto DevOps"
+    period: "2022 - Presente"
+    description: "Liderazgo en arquitectura DevOps, transformación digital y implementación de mejores prácticas en CI/CD"
+    achievements:
+      - "Diseño e implementación de arquitecturas cloud-native"
+      - "Automatización de procesos de despliegue"
+      - "Liderazgo técnico en proyectos de transformación digital"
+    
+  - company: "Colpatria"
+    position: "Engineer DevOps"
+    period: "2021 - 2022"
+    description: "Implementación de pipelines CI/CD y automatización de infraestructura"
+    achievements:
+      - "Implementación de Jenkins y Azure DevOps"
+      - "Containerización con Docker y Kubernetes"
+      - "Monitoreo con Prometheus y Grafana"
+      
+  - company: "Bancolombia, GBM, Itau"
+    position: "Consultant Sterling"
+    period: "2021"
+    description: "Consultoría especializada en IBM Sterling B2B Integrator"
+    achievements:
+      - "Implementación de soluciones B2B"
+      - "Integración de sistemas empresariales"
+      - "Optimización de procesos de negocio"
+      
+  - company: "Colpatria"
+    position: "Consultant Sterling"
+    period: "2019 - 2021"
+    description: "Consultoría en soluciones de integración empresarial"
+    achievements:
+      - "Desarrollo de conectores B2B"
+      - "Automatización de procesos de intercambio de datos"
+      - "Soporte técnico especializado"
+      
+  - company: "Banco Pichincha"
+    position: "Especialista Ambientes y Versiones"
+    period: "2016 - 2019"
+    description: "Gestión de ambientes de desarrollo y control de versiones"
+    achievements:
+      - "Administración de ambientes de desarrollo, testing y producción"
+      - "Implementación de procesos de control de versiones"
+      - "Automatización de despliegues"
+
+skills:
+  cloud:
+    - name: "Amazon Web Services (AWS)"
+      level: "Avanzado"
+    - name: "Microsoft Azure"
+      level: "Avanzado"
+    - name: "Google Cloud Platform"
+      level: "Intermedio"
+      
+  containers:
+    - name: "Docker"
+      level: "Experto"
+    - name: "Kubernetes"
+      level: "Avanzado"
+    - name: "OpenShift"
+      level: "Intermedio"
+    - name: "Helm"
+      level: "Avanzado"
+      
+  cicd:
+    - name: "Jenkins"
+      level: "Experto"
+    - name: "Azure DevOps"
+      level: "Avanzado"
+    - name: "GitLab CI"
+      level: "Avanzado"
+    - name: "GitHub Actions"
+      level: "Avanzado"
+      
+  monitoring:
+    - name: "Prometheus"
+      level: "Avanzado"
+    - name: "Grafana"
+      level: "Avanzado"
+    - name: "ELK Stack"
+      level: "Intermedio"
+    - name: "Jaeger"
+      level: "Intermedio"
+      
+  iac:
+    - name: "Terraform"
+      level: "Avanzado"
+    - name: "CloudFormation"
+      level: "Intermedio"
+    - name: "Ansible"
+      level: "Avanzado"
+      
+  programming:
+    - name: "Python"
+      level: "Avanzado"
+    - name: "Bash/Shell"
+      level: "Experto"
+    - name: "PowerShell"
+      level: "Intermedio"
+    - name: "YAML/JSON"
+      level: "Experto"
+
+education:
+  - degree: "Ingeniería de Sistemas"
+    institution: "Universidad Nacional de Colombia"
+    year: "2008"
+    description: "Formación sólida en fundamentos de sistemas y tecnología"
+
+certifications:
+  - name: "AWS Solutions Architect"
+    issuer: "Amazon Web Services"
+    year: "2023"
+    status: "Vigente"
+    
+  - name: "Kubernetes Administrator (CKA)"
+    issuer: "Cloud Native Computing Foundation"
+    year: "2022"
+    status: "Vigente"
+    
+  - name: "Azure DevOps Engineer Expert"
+    issuer: "Microsoft"
+    year: "2022"
+    status: "Vigente"
+    
+  - name: "Docker Certified Associate"
+    issuer: "Docker Inc."
+    year: "2021"
+    status: "Vigente"
+
+languages:
+  - name: "Español"
+    level: "Nativo"
+  - name: "Inglés"
+    level: "Intermedio-Avanzado"
+    
+projects:
+  - name: "Transformación DevOps Colpatria"
+    description: "Liderazgo en la transformación digital y adopción de prácticas DevOps"
+    technologies: ["AWS", "Kubernetes", "Jenkins", "Terraform"]
+    year: "2022-2024"
+    
+  - name: "Plataforma CI/CD Empresarial"
+    description: "Diseño e implementación de plataforma centralizada de CI/CD"
+    technologies: ["Azure DevOps", "Docker", "Kubernetes", "Helm"]
+    year: "2021-2022"
+    
+  - name: "Migración Cloud-Native"
+    description: "Migración de aplicaciones legacy a arquitectura cloud-native"
+    technologies: ["AWS", "Docker", "Kubernetes", "Prometheus"]
+    year: "2020-2021"

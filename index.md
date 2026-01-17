@@ -89,14 +89,14 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
                 <span class="cursor">|</span>
               </div>
               <p class="integrated-description">
-                <span class="experience-highlight">Más de 15 años</span> de experiencia liderando la 
+                <span class="experience-highlight">Más de {{ site.data.cv.personal.experience_years }} años</span> de experiencia liderando la 
                 <span class="expertise-highlight">transformación digital</span> en organizaciones del sector financiero, 
                 especializándome en <strong>arquitecturas cloud-native</strong>, <strong>automatización de infraestructura</strong> 
                 y <strong>implementación de prácticas DevSecOps</strong> de clase mundial.
               </p>
               <div class="professional-metrics">
                 <div class="metric-item">
-                  <span class="metric-number">50+</span>
+                  <span class="metric-number">{{ site.data.cv.projects | size }}+</span>
                   <span class="metric-label">Proyectos Exitosos</span>
                 </div>
                 <div class="metric-separator">•</div>
