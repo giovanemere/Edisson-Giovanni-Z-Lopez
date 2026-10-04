@@ -149,14 +149,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
         </div>
         
         <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-info">
-            <div class="contact-label">Teléfono</div>
-            <div class="contact-value">+57 316 526 9803</div>
-          </div>
-        </div>
-        
-        <div class="contact-item">
           <div class="contact-icon">💼</div>
           <div class="contact-info">
             <div class="contact-label">LinkedIn</div>
@@ -588,11 +580,7 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
             <div class="company-info">
               <h4 class="company-name">GFT</h4>
               <span class="job-title-detailed">Expert Engineer II</span>
-              <span class="job-period-detailed">Octubre 2024 - Actual</span>
-            </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Luis Vasco<br>
-              <strong>Teléfono:</strong> 3167598274
+              <span class="job-period-detailed">Octubre 2024 - Junio 2025</span>
             </div>
           </div>
           <div class="job-description-detailed">
@@ -617,10 +605,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <span class="job-title-detailed">CEO</span>
               <span class="job-period-detailed">Abril 2023 - Actual</span>
             </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Eduart Doria<br>
-              <strong>Teléfono:</strong> Whatsapp: 3007884003
-            </div>
           </div>
           <div class="job-description-detailed">
             <p><strong>Desarrollo y Gestión de Negocio DevOps:</strong></p>
@@ -640,10 +624,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <h4 class="company-name">AOS</h4>
               <span class="job-title-detailed">Arquitecto SOA y DevOps</span>
               <span class="job-period-detailed">Septiembre 2021 - Septiembre 2024</span>
-            </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Dorian Gomez<br>
-              <strong>Teléfono:</strong> 318 3253583
             </div>
           </div>
           <div class="job-description-detailed">
@@ -670,10 +650,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <span class="job-title-detailed">Consultor Sterling</span>
               <span class="job-period-detailed">Marzo 2019 - Agosto 2021</span>
             </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Dorian Gomez<br>
-              <strong>Teléfono:</strong> 318 3253583
-            </div>
           </div>
           <div class="job-description-detailed">
             <p><strong>Especialista en IBM Sterling B2B Integrator:</strong></p>
@@ -693,10 +669,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <span class="job-title-detailed">Desarrollador de Software Freelance y Consultor de TI</span>
               <span class="job-period-detailed">Noviembre 2015 - Marzo 2019</span>
             </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Julian Bernal<br>
-              <strong>Teléfono:</strong> 304 4257937
-            </div>
           </div>
           <div class="job-description-detailed">
             <ul>
@@ -714,10 +686,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <h4 class="company-name">Banco Pichincha</h4>
               <span class="job-title-detailed">Analista de Ambientes y Versiones</span>
               <span class="job-period-detailed">Noviembre 2015 - Marzo 2019</span>
-            </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Diego Alejandro Vivas<br>
-              <strong>Teléfono:</strong> 310 8668337
             </div>
           </div>
           <div class="job-description-detailed">
@@ -737,10 +705,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <h4 class="company-name">Choucair Testing</h4>
               <span class="job-title-detailed">Analista de Investigación y Desarrollo - I+D</span>
               <span class="job-period-detailed">Enero 2015 - Noviembre 2015</span>
-            </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Juan Pablo Rios<br>
-              <strong>Teléfono:</strong> 300783179
             </div>
           </div>
           <div class="job-description-detailed">
@@ -762,10 +726,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <span class="job-title-detailed">Analista de Pruebas - Líder de Proyecto Gestión de Ambientes de Pruebas Claro</span>
               <span class="job-period-detailed">Abril 2013 - Diciembre 2014</span>
             </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Ramiro Gómez Esteves<br>
-              <strong>Teléfono:</strong> 3216301021
-            </div>
           </div>
           <div class="job-description-detailed">
             <ul>
@@ -785,10 +745,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <span class="job-title-detailed">Ingeniero Soporte Residente</span>
               <span class="job-period-detailed">Octubre 2012 - Abril 2013</span>
             </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Martha Chávez<br>
-              <strong>Teléfono:</strong> 314 4754759
-            </div>
           </div>
           <div class="job-description-detailed">
             <ul>
@@ -807,10 +763,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
               <h4 class="company-name">Colsubsidio</h4>
               <span class="job-title-detailed">Técnico de soporte Microsoft</span>
               <span class="job-period-detailed">Agosto 2010 - Octubre 2012</span>
-            </div>
-            <div class="contact-ref">
-              <strong>Jefe inmediato:</strong> Alfredo Arevalo<br>
-              <strong>Teléfono:</strong> 3112309826
             </div>
           </div>
           <div class="job-description-detailed">
@@ -871,33 +823,13 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
     <!-- Referencias -->
     <div class="cv-detailed-section">
       <h3 class="cv-section-title">👥 Referencias</h3>
-      <div class="references-grid">
-        <div class="reference-category">
-          <h4>💼 Referencias Laborales</h4>
-          <div class="reference-item">
-            <p><strong>Eduart Doria</strong> - Arquitecto de Soluciones</p>
-            <p>📞 3007884003 - WhatsApp</p>
-          </div>
-          <div class="reference-item">
-            <p><strong>Angel Garcia</strong> - Ingeniero II</p>
-            <p>📞 3132099484</p>
-          </div>
-        </div>
-        <div class="reference-category">
-          <h4>👨‍👩‍👧‍👦 Referencias Personales</h4>
-          <div class="reference-item">
-            <p><strong>Miguel Alejandro Bazurto</strong></p>
-            <p>Ingeniero Plataforma - Helios</p>
-            <p>📞 318 690 8058</p>
-          </div>
-        </div>
-      </div>
+      <p>Disponibles a solicitud.</p>
     </div>
+
 
     <!-- Botones de Acción -->
     <div class="cv-actions">
       <a href="cv.html" class="btn btn-primary">📄 Ver CV en Formato Tradicional</a>
-      <a href="docs/HVEdissonZuniga2026.docx" class="btn btn-success" download>📥 Descargar CV (DOCX)</a>
       <a href="#contact-form" class="btn">📧 Contactar</a>
       <a href="https://www.linkedin.com/in/edisson-giovanni-zuñiga-lopez/" target="_blank" class="btn btn-outline">💼 LinkedIn</a>
     </div>
@@ -1243,7 +1175,6 @@ description: "Arquitecto DevOps Senior con más de 10 años de experiencia en in
         <a href="#contact-form" class="btn">📧 Contactar por Email</a>
         <a href="#detailed-cv" class="btn btn-primary">📋 CV Detallado</a>
         <a href="cv.html" class="btn btn-outline">📄 CV Tradicional</a>
-        <a href="docs/HVEdissonZuniga2026.docx" class="btn btn-success" download>📥 Descargar CV</a>
         <a href="https://www.linkedin.com/in/edisson-giovanni-zuñiga-lopez/" target="_blank" class="btn btn-outline">💼 Ver LinkedIn</a>
         <a href="https://github.com/giovanemere" target="_blank" class="btn">🐙 Ver GitHub</a>
       </div>

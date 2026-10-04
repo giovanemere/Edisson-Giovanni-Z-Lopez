@@ -25,7 +25,6 @@ Este es mi portafolio profesional como **Arquitecto DevOps Senior** con más de 
 
 ### 📍 Información de Contacto
 - 📧 **Email**: giovanemere@gmail.com
-- 📱 **Teléfono**: +57 316 526 9803
 - 📍 **Ubicación**: Zipaquirá, Colombia
 - 💼 **LinkedIn**: [edisson-giovanni-zuñiga-lopez](https://linkedin.com/in/edisson-giovanni-zuñiga-lopez)
 - 🐙 **GitHub**: [giovanemere](https://github.com/giovanemere)
