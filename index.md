@@ -16,6 +16,7 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
       <a href="mailto:{{ cv.personal.email }}">{{ cv.personal.email }}</a>
       <a href="https://github.com/{{ cv.personal.github }}">github.com/{{ cv.personal.github }}</a>
       <a href="{{ cv.personal.linkedin_url }}">LinkedIn</a>
+      <a href="https://medium.com/@edissongiovannizuigalopez">Medium</a>
     </nav>
   </div>
 </header>
@@ -92,6 +93,34 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
     <div class="tiles tiles-wide">
       {% for p in cv.projects %}
       <div class="tile"><strong class="plain">{{ p.title }}</strong><span>{{ p.detail }}</span></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section aria-labelledby="docencia">
+    <h2 id="docencia">Docencia y formación impartida</h2>
+    <p class="lead">{{ cv.teaching_intro }}</p>
+    <div class="tiles tiles-wide">
+      {% for c in cv.teaching %}
+      <div class="tile"><strong>{{ c.title }}</strong><span>{{ c.detail }}</span><em class="where">{{ c.period }}</em></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section aria-labelledby="publicaciones">
+    <h2 id="publicaciones">Publicaciones</h2>
+    <div class="tiles tiles-wide">
+      {% for p in cv.publications %}
+      <div class="tile"><strong class="plain">{{ p.title }}</strong><span>{{ p.detail }}</span><em class="where">{{ p.where }} · {{ p.year }}</em></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section aria-labelledby="presencia">
+    <h2 id="presencia">Dónde encontrarme</h2>
+    <div class="tiles">
+      {% for s in cv.presence %}
+      <a class="tile tile-link" href="{{ s.url }}"><strong>{{ s.name }}</strong><span class="handle">{{ s.handle }}</span><span>{{ s.detail }}</span></a>
       {% endfor %}
     </div>
   </section>

@@ -59,6 +59,10 @@ h2 { font-size: 24px; color: var(--tinta); }
 @media (prefers-color-scheme: dark) { .metric-value { color: #9fd9ff; } }
 .metric-label { font-size: 13.5px; line-height: 1.45; color: var(--texto-suave); }
 .strength span { font-size: 14.5px; color: var(--texto); }
+.lead { margin: -4px 0 14px; color: var(--texto-suave); font-size: 15px; }
+.tile-link { text-decoration: none; transition: border-color .15s, transform .15s; }
+.tile-link:hover, .tile-link:focus-visible { border-color: var(--primario); transform: translateY(-2px); }
+.tile .handle { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--texto); }
 .where { font-style: normal; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--texto-suave); }
 .skills { gap: 14px; }
 .skill-row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; }
