@@ -88,4 +88,32 @@ h2 { font-size: 24px; color: var(--tinta); }
   .hero .headline, .contact a, .eyebrow { color: var(--texto); }
   .card, .tile { break-inside: avoid; border-color: #c9d3dd; }
   .site-footer { display: none; }
+  @page { size: A4; margin: 12mm 12mm 14mm; }
+  html { font-size: 12px; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrap { max-width: none; padding: 0; }
+  .hero { padding: 0 0 10px; }
+  .hero h1 { font-size: 26px; margin: 2px 0; }
+  .hero .headline { font-size: 14px; }
+  .hero-grid { grid-template-columns: 1fr auto; gap: 16px; }
+  .contact { font-size: 11px; }
+  .stack { gap: 14px; }
+  h2 { font-size: 16px; margin: 0 0 6px; }
+  h3 { font-size: 13px; }
+  .stack > section.metrics { grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  h2 { break-after: avoid; page-break-after: avoid; }
+  section > p.lead { break-after: avoid; }
+  .contact { flex-direction: row; flex-wrap: wrap; gap: 4px 12px; }
+  .metric { padding: 8px; }
+  .metric-value { font-size: 18px; }
+  .metric-label, .tile span, .list li, .chips li { font-size: 10.5px; line-height: 1.4; }
+  .tiles, .tiles-strengths { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .tiles-wide, .timeline { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .tile, .card { padding: 10px 12px; gap: 4px; }
+  .tile strong { font-size: 12px; }
+  .lead { font-size: 11px; margin: 0 0 8px; }
+  .chips { gap: 4px; }
+  .chips li { padding: 2px 7px; }
+  .job { break-inside: avoid; }
+  .tile-link { text-decoration: none; }
 }

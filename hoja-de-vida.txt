@@ -1,0 +1,72 @@
+---
+layout: null
+permalink: /hoja-de-vida.md
+---
+{%- assign cv = site.data.cv -%}
+# {{ cv.personal.name }}
+
+**{{ cv.personal.title }}** · {{ cv.personal.location }} · {{ cv.personal.email }} · github.com/{{ cv.personal.github }} · {{ cv.personal.linkedin_url }}
+
+{{ cv.personal.headline }}
+
+## Logros en cifras
+
+{% for h in cv.highlights %}- **{{ h.value }}** {{ h.label }}
+{% endfor %}
+## Lo que mejor hago
+
+{% for st in cv.strengths %}- **{{ st.title }}.** {{ st.detail }}
+{% endfor %}
+## Perfil
+
+{% for item in cv.profile %}- {{ item }}
+{% endfor %}
+## Experiencia
+{% for job in cv.experience %}
+### {{ job.position }} — {{ job.company }} ({{ job.period }})
+
+{% for a in job.achievements %}- {{ a }}
+{% endfor %}{% endfor %}
+## Temas de expertise
+
+| Tema | Dónde | Tecnologías |
+|---|---|---|
+{% for t in cv.expertise %}| {{ t.topic }} | {{ t.where }} | {{ t.stack }} |
+{% endfor %}
+## Herramientas y tecnologías
+
+{% for g in cv.skills %}- **{{ g.group }}:** {{ g.items | join: ", " }}
+{% endfor %}
+## Proyectos de consultoría seleccionados
+
+{% for p in cv.projects %}- **{{ p.title }}.** {{ p.detail }}
+{% endfor %}
+## Docencia y formación impartida
+
+{{ cv.teaching_intro }}
+
+{% for c in cv.teaching %}- **{{ c.title }}** ({{ c.period }}). {{ c.detail }}
+{% endfor %}
+## Formación continua por etapa
+{% for l in cv.learning %}
+### {{ l.stage }} ({{ l.period }})
+
+{% for i in l.items %}- {{ i }}
+{% endfor %}{% endfor %}
+## Formación y certificaciones
+
+{% for e in cv.education %}- {{ e }}
+{% endfor %}
+## Publicaciones
+
+{% for p in cv.publications %}- **{{ p.title }}** ({{ p.where }}, {{ p.year }}). {{ p.detail }}
+{% endfor %}
+## Idiomas
+
+{% for l in cv.languages %}- {{ l }}
+{% endfor %}
+## Dónde encontrarme
+
+{% for s in cv.presence %}- **{{ s.name }}:** {{ s.url }}
+{% endfor %}
+Actualizado {{ cv.updated }}.
