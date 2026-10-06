@@ -1,14 +1,14 @@
 # Site settings
-title: "Edisson Giovanni Zuñiga Lopez - Arquitecto DevOps"
-description: "Arquitecto DevOps Senior con más de 18 años de experiencia en infraestructura, CI/CD, Docker, Kubernetes y metodologías ágiles."
+title: "Edisson Giovanni Zúñiga López — Arquitecto de soluciones y DevSecOps"
+description: "Arquitecto de soluciones y DevSecOps: 18 años construyendo plataformas que se pueden operar; desde 2024, con IA."
 baseurl: "/Edisson-Giovanni-Z-Lopez"
 url: "https://giovanemere.github.io"
 
 # Author information
 author:
-  name: "Edisson Giovanni Zuñiga Lopez"
+  name: "Edisson Giovanni Zúñiga López"
   email: "giovanemere@gmail.com"
-  bio: "Arquitecto DevOps Senior especializado en infraestructura cloud, CI/CD, Docker, Kubernetes y metodologías ágiles."
+  bio: "Arquitecto de soluciones y DevSecOps."
   location: "Zipaquirá, Colombia"
   linkedin: "edisson-giovanni-zuñiga-lopez"
   github: "giovanemere"
@@ -46,6 +46,9 @@ exclude:
   - QUICK-GUIDE.md
   - LICENSE
   - "*.sh"
+  - FINAL-STRUCTURE.md
+  - GITHUB-PAGES-STATUS.md
+  - UPDATE-PROCESS.md
 
 # Sass configuration
 sass:
