@@ -12,6 +12,30 @@ personal:
   linkedin_url: "https://www.linkedin.com/in/edisson-giovanni-zu%C3%B1iga-lopez/"
   experience_years: 18
 
+highlights:
+  - value: "+1.000"
+    label: "procesos de transferencia de archivos migrados en banca con IBM Sterling"
+  - value: "28"
+    label: "personas en la torre DevSecOps que lideré, con OKR y métricas"
+  - value: "+160"
+    label: "decisiones de arquitectura (ADR) gobernadas en tres proyectos"
+  - value: "~100"
+    label: "stacks de IaC en una plataforma de nube completa para una fintech"
+  - value: "Core"
+    label: "bancario desplegado con IaC (Thought Machine, Bancolombia)"
+  - value: "18"
+    label: "años construyendo plataformas, de soporte a arquitectura"
+
+strengths:
+  - title: "Entender antes de construir"
+    detail: "Separo lo que el cliente pide, lo que necesita y lo que quiere lograr. Diagnóstico de madurez, demo funcionando y propuesta con fases, horas y roadmap antes de escribir la primera línea."
+  - title: "Arquitectura que se opera desde el día 0"
+    detail: "Seguridad, dueños de componentes, flujos con entrada y salida y runbooks como condición de arranque, no de cierre. Nada pasa a producción sin estar listo para operar."
+  - title: "De la experiencia al framework reutilizable"
+    detail: "Lo que resuelvo en un cliente se vuelve plantilla, framework o estándar para el siguiente: de un portafolio de ambientes (2015) a frameworks DevSecOps e IaC a gran escala con IA."
+  - title: "Equipos que siguen solos"
+    detail: "Formo a las personas mientras construimos: cursos por nivel con evaluación, guías paso a paso y programas como la formación de desarrolladoras Sterling."
+
 profile:
   - "De 2008 a 2024 resolví proyectos de desarrollo, infraestructura, integración y DevOps con estudio, laboratorio y experiencia propia, antes de la IA generativa: esa base es la que hoy multiplica la IA."
   - "Desde 2015 diseño arquitecturas, patrones y frameworks base reutilizables: portafolio de ambientes no productivos (2015), guías de despliegue en banca (2018), componentes transversales de IBM Sterling con más de 1.000 transmisiones migradas y frameworks DevSecOps (2022–2024)."

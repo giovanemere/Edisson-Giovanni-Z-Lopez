@@ -51,6 +51,14 @@ h2 { font-size: 24px; color: var(--tinta); }
 .tile strong { font-size: 16px; color: var(--primario); }
 .tile strong.plain { color: var(--texto); }
 .tile span { font-size: 14px; line-height: 1.5; color: var(--texto-suave); }
+.stack > section.metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.tiles-strengths { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
+@media (max-width: 520px) { .tiles-strengths { grid-template-columns: 1fr; } }
+.metric { background: var(--superficie); border: 1px solid var(--linea); border-top: 4px solid #0d9373; border-radius: var(--radio); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.metric-value { font-size: 32px; font-weight: 700; line-height: 1; color: var(--tinta); }
+@media (prefers-color-scheme: dark) { .metric-value { color: #9fd9ff; } }
+.metric-label { font-size: 13.5px; line-height: 1.45; color: var(--texto-suave); }
+.strength span { font-size: 14.5px; color: var(--texto); }
 .where { font-style: normal; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--texto-suave); }
 .skills { gap: 14px; }
 .skill-row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; }

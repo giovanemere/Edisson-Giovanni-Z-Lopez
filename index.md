@@ -21,6 +21,21 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
 </header>
 
 <main class="wrap stack">
+  <section class="metrics" aria-label="Logros en cifras">
+    {% for h in cv.highlights %}
+    <div class="metric"><span class="metric-value">{{ h.value }}</span><span class="metric-label">{{ h.label }}</span></div>
+    {% endfor %}
+  </section>
+
+  <section aria-labelledby="mejor">
+    <h2 id="mejor">Lo que mejor hago</h2>
+    <div class="tiles tiles-strengths">
+      {% for st in cv.strengths %}
+      <div class="tile strength"><strong>{{ st.title }}</strong><span>{{ st.detail }}</span></div>
+      {% endfor %}
+    </div>
+  </section>
+
   <section class="card" aria-labelledby="perfil">
     <h2 id="perfil">Perfil</h2>
     <ul class="list">
