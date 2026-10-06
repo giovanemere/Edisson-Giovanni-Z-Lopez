@@ -37,6 +37,24 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
     </div>
   </section>
 
+  <section aria-labelledby="expertise">
+    <h2 id="expertise">Temas de expertise</h2>
+    <div class="tiles tiles-wide">
+      {% for t in cv.expertise %}
+      <div class="tile"><strong>{{ t.topic }}</strong><span>{{ t.stack }}</span><em class="where">{{ t.where }}</em></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section aria-labelledby="herramientas">
+    <h2 id="herramientas">Herramientas y tecnologías</h2>
+    <div class="card skills">
+      {% for g in cv.skills %}
+      <div class="skill-row"><span class="skill-group">{{ g.group }}</span><ul class="chips">{% for i in g.items %}<li>{{ i }}</li>{% endfor %}</ul></div>
+      {% endfor %}
+    </div>
+  </section>
+
   <section aria-labelledby="experiencia">
     <h2 id="experiencia">Experiencia</h2>
     <div class="stack-sm">

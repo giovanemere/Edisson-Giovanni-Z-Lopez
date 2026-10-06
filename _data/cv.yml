@@ -91,6 +91,63 @@ experience:
       - "Fundador de Innovando Tecnología: soluciones para pymes con método por fases y actas de entrega; primera aplicación de facturación de trámites vehiculares."
       - "Soporte residente (mesa de ayuda GLPI, Active Directory, firewall) y técnico de soporte en Colsubsidio (inventario con SCCM, granja de servidores)."
 
+expertise:
+  - topic: "Arquitectura e infraestructura blockchain"
+    where: "AOS"
+    stack: "Hyperledger Fabric, IBM Blockchain Platform, Kubernetes, OpenShift"
+  - topic: "Kubernetes y OpenShift"
+    where: "AOS, GFT, Scotiabank Colpatria"
+    stack: "Kubernetes, OpenShift, Rancher, Helm, EKS, AKS, Argo CD"
+  - topic: "CI/CD multiplataforma en paralelo"
+    where: "AOS, Periferia, KeoCapital"
+    stack: "Jenkins, GitHub Actions, Azure DevOps, Tekton, SonarQube"
+  - topic: "IaC a gran escala"
+    where: "KeoCapital, Periferia, GFT"
+    stack: "OpenTofu, Terraform, Terragrunt, Packer; capas L1–L4"
+  - topic: "Frameworks y áreas automatizadas"
+    where: "KeoCapital, Periferia"
+    stack: "Frameworks de arquitectura en Python, SDLC agéntico, ADR y compuertas"
+  - topic: "Portales de arquitectura y documentación"
+    where: "KeoCapital, Periferia"
+    stack: "Backstage, TechDocs, MkDocs, modelo C4, Mermaid"
+  - topic: "IA aplicada a ingeniería"
+    where: "Periferia, KeoCapital, GFT"
+    stack: "Agentes, MCP, Claude Code, Cursor, Amazon Q, Bedrock, Gemini"
+  - topic: "Infraestructura multinube"
+    where: "AOS, GFT, Periferia, KeoCapital"
+    stack: "AWS, Azure, GCP, OCI; landing zones, redes PCI y no PCI"
+  - topic: "Automatización en Azure y por APIs"
+    where: "Periferia"
+    stack: "Azure Functions, Service Bus, event sourcing, CQRS, saga"
+  - topic: "Seguridad (AppSec y DevSecOps)"
+    where: "AOS, GFT, Periferia"
+    stack: "Vault, SAST y SCA en pipeline, Keycloak, midPoint, Zero Trust"
+  - topic: "Pruebas avanzadas"
+    where: "Choucair Testing, Periferia"
+    stack: "ISTQB, pruebas con IA, pruebas end-to-end y de rendimiento"
+  - topic: "Desarrollo de plataformas"
+    where: "Proyectos propios y de clientes"
+    stack: "API, administración web y POS móvil offline-first en monorepo"
+  - topic: "Java e integración con IBM Sterling"
+    where: "AOS a hoy"
+    stack: "Sterling B2B Integrator, File Gateway, Microsoft Graph, SFTP, FTPS"
+
+skills:
+  - group: "Arquitectura"
+    items: ["Soluciones DevSecOps", "SOA y REST", "Hexagonal", "DDD", "Arquitecturas de referencia", "Estrategias de despliegue"]
+  - group: "Integración"
+    items: ["IBM Sterling B2B Integrator", "Secure Proxy", "File Gateway", "Connect:Direct", "MQ", "IBM ACE"]
+  - group: "DevOps y SDLC"
+    items: ["Jenkins", "Azure DevOps", "GitHub Actions", "GitLab Runners", "SonarQube", "Vault", "Backstage"]
+  - group: "IaC"
+    items: ["OpenTofu", "Terraform", "Terragrunt", "Packer", "Ansible", "Shell"]
+  - group: "Nube"
+    items: ["AWS", "Azure", "GCP", "Oracle Cloud", "IBM Cloud"]
+  - group: "Plataformas y SysOps"
+    items: ["Linux", "AIX", "Docker", "Kubernetes", "OpenShift", "VMware", "F5", "WebSphere"]
+  - group: "IA aplicada"
+    items: ["Claude Code", "Cursor", "MCP", "Amazon Q", "Amazon Bedrock", "Gemini", "OpenAI"]
+
 projects:
   - title: "Caja de compensación — IaC a gran escala"
     detail: "Arquitectura DevOps en Azure y AWS con OpenTofu y Terragrunt, 47 ADR y compuertas de madurez antes del apply."
