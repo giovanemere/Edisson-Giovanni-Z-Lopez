@@ -121,11 +121,22 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
     </div>
   </section>
 
+  <section aria-labelledby="insignias">
+    <h2 id="insignias">Insignias y certificaciones verificables</h2>
+    <p class="lead">{{ cv.badges_intro }}</p>
+    <div class="tiles">
+      {% for b in cv.badges %}
+      {% if b.url %}<a class="tile tile-link badge" href="{{ b.url }}"><strong>{{ b.name }}</strong><span>{{ b.issuer }}</span><em class="where">{{ b.date }} · verificar ↗</em></a>
+      {% else %}<div class="tile badge"><strong>{{ b.name }}</strong><span>{{ b.issuer }}</span><em class="where">{{ b.date }}</em></div>{% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
   <section aria-labelledby="publicaciones">
     <h2 id="publicaciones">Publicaciones</h2>
     <div class="tiles tiles-wide">
       {% for p in cv.publications %}
-      <div class="tile"><strong class="plain">{{ p.title }}</strong><span>{{ p.detail }}</span><em class="where">{{ p.where }} · {{ p.year }}</em></div>
+      {% if p.url %}<a class="tile tile-link" href="{{ p.url }}"><strong class="plain">{{ p.title }}</strong><span>{{ p.detail }}</span><em class="where">{{ p.where }} · {{ p.year }} · leer ↗</em></a>{% else %}<div class="tile"><strong class="plain">{{ p.title }}</strong><span>{{ p.detail }}</span><em class="where">{{ p.where }} · {{ p.year }}</em></div>{% endif %}
       {% endfor %}
     </div>
   </section>
@@ -141,7 +152,7 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
 
   <div class="split">
     <section class="card grow" aria-labelledby="formacion">
-      <h2 id="formacion">Formación y certificaciones</h2>
+      <h2 id="formacion">Formación académica</h2>
       <ul class="list">{% for e in cv.education %}<li>{{ e }}</li>{% endfor %}</ul>
     </section>
     <section class="card" aria-labelledby="idiomas">

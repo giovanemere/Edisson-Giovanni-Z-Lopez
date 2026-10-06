@@ -53,9 +53,13 @@ permalink: /hoja-de-vida.md
 
 {% for i in l.items %}- {{ i }}
 {% endfor %}{% endfor %}
-## Formación y certificaciones
+## Formación académica
 
 {% for e in cv.education %}- {{ e }}
+{% endfor %}
+## Insignias y certificaciones verificables
+
+{% for b in cv.badges %}- **{{ b.name }}** ({{ b.issuer }}, {{ b.date }}){% if b.url %}. Verificación: {{ b.url }}{% endif %}
 {% endfor %}
 ## Publicaciones
 
