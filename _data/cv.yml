@@ -214,6 +214,46 @@ teaching:
     detail: "Capacitación de equipos de desarrollo en pipelines, contenedores y buenas prácticas de ramas."
     period: "2023"
 
+learning_intro: "Cada etapa dejó formación certificada. Aprendo en el proyecto y lo convierto en práctica del equipo."
+learning:
+  - stage: "KeoCapital"
+    period: "2026"
+    items:
+      - "Programa PCI DSS: análisis de brechas para la recertificación 2026"
+  - stage: "GFT"
+    period: "2025"
+    items:
+      - "AWS Certified Solutions Architect – Associate: curso avanzado de preparación (SAA-C03)"
+      - "AWS Well-Architected Foundations"
+      - "Deep Dive with Security: AWS IAM (con laboratorios)"
+      - "AWS Technical Essentials"
+      - "Introduction to Building with AWS Databases"
+      - "DevOps Fundamentos"
+      - "OWASP para desarrollo seguro"
+      - "AI Act: regulación europea de IA"
+      - "Compliance Región Andina"
+  - stage: "AOS"
+    period: "2019 – 2024"
+    items:
+      - "IBM B2B Sterling Fundamentals y Developer"
+      - "Kubernetes for the Absolute Beginners, Hands-on (KodeKloud, 2021)"
+      - "Terraform (Platzi, 2022)"
+      - "Talleres de integración continua, cloud computing, Docker, Kubernetes, Helm y Terraform"
+      - "Google Cloud: Digital Transformation, Infrastructure Modernization, Security & Operations, Innovating with Data"
+  - stage: "Banco Pichincha"
+    period: "2015 – 2019"
+    items:
+      - "ITIL Foundation (2017)"
+  - stage: "Choucair Testing"
+    period: "2013 – 2015"
+    items:
+      - "ISTQB Certified Tester Foundation Level (2013)"
+      - "Seminario ITIL v3, ISO 20000:2011 y COBIT 5, 120 horas (2014)"
+  - stage: "Colsubsidio"
+    period: "2010"
+    items:
+      - "Implementing and Maintaining Microsoft SQL Server 2008 Reporting Services, 24 horas"
+
 publications:
   - title: "Implementar nomenclaturas en nuestros proyectos de TI"
     detail: "Cómo estandarizar nombres de proyectos, roles, repositorios y etiquetas para que un equipo se entienda solo."
@@ -237,6 +277,10 @@ presence:
     handle: "@edissongiovannizuigalopez"
     url: "https://medium.com/@edissongiovannizuigalopez"
     detail: "Artículos sobre estándares, ramas y gestión de la información."
+  - name: "X"
+    handle: "@edissonz8805"
+    url: "https://x.com/edissonz8805"
+    detail: "Perfil público."
 
 languages:
   - "Español: nativo"

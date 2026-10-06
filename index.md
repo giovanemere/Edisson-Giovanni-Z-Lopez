@@ -17,6 +17,7 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
       <a href="https://github.com/{{ cv.personal.github }}">github.com/{{ cv.personal.github }}</a>
       <a href="{{ cv.personal.linkedin_url }}">LinkedIn</a>
       <a href="https://medium.com/@edissongiovannizuigalopez">Medium</a>
+      <a href="https://x.com/edissonz8805">X</a>
     </nav>
   </div>
 </header>
@@ -103,6 +104,19 @@ description: "18 años construyendo plataformas que se pueden operar. Arquitectu
     <div class="tiles tiles-wide">
       {% for c in cv.teaching %}
       <div class="tile"><strong>{{ c.title }}</strong><span>{{ c.detail }}</span><em class="where">{{ c.period }}</em></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section aria-labelledby="formacion-continua">
+    <h2 id="formacion-continua">Formación continua por etapa</h2>
+    <p class="lead">{{ cv.learning_intro }}</p>
+    <div class="timeline">
+      {% for l in cv.learning %}
+      <article class="card stage">
+        <div class="job-head"><h3>{{ l.stage }}</h3><span class="period">{{ l.period }}</span></div>
+        <ul class="list">{% for i in l.items %}<li>{{ i }}</li>{% endfor %}</ul>
+      </article>
       {% endfor %}
     </div>
   </section>

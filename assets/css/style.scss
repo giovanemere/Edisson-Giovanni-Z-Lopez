@@ -59,6 +59,8 @@ h2 { font-size: 24px; color: var(--tinta); }
 @media (prefers-color-scheme: dark) { .metric-value { color: #9fd9ff; } }
 .metric-label { font-size: 13.5px; line-height: 1.45; color: var(--texto-suave); }
 .strength span { font-size: 14.5px; color: var(--texto); }
+.timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.stage { border-left: 4px solid var(--primario); }
 .lead { margin: -4px 0 14px; color: var(--texto-suave); font-size: 15px; }
 .tile-link { text-decoration: none; transition: border-color .15s, transform .15s; }
 .tile-link:hover, .tile-link:focus-visible { border-color: var(--primario); transform: translateY(-2px); }
